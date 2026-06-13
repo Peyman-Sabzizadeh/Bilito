@@ -1,3 +1,3 @@
 export default function Home() {
-  return <div>Bilito project ✈️</div>;
+  return <div>وبسایت بیلیتو ✈️</div>;
 }

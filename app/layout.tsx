@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { iranSans } from "@/_fonts";
 
 export const metadata: Metadata = {
-  title: "Bilito",
+  title: "بیلیتو",
   description:
-    "Bilito is a ticketing platform that allows users to easily get tickets for airways events.",
+    "سریعترین راه ممکن برای رزرو بلیط هواپیما، با بیلیتو سفر خود را آسان و سریع برنامه ریزی کنید.",
 };
 
 export default function RootLayout({
@@ -13,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fa" className="h-full">
+    <html lang="fa" dir="rtl" className={`${iranSans.className} h-full`}>
       <body className="min-h-full">{children}</body>
     </html>
   );
