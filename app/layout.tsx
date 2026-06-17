@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { iranSans } from "@/_fonts";
+import Container from "./_components/Container";
 
 export const metadata: Metadata = {
   title: "بیلیتو",
@@ -15,7 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fa" dir="rtl" className={`${iranSans.className} h-full`}>
-      <body className="min-h-full">{children}</body>
+      <body className="min-h-full">
+        <Container>{children}</Container>
+      </body>
     </html>
   );
 }
