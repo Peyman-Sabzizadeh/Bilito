@@ -1,12 +1,20 @@
 import Logo from "@/_components/Logo";
 import {
+  Button,
   Dropdown,
   DropdownItem,
   DropdownMenu,
   DropdownPopover,
   DropdownTrigger,
 } from "@heroui/react";
-import { ChevronDown, Phone, PhoneCall, UserSearch } from "lucide-react";
+import {
+  ChevronDown,
+  Phone,
+  PhoneCall,
+  Plane,
+  User2,
+  UserSearch,
+} from "lucide-react";
 import Link from "next/link";
 
 export default function DesktopHeader() {
@@ -24,7 +32,7 @@ export default function DesktopHeader() {
             سایر موارد
             <ChevronDown strokeWidth={1} className="inline mr-2" />
           </DropdownTrigger>
-          <DropdownPopover className="min-w-0 p-1 rounded-xl ">
+          <DropdownPopover className="min-w-0 p-1 rounded-xl">
             <DropdownMenu className="*:rounded-lg *:text-[#606060]">
               <DropdownItem href="/">
                 <PhoneCall size={20} />
@@ -38,11 +46,29 @@ export default function DesktopHeader() {
           </DropdownPopover>
         </Dropdown>
       </div>
-      <div>
+      <div className="flex items-center gap-6">
         <Link href="/">
           021-4045 پشتیبانی
           <Phone size={18} className="inline mr-2" />
         </Link>
+        <Dropdown>
+          <Button className="bg-[#1D91CC] rounded-lg py-2 font-light hover:bg-[#11577A]">
+            <User2 size={30} />
+            ورود/ ثبت نام
+          </Button>
+          <DropdownPopover className="min-w-0 p-1 rounded-xl">
+            <DropdownMenu className="*:rounded-lg *:text-[#606060]">
+              <DropdownItem href="/">
+                <Plane size={20} />
+                گزینه 1
+              </DropdownItem>
+              <DropdownItem href="/">
+                <Plane size={20} />
+                گزینه 2
+              </DropdownItem>
+            </DropdownMenu>
+          </DropdownPopover>
+        </Dropdown>
       </div>
     </div>
   );
