@@ -5,7 +5,6 @@ import {
   DropdownMenu,
   DropdownPopover,
   DropdownTrigger,
-  Label,
 } from "@heroui/react";
 import { ChevronDown, PhoneCall, UserSearch } from "lucide-react";
 import Link from "next/link";
@@ -28,14 +27,14 @@ export default function DesktopHeader() {
             </span>
           </DropdownTrigger>
           <DropdownPopover className="min-w-0 p-1 rounded-xl ">
-            <DropdownMenu className="*:rounded-lg">
-              <DropdownItem className="*:text-[#606060]">
+            <DropdownMenu className="*:rounded-lg *:text-[#606060]">
+              <DropdownItem href="/">
                 <PhoneCall size={20} />
-                <Label>تماس با ما</Label>
+                تماس با ما
               </DropdownItem>
-              <DropdownItem className="*:text-[#606060]">
+              <DropdownItem href="/">
                 <UserSearch size={20} />
-                <Label>درباره ما</Label>
+                درباره ما
               </DropdownItem>
             </DropdownMenu>
           </DropdownPopover>
