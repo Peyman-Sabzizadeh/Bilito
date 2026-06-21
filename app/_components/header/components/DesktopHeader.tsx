@@ -6,13 +6,13 @@ import {
   DropdownPopover,
   DropdownTrigger,
 } from "@heroui/react";
-import { ChevronDown, PhoneCall, UserSearch } from "lucide-react";
+import { ChevronDown, Phone, PhoneCall, UserSearch } from "lucide-react";
 import Link from "next/link";
 
 export default function DesktopHeader() {
   return (
-    <div className="flex justify-between">
-      <div className="flex justify-between items-center gap-8 text-[#606060]">
+    <div className="flex justify-between items-center text-[#606060]">
+      <div className="flex justify-between items-center gap-8">
         <Logo />
         <Link href="/" className="mr-10">
           صفحه اصلی
@@ -21,10 +21,8 @@ export default function DesktopHeader() {
         <Link href="/">سفرهای من</Link>
         <Dropdown>
           <DropdownTrigger>
-            <span className="flex items-center gap-2">
-              سایر موارد
-              <ChevronDown stroke="#606060" strokeWidth={1} />
-            </span>
+            سایر موارد
+            <ChevronDown strokeWidth={1} className="inline mr-2" />
           </DropdownTrigger>
           <DropdownPopover className="min-w-0 p-1 rounded-xl ">
             <DropdownMenu className="*:rounded-lg *:text-[#606060]">
@@ -40,7 +38,12 @@ export default function DesktopHeader() {
           </DropdownPopover>
         </Dropdown>
       </div>
-      <div>Left side</div>
+      <div>
+        <Link href="/">
+          021-4045 پشتیبانی
+          <Phone size={18} className="inline mr-2" />
+        </Link>
+      </div>
     </div>
   );
 }
