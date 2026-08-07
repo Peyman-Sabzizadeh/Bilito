@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, type ComponentType, type SVGProps } from "react";
+import { useState } from "react";
+import Link from "next/link";
 import {
   Button,
   Drawer,
@@ -22,42 +23,48 @@ import {
 
 export default function MobileMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const navItems: {
-    icon: ComponentType<SVGProps<SVGSVGElement>>;
-    label: string;
-  }[] = [
-    { icon: House, label: "صفحه اصلی" },
-    { icon: ReceiptText, label: "بیمه مسافرتی" },
-    { icon: Plane, label: "سفرهای من" },
-    { icon: PhoneCall, label: "تماس با ما" },
-    { icon: UserSearch, label: "درباره ما" },
+  const menuItems = [
+    { link: "#", icon: House, label: "صفحه اصلی" },
+    { link: "#", icon: ReceiptText, label: "بیمه مسافرتی" },
+    { link: "#", icon: Plane, label: "سفرهای من" },
+    { link: "#", icon: PhoneCall, label: "تماس با ما" },
+    { link: "#", icon: UserSearch, label: "درباره ما" },
   ];
   return (
     <Drawer isOpen={isMenuOpen} onOpenChange={setIsMenuOpen}>
-      <Button variant="ghost" onPress={() => setIsMenuOpen(!isMenuOpen)}>
+      <Button
+        isIconOnly
+        variant="ghost"
+        onPress={() => setIsMenuOpen(!isMenuOpen)}
+      >
         {isMenuOpen ? <X /> : <Menu />}
       </Button>
       <DrawerBackdrop variant="transparent">
         <DrawerContent placement="bottom">
-          <DrawerDialog className="h-full rounded-none shadow-none">
-            <DrawerBody>
-              <nav className="flex flex-col gap-1">
-                {navItems.map((item) => (
-                  <button
+          <DrawerDialog className="h-full rounded-none shadow-none px-5">
+            <DrawerBody className="text-[#404040]">
+              <nav className="flex flex-col gap-3">
+                {menuItems.map((item) => (
+                  <Link
+                    href={item.link}
                     key={item.label}
-                    className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm text-foreground transition-colors hover:bg-default"
-                    type="button"
+                    className="flex items-center gap-2 p-2 text-sm"
                   >
-                    <item.icon className="size-5 text-muted" />
+                    <item.icon size={20} />
                     {item.label}
-                  </button>
+                  </Link>
                 ))}
-                <Button variant="ghost" className="text-foreground">
+                <Link
+                  href="#"
+                  className="text-[#606060] pr-2 py-2 mb-12"
+                >
                   021-4045 پشتیبانی
-                  <Phone />
-                </Button>
+                  <Phone className="inline mr-2" />
+                </Link>
               </nav>
-              <Button fullWidth>ورود\ ثبت نام</Button>
+              <Link href="#">
+                <Button fullWidth className="bg-[#1D91CC] rounded-lg">ورود\ ثبت نام</Button>
+              </Link>
             </DrawerBody>
           </DrawerDialog>
         </DrawerContent>
