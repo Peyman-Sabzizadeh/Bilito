@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import MobileMenuButton from "./MobileMenuButton";
 import Link from "next/link";
 import {
   Button,
@@ -16,8 +17,6 @@ import {
   Plane,
   PhoneCall,
   UserSearch,
-  Menu,
-  X,
   Phone,
 } from "lucide-react";
 
@@ -32,13 +31,7 @@ export default function MobileMenu() {
   ];
   return (
     <Drawer isOpen={isMenuOpen} onOpenChange={setIsMenuOpen}>
-      <Button
-        isIconOnly
-        variant="ghost"
-        onPress={() => setIsMenuOpen(!isMenuOpen)}
-      >
-        {isMenuOpen ? <X /> : <Menu />}
-      </Button>
+      <MobileMenuButton isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
       <DrawerBackdrop variant="transparent">
         <DrawerContent placement="bottom">
           <DrawerDialog className="h-full rounded-none shadow-none px-5">
@@ -54,16 +47,15 @@ export default function MobileMenu() {
                     {item.label}
                   </Link>
                 ))}
-                <Link
-                  href="#"
-                  className="text-[#606060] pr-2 py-2 mb-12"
-                >
+                <Link href="#" className="text-[#606060] pr-2 py-2 mb-12">
                   021-4045 پشتیبانی
                   <Phone className="inline mr-2" />
                 </Link>
               </nav>
               <Link href="#">
-                <Button fullWidth className="bg-[#1D91CC] rounded-lg">ورود\ ثبت نام</Button>
+                <Button fullWidth className="bg-[#1D91CC] rounded-lg">
+                  ورود\ ثبت نام
+                </Button>
               </Link>
             </DrawerBody>
           </DrawerDialog>
