@@ -16,6 +16,7 @@ import {
   UserSearch,
 } from "lucide-react";
 import Link from "next/link";
+import SupportLink from "../SupportLink";
 
 export default function DesktopHeader() {
   return (
@@ -47,10 +48,7 @@ export default function DesktopHeader() {
         </Dropdown>
       </div>
       <div className="flex items-center gap-6">
-        <Link href="/">
-          021-4045 پشتیبانی
-          <Phone size={18} className="inline mr-2" />
-        </Link>
+        <SupportLink size={18}/>
         <Dropdown>
           <Button className="bg-[#1D91CC] rounded-lg py-2 font-light hover:bg-[#11577A]">
             <User2 size={30} />
