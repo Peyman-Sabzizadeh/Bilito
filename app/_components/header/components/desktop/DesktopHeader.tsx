@@ -1,22 +1,15 @@
 import Logo from "@/_components/Logo";
 import {
-  Button,
   Dropdown,
   DropdownItem,
   DropdownMenu,
   DropdownPopover,
   DropdownTrigger,
 } from "@heroui/react";
-import {
-  ChevronDown,
-  Phone,
-  PhoneCall,
-  Plane,
-  User2,
-  UserSearch,
-} from "lucide-react";
+import { ChevronDown, PhoneCall, Plane, UserSearch } from "lucide-react";
 import Link from "next/link";
 import SupportLink from "../SupportLink";
+import RegisterButton from "../RegisterButton";
 
 export default function DesktopHeader() {
   return (
@@ -48,12 +41,9 @@ export default function DesktopHeader() {
         </Dropdown>
       </div>
       <div className="flex items-center gap-6">
-        <SupportLink size={18}/>
+        <SupportLink size={18} />
         <Dropdown>
-          <Button className="bg-[#1D91CC] rounded-lg py-2 font-light hover:bg-[#11577A]">
-            <User2 size={30} />
-            ورود/ ثبت نام
-          </Button>
+          <RegisterButton withIcon className="py-2 hover:bg-[#11577A]" />
           <DropdownPopover className="min-w-0 p-1 rounded-xl">
             <DropdownMenu className="*:rounded-lg *:text-[#606060]">
               <DropdownItem href="/">
