@@ -19,7 +19,7 @@ export default function MobileMenu() {
       <MobileMenuButton isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
       <DrawerBackdrop variant="transparent">
         <DrawerContent placement="bottom">
-          <DrawerDialog className="h-full rounded-none shadow-none px-5">
+          <DrawerDialog className="h-full rounded-none px-5 shadow-none">
             <DrawerBody className="text-[#404040]">
               <MobileMenuItems />
             </DrawerBody>

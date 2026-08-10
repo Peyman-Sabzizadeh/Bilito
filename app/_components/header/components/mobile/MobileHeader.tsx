@@ -4,9 +4,9 @@ import MobileAccountLink from "./MobileAccountLink";
 
 export default function MobileHeader() {
   return (
-    <div className="flex justify-between items-center">
+    <div className="flex items-center justify-between">
       <MobileMenu />
-      <Logo className="w-28 h-auto" />
+      <Logo className="h-auto w-28" />
       <MobileAccountLink />
     </div>
   );

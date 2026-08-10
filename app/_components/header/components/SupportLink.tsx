@@ -10,7 +10,7 @@ export default function SupportLink({ className, size }: SupportLinkProps) {
   return (
     <Link href="#" className={className}>
       021-4045 پشتیبانی
-      <Phone className="inline mr-2" size={size} />
+      <Phone className="mr-2 inline" size={size} />
     </Link>
   );
 }

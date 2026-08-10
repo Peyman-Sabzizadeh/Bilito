@@ -14,7 +14,7 @@ export default function RegisterButton({
 }: RegisterButtonProps) {
   return (
     <Button
-      className={`bg-[#1D91CC] rounded-lg font-light ${className}`}
+      className={`rounded-lg bg-[#1D91CC] font-light ${className}`}
       fullWidth={fullWidth}
     >
       {withIcon ? <User2 size={30} /> : null}
