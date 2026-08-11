@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "@/globals.css";
 import { iranSans } from "@/_fonts";
-import Container from "@/_components/Container";
 import Header from "@/_components/header/Header";
 
 export const metadata: Metadata = {
@@ -18,10 +17,8 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl" className={`${iranSans.className} h-full`}>
       <body className="min-h-full">
-        <Container>
-          <Header />
-          {children}
-        </Container>
+        <Header />
+        {children}
       </body>
     </html>
   );
