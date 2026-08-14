@@ -1,2 +1,81 @@
 @import "tailwindcss";
 @import "@heroui/styles";
+
+:root {
+  --primary: oklch(0.6241 0.1302 237.9);
+  /* Tint */
+  --tint-1: oklch(0.9599 0.0151 228.96);
+  --tint-2: oklch(0.9207 0.0294 230.3);
+  --tint-3: oklch(0.8811 0.0445 230.26);
+  --tint-4: oklch(0.8424 0.0586 231.03);
+  --tint-5: oklch(0.765 0.0865 231.16);
+  /* Shade */
+  --shade-1: oklch(0.5309 0.109 237.41);
+  --shade-2: oklch(0.4334 0.0868 236.65);
+  --shade-3: oklch(0.331 0.0637 236.7);
+  --shade-4: oklch(0.2747 0.0506 236.29);
+  --shade-5: oklch(0.2191 0.0372 234.38);
+  /* Gray */
+  --gray-1: oklch(0.9821 0 0);
+  --gray-2: oklch(0.9461 0 0);
+  --gray-3: oklch(0.9037 0 0);
+  --gray-4: oklch(0.8421 0 0);
+  --gray-5: oklch(0.7476 0 0);
+  --gray-6: oklch(0.6201 0 0);
+  --gray-7: oklch(0.4891 0 0);
+  --gray-8: oklch(0.3715 0 0);
+  --gray-9: oklch(0.2435 0 0);
+  --black-bilito: oklch(0.1543 0 0);
+  /* Error */
+  --error: oklch(0.5132 0.2106 29.23);
+  --error-1: oklch(0.6134 0.2247 27.02);
+  --error-2: oklch(0.9713 0.014 17.4);
+  /* Success */
+  --success: oklch(0.596603 0.124675 165.4591);
+  --success-1: oklch(0.6992 0.1461 165.46);
+  --success-2: oklch(0.9858 0.0112 176.32);
+  /* Warning */
+  --warning: oklch(0.6094 0.1178 78.39);
+  --warning-1: oklch(0.8158 0.1472 80.2);
+  --warning-2: oklch(0.9785 0.031 92.94);
+}
+
+@theme inline {
+  /* Primary */
+  --color-primary: var(--primary);
+  /* Tint */
+  --color-tint-1: var(--tint-1);
+  --color-tint-2: var(--tint-2);
+  --color-tint-3: var(--tint-3);
+  --color-tint-4: var(--tint-4);
+  --color-tint-5: var(--tint-5);
+  /* Shade */
+  --color-shade-1: var(--shade-1);
+  --color-shade-2: var(--shade-2);
+  --color-shade-3: var(--shade-3);
+  --color-shade-4: var(--shade-4);
+  --color-shade-5: var(--shade-5);
+  /* Gray */
+  --color-gray-1: var(--gray-1);
+  --color-gray-2: var(--gray-2);
+  --color-gray-3: var(--gray-3);
+  --color-gray-4: var(--gray-4);
+  --color-gray-5: var(--gray-5);
+  --color-gray-6: var(--gray-6);
+  --color-gray-7: var(--gray-7);
+  --color-gray-8: var(--gray-8);
+  --color-gray-9: var(--gray-9);
+  --color-black-bilito: var(--black-bilito);
+  /* Error */
+  --color-error: var(--error);
+  --color-error-1: var(--error-1);
+  --color-error-2: var(--error-2);
+  /* Success */
+  --color-success: var(--success);
+  --color-success-1: var(--success-1);
+  --color-success-2: var(--success-2);
+  /* Warning */
+  --color-warning: var(--warning);
+  --color-warning-1: var(--warning-1);
+  --color-warning-2: var(--warning-2);
+}
