@@ -8,7 +8,7 @@ export default function MobileMenuItems() {
     <>
       <nav className="flex flex-col gap-3">
         <MobileMenuList />
-        <SupportLink className="mb-12 py-2 pr-2 text-[#606060]" />
+        <SupportLink className="text-gray-7 mb-12 py-2 pr-2" />
       </nav>
       <Link href="#">
         <RegisterButton fullWidth />

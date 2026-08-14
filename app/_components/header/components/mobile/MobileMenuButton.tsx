@@ -13,8 +13,10 @@ export default function MobileMenuButton({
   return (
     <Button
       isIconOnly
-      variant="ghost"
+      // variant="ghost"
+
       onPress={() => setIsMenuOpen(!isMenuOpen)}
+      className="text-gray-8 size-auto bg-transparent hover:bg-transparent"
     >
       {isMenuOpen ? <X /> : <Menu />}
     </Button>

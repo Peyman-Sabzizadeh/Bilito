@@ -20,7 +20,7 @@ export default function MobileMenu() {
       <DrawerBackdrop variant="transparent">
         <DrawerContent placement="bottom">
           <DrawerDialog className="h-full rounded-none px-5 shadow-none">
-            <DrawerBody className="text-[#404040]">
+            <DrawerBody className="text-gray-8">
               <MobileMenuItems />
             </DrawerBody>
           </DrawerDialog>

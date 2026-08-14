@@ -20,7 +20,7 @@ export default function DesktopMenuItems() {
           <ChevronDown strokeWidth={1} className="mr-0.5 inline xl:mr-2" />
         </DropdownTrigger>
         <DropdownPopover className="min-w-0 rounded-xl p-1">
-          <DropdownMenu className="*:rounded-lg *:text-[#606060]">
+          <DropdownMenu className="*:text-gray-7 *:rounded-lg">
             <DropdownItem href="/">
               <PhoneCall size={20} />
               تماس با ما
