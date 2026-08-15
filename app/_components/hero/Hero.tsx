@@ -15,7 +15,7 @@ export default function Hero() {
         className="hidden md:block"
         src="/desktopHeroBanner.png"
         alt="Desktop Hero Banner"
-        width={1440}
+        width={3000}
         height={330}
         preload
       />
