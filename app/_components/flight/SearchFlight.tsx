@@ -1,6 +1,7 @@
 import { Separator } from "@heroui/react";
 import Container from "../Container";
 import FlightType from "./FlightType";
+import TripType from "./TripType";
 
 export default function SearchFlight() {
   return (
@@ -8,6 +9,7 @@ export default function SearchFlight() {
       <div className="border-gray-2 rounded-lg border p-6 shadow-lg">
         <FlightType />
         <Separator className="-mt-0.5 h-0.5" />
+        <TripType />
       </div>
     </Container>
   );
