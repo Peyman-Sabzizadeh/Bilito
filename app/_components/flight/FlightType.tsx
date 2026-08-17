@@ -6,20 +6,24 @@ export default function FlightType() {
     <Tabs variant="secondary" className="w-full max-w-xs">
       <Tabs.ListContainer>
         <Tabs.List>
-          <Tabs.Tab id="international">
-            <Plane />
+          <Tabs.Tab
+            id="international"
+            className="aria-selected:text-primary aria-selected:font-bold"
+          >
+            <Plane className="ml-2 -rotate-44" size={18} />
             پرواز خارجی
-            <Tabs.Indicator />
+            <Tabs.Indicator className="bg-primary rounded-lg" />
           </Tabs.Tab>
-          <Tabs.Tab id="demostic">
-            <Plane />
+          <Tabs.Tab
+            id="demostic"
+            className="aria-selected:text-primary aria-selected:font-bold"
+          >
+            <Plane className="ml-2 -rotate-44" size={18} />
             پرواز داخلی
-            <Tabs.Indicator />
+            <Tabs.Indicator className="bg-primary rounded-lg" />
           </Tabs.Tab>
         </Tabs.List>
       </Tabs.ListContainer>
-      <Tabs.Panel id="international">International Flight</Tabs.Panel>
-      <Tabs.Panel id="demostic">Demostic Flight</Tabs.Panel>
     </Tabs>
   );
 }
