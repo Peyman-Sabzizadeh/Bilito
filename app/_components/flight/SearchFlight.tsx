@@ -6,7 +6,7 @@ import TripType from "./TripType";
 export default function SearchFlight() {
   return (
     <Container>
-      <div className="border-gray-2 rounded-lg border p-6 shadow-lg">
+      <div className="md:border-gray-2 md:rounded-lg md:border md:p-6 md:shadow-lg">
         <FlightType />
         <Separator className="-mt-0.5 h-0.5" />
         <TripType />

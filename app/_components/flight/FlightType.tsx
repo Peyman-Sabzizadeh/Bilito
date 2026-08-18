@@ -3,22 +3,16 @@ import { Plane } from "lucide-react";
 
 export default function FlightType() {
   return (
-    <Tabs variant="secondary" className="w-full max-w-xs">
+    <Tabs variant="secondary" className="">
       <Tabs.ListContainer>
-        <Tabs.List>
-          <Tabs.Tab
-            id="international"
-            className="aria-selected:text-primary aria-selected:font-bold"
-          >
-            <Plane className="ml-2 -rotate-44" size={18} />
+        <Tabs.List className="*:aria-selected:text-primary *:p-0 *:text-nowrap *:aria-selected:font-bold md:space-x-10 *:md:w-fit">
+          <Tabs.Tab id="international">
+            <Plane className="ml-2 hidden -rotate-44 md:block" size={18} />
             پرواز خارجی
             <Tabs.Indicator className="bg-primary rounded-lg" />
           </Tabs.Tab>
-          <Tabs.Tab
-            id="demostic"
-            className="aria-selected:text-primary aria-selected:font-bold"
-          >
-            <Plane className="ml-2 -rotate-44" size={18} />
+          <Tabs.Tab id="demostic">
+            <Plane className="ml-2 hidden -rotate-44 md:block" size={18} />
             پرواز داخلی
             <Tabs.Indicator className="bg-primary rounded-lg" />
           </Tabs.Tab>
