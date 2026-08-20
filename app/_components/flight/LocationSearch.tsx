@@ -1,7 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import type { Key } from "@heroui/react";
-
+import { allCities } from "@/_data/allCities";
 import {
   Autocomplete,
   Description,
@@ -12,40 +13,13 @@ import {
   SearchField,
   useFilter,
 } from "@heroui/react";
-import { useState } from "react";
-
-interface City {
-  name: string;
-  country: string;
-  continent: string;
-}
 
 export function LocationSearch() {
-  const allCities: City[] = [
-    // North America
-    { continent: "North America", country: "USA", name: "New York" },
-    { continent: "North America", country: "USA", name: "Los Angeles" },
-    { continent: "North America", country: "USA", name: "Chicago" },
-    { continent: "North America", country: "Canada", name: "Toronto" },
-
-    // Europe
-    { continent: "Europe", country: "UK", name: "London" },
-    { continent: "Europe", country: "France", name: "Paris" },
-    { continent: "Europe", country: "Germany", name: "Berlin" },
-    { continent: "Europe", country: "Spain", name: "Madrid" },
-
-    // Asia
-    { continent: "Asia", country: "Japan", name: "Tokyo" },
-
-    // Oceania
-    { continent: "Oceania", country: "Australia", name: "Sydney" },
-  ];
   const continents = [...new Set(allCities.map((city) => city.continent))];
 
   const [selectedKey, setSelectedKey] = useState<Key | null>(null);
   const { contains } = useFilter({ sensitivity: "base" });
-
-  // Simulate async filtering
+  
   const customFilter = (text: string, inputValue: string) => {
     if (!inputValue) return true;
     return contains(text, inputValue);
