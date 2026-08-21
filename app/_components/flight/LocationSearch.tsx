@@ -11,6 +11,8 @@ import {
   AutocompletePopover,
   AutocompleteTrigger,
   AutocompleteValue,
+  Description,
+  Label,
   ListBox,
   ListBoxItem,
   ListBoxItemIndicator,
@@ -58,7 +60,10 @@ export default function LocationSearch({ type }: LocationSearchProps) {
                 textValue={city.name}
                 aria-label={city.name}
               >
-                {city.name}
+                <div className="flex flex-col">
+                  <Label>{city.name}</Label>
+                  <Description>{city.country}</Description>
+                </div>
                 <ListBoxItemIndicator />
               </ListBoxItem>
             ))}
