@@ -5,75 +5,66 @@ import type { Key } from "@heroui/react";
 import { allCities } from "@/_data/allCities";
 import {
   Autocomplete,
-  Description,
-  EmptyState,
-  Header,
-  Label,
+  AutocompleteClearButton,
+  AutocompleteFilter,
+  AutocompleteIndicator,
+  AutocompletePopover,
+  AutocompleteTrigger,
+  AutocompleteValue,
   ListBox,
+  ListBoxItem,
+  ListBoxItemIndicator,
   SearchField,
+  SearchFieldClearButton,
+  SearchFieldGroup,
+  SearchFieldInput,
+  SearchFieldSearchIcon,
   useFilter,
 } from "@heroui/react";
 
-export function LocationSearch() {
-  const continents = [...new Set(allCities.map((city) => city.continent))];
+type LocationSearchProps = {
+  type: string;
+};
 
+export default function LocationSearch({ type }: LocationSearchProps) {
   const [selectedKey, setSelectedKey] = useState<Key | null>(null);
   const { contains } = useFilter({ sensitivity: "base" });
-  
-  const customFilter = (text: string, inputValue: string) => {
-    if (!inputValue) return true;
-    return contains(text, inputValue);
-  };
-
   return (
     <Autocomplete
-      className="w-[256px]"
-      placeholder="Search for a city"
-      selectionMode="single"
+      aria-label="Location Search"
+      placeholder={type}
       value={selectedKey}
       onChange={setSelectedKey}
     >
-      <Label>City</Label>
-      <Autocomplete.Trigger>
-        <Autocomplete.Value />
-        <Autocomplete.ClearButton />
-        <Autocomplete.Indicator />
-      </Autocomplete.Trigger>
-      <Autocomplete.Popover>
-        <Autocomplete.Filter filter={customFilter}>
-          <SearchField autoFocus name="search" variant="secondary">
-            <SearchField.Group>
-              <SearchField.SearchIcon />
-              <SearchField.Input placeholder="Search cities..." />
-              <SearchField.ClearButton />
-            </SearchField.Group>
+      <AutocompleteTrigger>
+        <AutocompleteValue />
+        <AutocompleteClearButton />
+        <AutocompleteIndicator />
+      </AutocompleteTrigger>
+      <AutocompletePopover>
+        <AutocompleteFilter filter={contains}>
+          <SearchField autoFocus name="search" aria-label="Search Field">
+            <SearchFieldGroup>
+              <SearchFieldSearchIcon />
+              <SearchFieldInput placeholder="جستجوی شهر..." />
+              <SearchFieldClearButton />
+            </SearchFieldGroup>
           </SearchField>
-          <ListBox
-            renderEmptyState={() => <EmptyState>No cities found</EmptyState>}
-          >
-            {continents.map((continent) => (
-              <ListBox.Section key={continent}>
-                <Header>{continent}</Header>
-                {allCities
-                  .filter((city) => city.continent === continent)
-                  .map((city) => (
-                    <ListBox.Item
-                      key={city.name}
-                      id={city.name}
-                      textValue={city.name}
-                    >
-                      <div className="flex flex-col">
-                        <Label>{city.name}</Label>
-                        <Description>{city.country}</Description>
-                      </div>
-                      <ListBox.ItemIndicator />
-                    </ListBox.Item>
-                  ))}
-              </ListBox.Section>
+          <ListBox>
+            {allCities.map((city) => (
+              <ListBoxItem
+                key={city.name}
+                id={city.name}
+                textValue={city.name}
+                aria-label={city.name}
+              >
+                {city.name}
+                <ListBoxItemIndicator />
+              </ListBoxItem>
             ))}
           </ListBox>
-        </Autocomplete.Filter>
-      </Autocomplete.Popover>
+        </AutocompleteFilter>
+      </AutocompletePopover>
     </Autocomplete>
   );
 }

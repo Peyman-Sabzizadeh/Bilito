@@ -2,7 +2,7 @@ import { Separator } from "@heroui/react";
 import Container from "../Container";
 import FlightType from "./FlightType";
 import TripType from "./TripType";
-import { LocationSearch } from "./LocationSearch";
+import LocationSearch from "./LocationSearch";
 
 export default function SearchFlight() {
   return (
@@ -11,7 +11,7 @@ export default function SearchFlight() {
         <FlightType />
         <Separator className="-mt-0.5 h-0.5" />
         <TripType />
-        <LocationSearch />
+        <LocationSearch type="مبدا"/>
       </div>
     </Container>
   );
