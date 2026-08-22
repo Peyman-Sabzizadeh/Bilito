@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import type { Key } from "@heroui/react";
+import LocationListBox from "./LocationListBox";
+import LocationSearchField from "./LocationSearchField";
 import {
   Autocomplete,
   AutocompleteClearButton,
@@ -10,14 +12,8 @@ import {
   AutocompletePopover,
   AutocompleteTrigger,
   AutocompleteValue,
-  SearchField,
-  SearchFieldClearButton,
-  SearchFieldGroup,
-  SearchFieldInput,
-  SearchFieldSearchIcon,
   useFilter,
 } from "@heroui/react";
-import LocationListBox from "./LocationListBox";
 
 type LocationSearchProps = {
   type: string;
@@ -40,13 +36,7 @@ export default function LocationSearch({ type }: LocationSearchProps) {
       </AutocompleteTrigger>
       <AutocompletePopover>
         <AutocompleteFilter filter={contains}>
-          <SearchField autoFocus name="search" aria-label="Search Field">
-            <SearchFieldGroup>
-              <SearchFieldSearchIcon />
-              <SearchFieldInput placeholder="جستجوی شهر..." />
-              <SearchFieldClearButton />
-            </SearchFieldGroup>
-          </SearchField>
+          <LocationSearchField />
           <LocationListBox />
         </AutocompleteFilter>
       </AutocompletePopover>
