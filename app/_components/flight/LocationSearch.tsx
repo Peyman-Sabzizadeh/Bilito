@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import type { Key } from "@heroui/react";
-import { allCities } from "@/_data/allCities";
 import {
   Autocomplete,
   AutocompleteClearButton,
@@ -11,11 +10,6 @@ import {
   AutocompletePopover,
   AutocompleteTrigger,
   AutocompleteValue,
-  Description,
-  Label,
-  ListBox,
-  ListBoxItem,
-  ListBoxItemIndicator,
   SearchField,
   SearchFieldClearButton,
   SearchFieldGroup,
@@ -23,6 +17,7 @@ import {
   SearchFieldSearchIcon,
   useFilter,
 } from "@heroui/react";
+import LocationListBox from "./LocationListBox";
 
 type LocationSearchProps = {
   type: string;
@@ -52,22 +47,7 @@ export default function LocationSearch({ type }: LocationSearchProps) {
               <SearchFieldClearButton />
             </SearchFieldGroup>
           </SearchField>
-          <ListBox>
-            {allCities.map((city) => (
-              <ListBoxItem
-                key={city.name}
-                id={city.name}
-                textValue={city.name}
-                aria-label={city.name}
-              >
-                <div className="flex flex-col">
-                  <Label>{city.name}</Label>
-                  <Description>{city.country}</Description>
-                </div>
-                <ListBoxItemIndicator />
-              </ListBoxItem>
-            ))}
-          </ListBox>
+          <LocationListBox />
         </AutocompleteFilter>
       </AutocompletePopover>
     </Autocomplete>
