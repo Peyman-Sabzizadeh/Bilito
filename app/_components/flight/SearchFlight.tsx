@@ -11,7 +11,10 @@ export default function SearchFlight() {
         <FlightType />
         <Separator className="-mt-0.5 h-0.5" />
         <TripType />
-        <LocationSearch type="مبدا"/>
+        <div className="flex flex-col items-center md:flex-row md:gap-4">
+          <LocationSearch type="مبدا" />
+          <LocationSearch type="مقصد" />
+        </div>
       </div>
     </Container>
   );
