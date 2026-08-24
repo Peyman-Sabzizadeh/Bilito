@@ -29,12 +29,12 @@ export default function LocationSearch({ type }: LocationSearchProps) {
       value={selectedKey}
       onChange={setSelectedKey}
     >
-      <AutocompleteTrigger className="border-gray-3 flex h-14 items-center rounded-lg border py-2 shadow-none">
+      <AutocompleteTrigger className="border-gray-3 mt-6 flex h-14 items-center rounded-lg border py-2 shadow-none md:mt-8 md:w-45">
         <AutocompleteValue className="text-gray-8" />
         <AutocompleteClearButton />
-        <AutocompleteIndicator className="text-gray-8" />
+        <AutocompleteIndicator className="text-gray-8 md:hidden" />
       </AutocompleteTrigger>
-      <AutocompletePopover>
+      <AutocompletePopover placement="top" className="h-80 w-60">
         <AutocompleteFilter filter={contains}>
           <LocationSearchField />
           <LocationListBox />

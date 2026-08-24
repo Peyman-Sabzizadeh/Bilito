@@ -9,8 +9,8 @@ import {
 export default function LocationSearchField() {
   return (
     <SearchField autoFocus name="search" aria-label="Search Field">
-      <SearchFieldGroup>
-        <SearchFieldSearchIcon />
+      <SearchFieldGroup className="px-2 border-red-600">
+        <SearchFieldSearchIcon className="ml-1"/>
         <SearchFieldInput placeholder="جستجوی شهر..." />
         <SearchFieldClearButton />
       </SearchFieldGroup>
