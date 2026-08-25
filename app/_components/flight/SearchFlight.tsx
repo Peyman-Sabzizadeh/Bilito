@@ -3,6 +3,7 @@ import Container from "../Container";
 import FlightType from "./FlightType";
 import TripType from "./TripType";
 import LocationSearch from "./LocationSearch";
+import SwitchLocationButton from "./SwitchLocationButton";
 
 export default function SearchFlight() {
   return (
@@ -11,9 +12,12 @@ export default function SearchFlight() {
         <FlightType />
         <Separator className="-mt-0.5 h-0.5" />
         <TripType />
-        <div className="flex flex-col items-center md:flex-row md:gap-4">
-          <LocationSearch type="مبدا" />
-          <LocationSearch type="مقصد" />
+        <div className="flex flex-col md:flex-row md:gap-4">
+          <div className="flex flex-col gap-6 pt-6 md:flex-row md:items-center md:gap-1 md:pt-8">
+            <LocationSearch type="مبدا" />
+            <SwitchLocationButton />
+            <LocationSearch type="مقصد" />
+          </div>
         </div>
       </div>
     </Container>
