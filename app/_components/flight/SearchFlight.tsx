@@ -4,6 +4,8 @@ import FlightType from "./FlightType";
 import TripType from "./TripType";
 import LocationSearch from "./LocationSearch";
 import SwitchLocationButton from "./SwitchLocationButton";
+import FlightDatePicker from "./FlightDatePicker";
+import FlightDateRangePicker from "./FlightDateRangePicker";
 
 export default function SearchFlight() {
   return (
@@ -18,6 +20,8 @@ export default function SearchFlight() {
             <SwitchLocationButton />
             <LocationSearch type="مقصد" />
           </div>
+          <FlightDatePicker />
+          <FlightDateRangePicker />
         </div>
       </div>
     </Container>
