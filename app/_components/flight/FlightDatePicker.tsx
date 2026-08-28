@@ -1,19 +1,27 @@
 "use client";
 
-import { Calendar, DateField, DatePicker } from "@heroui/react";
+import { useState } from "react";
+import { Calendar, DateField, DatePicker, DateValue } from "@heroui/react";
 import { ChevronDown } from "lucide-react";
 
 export default function FlightDatePicker() {
+  const [date, setDate] = useState<DateValue | null>(null);
   return (
-    <DatePicker aria-label="Flight date picker">
-      <DateField.Group className="border-gray-3 h-14 px-1 rounded-lg border shadow-none md:w-35">
-        <DateField.Input className="*:text-gray-8">
-          {(segment) => <DateField.Segment segment={segment} />}
-        </DateField.Input>
+    <DatePicker value={date} onChange={setDate} aria-label="Flight date picker">
+      <DateField.Group className="border-gray-3 h-14 rounded-lg border px-1 shadow-none active:border-none md:w-35">
+        {!date ? (
+          <div className="text-gray-8 mr-2 w-full max-md:font-medium">
+            تاریخ رفت
+          </div>
+        ) : (
+          <DateField.Input className="*:text-gray-8">
+            {(segment) => <DateField.Segment segment={segment} />}
+          </DateField.Input>
+        )}
         <DateField.Suffix>
           <DatePicker.Trigger>
-            <DatePicker.TriggerIndicator className="size-5 text-gray-8" >
-              <ChevronDown size={18}/>
+            <DatePicker.TriggerIndicator className="text-gray-8 size-5">
+              <ChevronDown size={18} />
             </DatePicker.TriggerIndicator>
           </DatePicker.Trigger>
         </DateField.Suffix>
