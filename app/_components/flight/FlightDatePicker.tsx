@@ -18,7 +18,7 @@ export default function FlightDatePicker() {
             {(segment) => <DateField.Segment segment={segment} />}
           </DateField.Input>
         )}
-        <DateField.Suffix>
+        <DateField.Suffix className="md:hidden">
           <DatePicker.Trigger>
             <DatePicker.TriggerIndicator className="text-gray-8 size-5">
               <ChevronDown size={18} />

@@ -29,7 +29,7 @@ export default function LocationSearch({ type }: LocationSearchProps) {
       value={selectedKey}
       onChange={setSelectedKey}
     >
-      <AutocompleteTrigger className="border-gray-3  flex h-14 items-center rounded-lg border py-2 shadow-none  md:w-35">
+      <AutocompleteTrigger className="border-gray-3 flex h-14 items-center rounded-lg border py-2 shadow-none md:w-35">
         <AutocompleteValue className="text-gray-8" />
         <AutocompleteClearButton className="md:-left-4" />
         <AutocompleteIndicator className="text-gray-8 md:hidden" />
