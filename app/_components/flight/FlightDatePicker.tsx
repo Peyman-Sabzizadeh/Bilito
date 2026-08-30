@@ -6,6 +6,7 @@ import { ChevronDown } from "lucide-react";
 
 export default function FlightDatePicker() {
   const [date, setDate] = useState<DateValue | null>(null);
+  console.log("Date choosen: ", date);
   return (
     <DatePicker value={date} onChange={setDate} aria-label="Flight date picker">
       <DateField.Group className="border-gray-3 h-14 rounded-lg border px-1 shadow-none active:border-none md:w-35">
@@ -27,7 +28,7 @@ export default function FlightDatePicker() {
         </DateField.Suffix>
       </DateField.Group>
       <DatePicker.Popover>
-        <Calendar aria-label="Flight date">
+        <Calendar className="ml-13" aria-label="Flight date">
           <Calendar.Header>
             <Calendar.YearPickerTrigger>
               <Calendar.YearPickerTriggerHeading />
