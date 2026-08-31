@@ -1,27 +1,45 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Calendar, DateField, DatePicker, DateValue } from "@heroui/react";
-import { ChevronDown } from "lucide-react";
+import { CalendarDaysIcon, ChevronDown } from "lucide-react";
 
 export default function FlightDatePicker() {
   const [date, setDate] = useState<DateValue | null>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
   return (
     <DatePicker value={date} onChange={setDate} aria-label="Flight date picker">
-      <DateField.Group className="border-gray-3 h-14 rounded-lg border px-1 shadow-none active:border-none md:w-35">
+      <DateField.Group
+        onClick={() => {
+          if (date) {
+            return null;
+          } else {
+            if (window.innerWidth >= 768) {
+              triggerRef.current?.click();
+            }
+          }
+        }}
+        className="border-gray-3 h-14 cursor-pointer rounded-lg border px-1 shadow-none active:border-none md:w-35"
+      >
         {!date ? (
           <div className="text-gray-8 mr-2 w-full max-md:font-medium">
             تاریخ رفت
           </div>
         ) : (
-          <DateField.Input className="*:text-gray-8">
+          <DateField.Input className="*:text-gray-8 md:p-0 md:mr-2">
             {(segment) => <DateField.Segment segment={segment} />}
           </DateField.Input>
         )}
-        <DateField.Suffix className="md:hidden">
-          <DatePicker.Trigger>
+        <DateField.Suffix>
+          <DatePicker.Trigger ref={triggerRef}>
             <DatePicker.TriggerIndicator className="text-gray-8 size-5">
-              <ChevronDown size={18} />
+              <ChevronDown size={18} className="md:hidden" />
+              {date ? (
+                <CalendarDaysIcon
+                  size={17}
+                  className="cursor-pointer max-md:hidden"
+                />
+              ) : null}
             </DatePicker.TriggerIndicator>
           </DatePicker.Trigger>
         </DateField.Suffix>
