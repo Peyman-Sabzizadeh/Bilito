@@ -26,7 +26,7 @@ export default function FlightDatePicker() {
             تاریخ رفت
           </div>
         ) : (
-          <DateField.Input className="*:text-gray-8 md:p-0 md:mr-2">
+          <DateField.Input className="*:text-gray-8 md:mr-2 md:p-0">
             {(segment) => <DateField.Segment segment={segment} />}
           </DateField.Input>
         )}
