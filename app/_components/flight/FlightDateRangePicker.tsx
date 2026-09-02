@@ -4,22 +4,26 @@ import { DateField, DateRangePicker, RangeCalendar } from "@heroui/react";
 
 export default function FlightDateRangePicker() {
   return (
-    <DateRangePicker endName="endDate" startName="startDate">
-      <DateField.Group fullWidth>
-        <DateField.Input slot="start">
+    <DateRangePicker
+      endName="endDate"
+      startName="startDate"
+      aria-label="Flight date range picker"
+    >
+      <DateField.Group className="border-gray-3 h-14 cursor-pointer rounded-lg border px-1 shadow-none active:border-none md:w-fit">
+        <DateField.Input slot="start" className="*:text-gray-8">
           {(segment) => <DateField.Segment segment={segment} />}
         </DateField.Input>
         <DateRangePicker.RangeSeparator />
-        <DateField.Input slot="end">
+        <DateField.Input slot="end" className="*:text-gray-8">
           {(segment) => <DateField.Segment segment={segment} />}
         </DateField.Input>
         <DateField.Suffix>
           <DateRangePicker.Trigger>
-            <DateRangePicker.TriggerIndicator />
+            <DateRangePicker.TriggerIndicator className="text-gray-8" />
           </DateRangePicker.Trigger>
         </DateField.Suffix>
       </DateField.Group>
-      <DateRangePicker.Popover>
+      <DateRangePicker.Popover className="max-w-none">
         <RangeCalendar aria-label="Trip dates">
           <RangeCalendar.Header>
             <RangeCalendar.YearPickerTrigger>
