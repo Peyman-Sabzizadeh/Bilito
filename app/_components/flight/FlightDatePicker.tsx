@@ -14,9 +14,7 @@ export default function FlightDatePicker() {
           if (date) {
             return null;
           } else {
-            if (window.innerWidth >= 768) {
               triggerRef.current?.click();
-            }
           }
         }}
         className="border-gray-3 h-14 cursor-pointer rounded-lg border px-1 shadow-none active:border-none md:w-35"
