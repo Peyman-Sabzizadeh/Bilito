@@ -1,22 +1,42 @@
 "use client";
 
-import { DateField, DateRangePicker, RangeCalendar } from "@heroui/react";
+import { useState } from "react";
+import {
+  DateField,
+  DateRangePicker,
+  DateValue,
+  RangeCalendar,
+  RangeValue,
+} from "@heroui/react";
 
 export default function FlightDateRangePicker() {
+  const [rangeDate, setRangeDate] = useState<RangeValue<DateValue> | null>(
+    null,
+  );
   return (
     <DateRangePicker
+      value={rangeDate}
+      onChange={setRangeDate}
       endName="endDate"
       startName="startDate"
       aria-label="Flight date range picker"
     >
       <DateField.Group className="border-gray-3 h-14 cursor-pointer rounded-lg border px-1 shadow-none active:border-none md:w-fit">
-        <DateField.Input slot="start" className="*:text-gray-8">
-          {(segment) => <DateField.Segment segment={segment} />}
-        </DateField.Input>
-        <DateRangePicker.RangeSeparator />
-        <DateField.Input slot="end" className="*:text-gray-8">
-          {(segment) => <DateField.Segment segment={segment} />}
-        </DateField.Input>
+        {!rangeDate ? (
+          <div className="text-gray-8 mr-2 w-full max-md:font-medium">
+            تاریخ رفت و برگشت
+          </div>
+        ) : (
+          <>
+            <DateField.Input slot="start" className="*:text-gray-8">
+              {(segment) => <DateField.Segment segment={segment} />}
+            </DateField.Input>
+            <DateRangePicker.RangeSeparator />
+            <DateField.Input slot="end" className="*:text-gray-8">
+              {(segment) => <DateField.Segment segment={segment} />}
+            </DateField.Input>
+          </>
+        )}
         <DateField.Suffix>
           <DateRangePicker.Trigger>
             <DateRangePicker.TriggerIndicator className="text-gray-8" />
