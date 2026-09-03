@@ -8,6 +8,7 @@ import {
   RangeCalendar,
   RangeValue,
 } from "@heroui/react";
+import { CalendarDaysIcon, ChevronDown } from "lucide-react";
 
 export default function FlightDateRangePicker() {
   const [rangeDate, setRangeDate] = useState<RangeValue<DateValue> | null>(
@@ -49,7 +50,15 @@ export default function FlightDateRangePicker() {
         )}
         <DateField.Suffix>
           <DateRangePicker.Trigger ref={triggerRef}>
-            <DateRangePicker.TriggerIndicator className="text-gray-8" />
+            <DateRangePicker.TriggerIndicator className="text-gray-8">
+              <ChevronDown size={18} className="md:hidden" />
+              {rangeDate ? (
+                <CalendarDaysIcon
+                  size={17}
+                  className="cursor-pointer max-md:hidden"
+                />
+              ) : null}
+            </DateRangePicker.TriggerIndicator>
           </DateRangePicker.Trigger>
         </DateField.Suffix>
       </DateField.Group>
