@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import {
   DateField,
   DateRangePicker,
@@ -13,6 +13,7 @@ export default function FlightDateRangePicker() {
   const [rangeDate, setRangeDate] = useState<RangeValue<DateValue> | null>(
     null,
   );
+  const triggerRef = useRef<HTMLButtonElement>(null);
   return (
     <DateRangePicker
       value={rangeDate}
@@ -21,7 +22,16 @@ export default function FlightDateRangePicker() {
       startName="startDate"
       aria-label="Flight date range picker"
     >
-      <DateField.Group className="border-gray-3 h-14 cursor-pointer rounded-lg border px-1 shadow-none active:border-none md:w-fit">
+      <DateField.Group
+        onClick={() => {
+          if (rangeDate) {
+            return null;
+          } else {
+            triggerRef.current?.click();
+          }
+        }}
+        className="border-gray-3 h-14 cursor-pointer rounded-lg border px-1 shadow-none active:border-none md:w-fit"
+      >
         {!rangeDate ? (
           <div className="text-gray-8 mr-2 w-full max-md:font-medium">
             تاریخ رفت و برگشت
@@ -38,7 +48,7 @@ export default function FlightDateRangePicker() {
           </>
         )}
         <DateField.Suffix>
-          <DateRangePicker.Trigger>
+          <DateRangePicker.Trigger ref={triggerRef}>
             <DateRangePicker.TriggerIndicator className="text-gray-8" />
           </DateRangePicker.Trigger>
         </DateField.Suffix>
