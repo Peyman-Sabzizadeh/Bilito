@@ -62,8 +62,8 @@ export default function FlightDateRangePicker() {
           </DateRangePicker.Trigger>
         </DateField.Suffix>
       </DateField.Group>
-      <DateRangePicker.Popover className="max-w-none">
-        <RangeCalendar aria-label="Trip dates">
+      <DateRangePicker.Popover className="w-80 max-w-none">
+        <RangeCalendar aria-label="Trip dates" className="w-auto max-w-none">
           <RangeCalendar.Header>
             <RangeCalendar.YearPickerTrigger>
               <RangeCalendar.YearPickerTriggerHeading />

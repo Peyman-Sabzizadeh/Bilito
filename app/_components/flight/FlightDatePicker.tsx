@@ -34,7 +34,7 @@ export default function FlightDatePicker() {
               <ChevronDown size={18} className="md:hidden" />
               {date ? (
                 <CalendarDaysIcon
-                  size={17}
+                  size={16}
                   className="cursor-pointer max-md:hidden"
                 />
               ) : null}
