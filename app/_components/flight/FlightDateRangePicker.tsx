@@ -50,11 +50,11 @@ export default function FlightDateRangePicker() {
         )}
         <DateField.Suffix>
           <DateRangePicker.Trigger ref={triggerRef}>
-            <DateRangePicker.TriggerIndicator className="text-gray-8">
+            <DateRangePicker.TriggerIndicator className="text-gray-8 size-5">
               <ChevronDown size={18} className="md:hidden" />
               {rangeDate ? (
                 <CalendarDaysIcon
-                  size={17}
+                  size={16}
                   className="cursor-pointer max-md:hidden"
                 />
               ) : null}
