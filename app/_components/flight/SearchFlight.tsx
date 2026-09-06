@@ -6,6 +6,7 @@ import LocationSearch from "./LocationSearch";
 import SwitchLocationButton from "./SwitchLocationButton";
 import FlightDatePicker from "./FlightDatePicker";
 import FlightDateRangePicker from "./FlightDateRangePicker";
+import PassengerSelector from "./PassengerSelector";
 
 export default function SearchFlight() {
   return (
@@ -22,6 +23,7 @@ export default function SearchFlight() {
           </div>
           <FlightDatePicker />
           <FlightDateRangePicker />
+          <PassengerSelector />
         </div>
       </div>
     </Container>
