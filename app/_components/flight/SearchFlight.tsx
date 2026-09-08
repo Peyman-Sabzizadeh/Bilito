@@ -1,12 +1,12 @@
 import { Separator } from "@heroui/react";
 import Container from "../Container";
-import FlightType from "./FlightType";
-import TripType from "./TripType";
-import LocationSearch from "./LocationSearch";
-import SwitchLocationButton from "./SwitchLocationButton";
-import FlightDatePicker from "./FlightDatePicker";
-import FlightDateRangePicker from "./FlightDateRangePicker";
-import PassengerSelector from "./PassengerSelector";
+import FlightType from "./components/FlightType";
+import TripType from "./components/TripType";
+import LocationSearch from "./components/LocationSearch";
+import SwitchLocationButton from "./components/SwitchLocationButton";
+import FlightDatePicker from "./components/FlightDatePicker";
+import FlightDateRangePicker from "./components/FlightDateRangePicker";
+import PassengerSelector from "./components/PassengerSelector";
 
 export default function SearchFlight() {
   return (
