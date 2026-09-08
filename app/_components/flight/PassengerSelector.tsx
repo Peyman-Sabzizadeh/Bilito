@@ -1,5 +1,6 @@
 import { Popover } from "@heroui/react";
 import { ChevronDown } from "lucide-react";
+import PassengerNumberField from "./PassengerNumberField";
 
 export default function PassengerSelector() {
   return (
@@ -11,7 +12,9 @@ export default function PassengerSelector() {
         </div>
       </Popover.Trigger>
       <Popover.Content>
-        <Popover.Dialog>Passenger Selectors</Popover.Dialog>
+        <Popover.Dialog>
+          <PassengerNumberField />
+        </Popover.Dialog>
       </Popover.Content>
     </Popover>
   );
