@@ -13,7 +13,21 @@ export default function PassengerSelector() {
       </Popover.Trigger>
       <Popover.Content>
         <Popover.Dialog>
-          <PassengerNumberField />
+          <PassengerNumberField
+            label="بزرگسال"
+            description="بزرگتر از 12 سال"
+            maxValue={9}
+          />
+          <PassengerNumberField
+            label="کودک"
+            description="بین 2 تا 12 سال"
+            maxValue={3}
+          />
+          <PassengerNumberField
+            label="نوزاد"
+            description="کوچکتر از 2 سال"
+            maxValue={1}
+          />
         </Popover.Dialog>
       </Popover.Content>
     </Popover>
