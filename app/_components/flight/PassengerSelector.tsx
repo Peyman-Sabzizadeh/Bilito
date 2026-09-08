@@ -1,6 +1,6 @@
 import { Popover } from "@heroui/react";
 import { ChevronDown } from "lucide-react";
-import PassengerNumberField from "./PassengerNumberField";
+import PassengerFields from "./PassengerFields";
 
 export default function PassengerSelector() {
   return (
@@ -12,22 +12,8 @@ export default function PassengerSelector() {
         </div>
       </Popover.Trigger>
       <Popover.Content>
-        <Popover.Dialog>
-          <PassengerNumberField
-            label="بزرگسال"
-            description="بزرگتر از 12 سال"
-            maxValue={9}
-          />
-          <PassengerNumberField
-            label="کودک"
-            description="بین 2 تا 12 سال"
-            maxValue={3}
-          />
-          <PassengerNumberField
-            label="نوزاد"
-            description="کوچکتر از 2 سال"
-            maxValue={1}
-          />
+        <Popover.Dialog className="max-w-none">
+          <PassengerFields />
         </Popover.Dialog>
       </Popover.Content>
     </Popover>
