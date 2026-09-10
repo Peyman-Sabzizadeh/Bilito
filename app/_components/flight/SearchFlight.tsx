@@ -7,6 +7,7 @@ import SwitchLocationButton from "./components/SwitchLocationButton";
 import FlightDatePicker from "./components/FlightDatePicker";
 import FlightDateRangePicker from "./components/FlightDateRangePicker";
 import PassengerSelector from "./components/PassengerSelector";
+import FlightClass from "./components/FlightClass";
 
 export default function SearchFlight() {
   return (
@@ -24,6 +25,7 @@ export default function SearchFlight() {
           <FlightDatePicker />
           <FlightDateRangePicker />
           <PassengerSelector />
+          <FlightClass />
         </div>
       </div>
     </Container>
