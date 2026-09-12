@@ -1,12 +1,5 @@
 import Link from "next/link";
-import { ChevronDown, PhoneCall, UserSearch } from "lucide-react";
-import {
-  Dropdown,
-  DropdownItem,
-  DropdownMenu,
-  DropdownPopover,
-  DropdownTrigger,
-} from "@heroui/react";
+import DesktopOtherItems from "./DesktopOtherItems";
 
 export default function DesktopMenuItems() {
   return (
@@ -14,24 +7,7 @@ export default function DesktopMenuItems() {
       <Link href="/">صفحه اصلی</Link>
       <Link href="/">بیمه مسافرتی</Link>
       <Link href="/">سفرهای من</Link>
-      <Dropdown>
-        <DropdownTrigger>
-          سایر موارد
-          <ChevronDown strokeWidth={1} className="mr-0.5 inline xl:mr-2" />
-        </DropdownTrigger>
-        <DropdownPopover className="min-w-0 rounded-xl p-1">
-          <DropdownMenu className="*:text-gray-7 *:rounded-lg">
-            <DropdownItem href="/">
-              <PhoneCall size={20} />
-              تماس با ما
-            </DropdownItem>
-            <DropdownItem href="/">
-              <UserSearch size={20} />
-              درباره ما
-            </DropdownItem>
-          </DropdownMenu>
-        </DropdownPopover>
-      </Dropdown>
+      <DesktopOtherItems />
     </div>
   );
 }
