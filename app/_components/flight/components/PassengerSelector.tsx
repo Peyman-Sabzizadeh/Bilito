@@ -24,7 +24,7 @@ export default function PassengerSelector() {
   return (
     <Popover>
       <Popover.Trigger>
-        <div className="border-gray-3 text-gray-8 flex h-14 cursor-pointer items-center justify-between rounded-lg border px-3 text-sm max-md:font-medium md:w-35">
+        <div className="border-gray-3 text-gray-8 flex h-14 cursor-pointer items-center justify-between rounded-lg border pr-3 pl-2 text-sm max-md:font-medium md:w-35">
           <span>
             {!totalPassengers ? "تعداد " : totalPassengers + " "}
             مسافر

@@ -1,26 +1,29 @@
 import { ListBox, Select } from "@heroui/react";
+import ClassListBoxItem from "./ClassListBoxItem";
 
 export default function FlightClass() {
   return (
     <Select aria-label="Flight class" placeholder="کلاس پرواز">
-      <Select.Trigger className="border-gray-3 *:text-gray-8 flex h-14 cursor-pointer items-center justify-between rounded-lg border *:text-sm *:max-md:font-medium md:w-35">
+      <Select.Trigger className="border-gray-3 shadow-none *:text-gray-8 flex h-14 cursor-pointer items-center justify-between rounded-lg border *:text-sm *:max-md:font-medium md:w-35">
         <Select.Value />
         <Select.Indicator className="ml-1 md:hidden" />
       </Select.Trigger>
-      <Select.Popover>
+      <Select.Popover className="w-64 min-w-auto">
         <ListBox aria-label="Flight class items">
-          <ListBox.Item id="economy" textValue="Economy">
-            Economy
-            <ListBox.ItemIndicator />
-          </ListBox.Item>
-          <ListBox.Item id="business" textValue="Business">
-            Business
-            <ListBox.ItemIndicator />
-          </ListBox.Item>
-          <ListBox.Item id="first" textValue="First">
-            First
-            <ListBox.ItemIndicator />
-          </ListBox.Item>
+          <ClassListBoxItem label="اکونومی" description="Economy" />
+          <ClassListBoxItem
+            label="پریمیوم اکونومی"
+            description="Premium Economy"
+          />
+          <ClassListBoxItem label="کامفورت" description="Comfort" />
+          <ClassListBoxItem label="بیزنس" description="Business" />
+          <ClassListBoxItem
+            label="پریمیوم بیزنس"
+            description="Premium Business"
+          />
+          <ClassListBoxItem label="فرست" description="First" />
+          <ClassListBoxItem label="پریمیوم فرست" description="Premium First" />
+          <ClassListBoxItem label="پریمیوم فرست" description="Premium First" />
         </ListBox>
       </Select.Popover>
     </Select>
