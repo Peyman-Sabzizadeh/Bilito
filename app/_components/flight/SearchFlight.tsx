@@ -8,6 +8,7 @@ import FlightDatePicker from "./components/FlightDatePicker";
 import FlightDateRangePicker from "./components/FlightDateRangePicker";
 import PassengerSelector from "./components/PassengerSelector";
 import FlightClass from "./components/FlightClass";
+import SearchButton from "./components/SearchButton";
 
 export default function SearchFlight() {
   return (
@@ -16,16 +17,18 @@ export default function SearchFlight() {
         <FlightType />
         <Separator className="-mt-0.5 h-0.5" />
         <TripType />
-        <div className="flex flex-col gap-4 pt-6 md:flex-row md:gap-4 md:pt-8">
+        <div className="flex flex-col gap-4 pt-6 md:flex-row md:pt-8">
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:gap-1">
             <LocationSearch type="مبدا" />
             <SwitchLocationButton />
             <LocationSearch type="مقصد" />
           </div>
           <FlightDatePicker />
-          <FlightDateRangePicker />
+          {/* Temprary disabled */}
+          {/* <FlightDateRangePicker /> */}
           <PassengerSelector />
           <FlightClass />
+          <SearchButton />
         </div>
       </div>
     </Container>
