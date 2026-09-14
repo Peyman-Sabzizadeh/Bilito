@@ -22,6 +22,7 @@ export default function FlightDateRangePicker() {
       endName="endDate"
       startName="startDate"
       aria-label="Flight date range picker"
+      className="w-full flex-2"
     >
       <DateField.Group
         onClick={() => {
@@ -31,7 +32,7 @@ export default function FlightDateRangePicker() {
             triggerRef.current?.click();
           }
         }}
-        className="border-gray-3 h-14 cursor-pointer rounded-lg border px-1 shadow-none active:border-none md:w-fit"
+        className="border-gray-3 h-14 cursor-pointer rounded-lg border px-1 shadow-none active:border-none md:h-12"
       >
         {!rangeDate ? (
           <div className="text-gray-8 mr-2 w-full max-md:font-medium">

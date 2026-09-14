@@ -17,8 +17,8 @@ export default function SearchFlight() {
         <FlightType />
         <Separator className="-mt-0.5 h-0.5" />
         <TripType />
-        <div className="flex flex-col gap-4 pt-6 md:flex-row md:pt-8">
-          <div className="flex flex-col gap-4 md:flex-row md:items-center md:gap-1">
+        <div className="flex w-full flex-col items-center gap-4 pt-6 md:flex-row md:pt-8">
+          <div className="flex w-full flex-2 flex-col gap-4 md:flex-row md:items-center md:gap-1">
             <LocationSearch type="مبدا" />
             <SwitchLocationButton />
             <LocationSearch type="مقصد" />

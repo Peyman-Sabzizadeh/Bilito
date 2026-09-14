@@ -3,8 +3,12 @@ import ClassListBoxItem from "./ClassListBoxItem";
 
 export default function FlightClass() {
   return (
-    <Select aria-label="Flight class" placeholder="کلاس پرواز">
-      <Select.Trigger className="border-gray-3 shadow-none *:text-gray-8 flex h-14 cursor-pointer items-center justify-between rounded-lg border *:text-sm *:max-md:font-medium md:w-35">
+    <Select
+      aria-label="Flight class"
+      placeholder="کلاس پرواز"
+      className="w-full flex-1"
+    >
+      <Select.Trigger className="border-gray-3 *:text-gray-8 flex h-14 cursor-pointer items-center justify-between rounded-lg border shadow-none *:text-sm *:max-md:font-medium md:h-12">
         <Select.Value />
         <Select.Indicator className="ml-1 md:hidden" />
       </Select.Trigger>

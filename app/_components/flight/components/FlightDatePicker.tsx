@@ -8,16 +8,21 @@ export default function FlightDatePicker() {
   const [date, setDate] = useState<DateValue | null>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
   return (
-    <DatePicker value={date} onChange={setDate} aria-label="Flight date picker">
+    <DatePicker
+      value={date}
+      onChange={setDate}
+      aria-label="Flight date picker"
+      className="w-full flex-1"
+    >
       <DateField.Group
         onClick={() => {
           if (date) {
             return null;
           } else {
-              triggerRef.current?.click();
+            triggerRef.current?.click();
           }
         }}
-        className="border-gray-3 h-14 cursor-pointer rounded-lg border px-1 shadow-none active:border-none md:w-35"
+        className="border-gray-3 h-14 cursor-pointer rounded-lg border px-1 shadow-none active:border-none md:h-12"
       >
         {!date ? (
           <div className="text-gray-8 mr-2 w-full max-md:font-medium">
