@@ -1,11 +1,13 @@
 "use client";
 
-import { useRef, useState } from "react";
 import { Calendar, DateField, DatePicker, DateValue } from "@heroui/react";
-import { CalendarDaysIcon, ChevronDown } from "lucide-react";
+import { toJalaali } from "jalaali-js";
+import { ChevronDown } from "lucide-react";
+import { useRef, useState } from "react";
 
 export default function FlightDatePicker() {
   const [date, setDate] = useState<DateValue | null>(null);
+  const persisanDate = date ? toJalaali(date.year, date.month, date.day) : null;
   const triggerRef = useRef<HTMLButtonElement>(null);
   return (
     <DatePicker
@@ -15,34 +17,25 @@ export default function FlightDatePicker() {
       className="w-full flex-1"
     >
       <DateField.Group
-        onClick={() => {
-          if (date) {
-            return null;
-          } else {
-            triggerRef.current?.click();
-          }
-        }}
-        className="border-gray-3 h-14 cursor-pointer rounded-lg border px-1 shadow-none active:border-none md:h-12"
+        onClick={() => triggerRef.current?.click()}
+        className="border-gray-3 h-14 cursor-pointer justify-between rounded-lg border px-1 shadow-none md:h-12"
       >
         {!date ? (
           <div className="text-gray-8 mr-2 w-full max-md:font-medium">
             تاریخ رفت
           </div>
         ) : (
-          <DateField.Input className="*:text-gray-8 md:mr-2 md:p-0">
-            {(segment) => <DateField.Segment segment={segment} />}
-          </DateField.Input>
+          <div className="text-gray-8 mr-2 max-md:font-medium" dir="ltr">
+            {`${persisanDate?.jy} / ${String(persisanDate?.jm).padStart(
+              2,
+              "0",
+            )} / ${String(persisanDate?.jd).padStart(2, "0")}`}
+          </div>
         )}
         <DateField.Suffix>
           <DatePicker.Trigger ref={triggerRef}>
             <DatePicker.TriggerIndicator className="text-gray-8 size-5">
               <ChevronDown size={18} className="md:hidden" />
-              {date ? (
-                <CalendarDaysIcon
-                  size={16}
-                  className="cursor-pointer max-md:hidden"
-                />
-              ) : null}
             </DatePicker.TriggerIndicator>
           </DatePicker.Trigger>
         </DateField.Suffix>
