@@ -16,14 +16,14 @@ export default function FlightDateRangePicker() {
   const [rangeDate, setRangeDate] = useState<RangeValue<DateValue> | null>(
     null,
   );
-  const startPersisanDate = rangeDate
+  const startPersianDate = rangeDate
     ? toJalaali(
         rangeDate.start.year,
         rangeDate.start.month,
         rangeDate.start.day,
       )
     : null;
-  const endPersisanDate = rangeDate
+  const endPersianDate = rangeDate
     ? toJalaali(rangeDate.end.year, rangeDate.end.month, rangeDate.end.day)
     : null;
   const triggerRef = useRef<HTMLButtonElement>(null);
@@ -48,21 +48,19 @@ export default function FlightDateRangePicker() {
           ) : (
             <div className="flex gap-2 pr-2">
               <div className="text-gray-8 max-md:font-medium" dir="ltr">
-                {`${startPersisanDate?.jy} / ${String(
-                  startPersisanDate?.jm,
+                {`${startPersianDate?.jy} / ${String(
+                  startPersianDate?.jm,
                 ).padStart(
                   2,
                   "0",
-                )} / ${String(startPersisanDate?.jd).padStart(2, "0")}`}
+                )} / ${String(startPersianDate?.jd).padStart(2, "0")}`}
               </div>
               <DateRangePicker.RangeSeparator />
               <div className="text-gray-8 max-md:font-medium" dir="ltr">
-                {`${endPersisanDate?.jy} / ${String(
-                  endPersisanDate?.jm,
-                ).padStart(
+                {`${endPersianDate?.jy} / ${String(endPersianDate?.jm).padStart(
                   2,
                   "0",
-                )} / ${String(endPersisanDate?.jd).padStart(2, "0")}`}
+                )} / ${String(endPersianDate?.jd).padStart(2, "0")}`}
               </div>
             </div>
           )}
@@ -74,8 +72,11 @@ export default function FlightDateRangePicker() {
             </DateRangePicker.Trigger>
           </DateField.Suffix>
         </DateField.Group>
-        <DateRangePicker.Popover className="w-80 max-w-none">
-          <RangeCalendar aria-label="Flight dates" className="w-auto max-w-none">
+        <DateRangePicker.Popover className="w-82 max-w-none">
+          <RangeCalendar
+            aria-label="Flight dates"
+            className="w-auto max-w-none"
+          >
             <RangeCalendar.Header>
               <RangeCalendar.YearPickerTrigger>
                 <RangeCalendar.YearPickerTriggerHeading />

@@ -13,7 +13,7 @@ import { useRef, useState } from "react";
 
 export default function FlightDatePicker() {
   const [date, setDate] = useState<DateValue | null>(null);
-  const persisanDate = date ? toJalaali(date.year, date.month, date.day) : null;
+  const persianDate = date ? toJalaali(date.year, date.month, date.day) : null;
   const triggerRef = useRef<HTMLButtonElement>(null);
   return (
     <I18nProvider locale="fa-IR-u-ca-persian">
@@ -33,10 +33,10 @@ export default function FlightDatePicker() {
             </div>
           ) : (
             <div className="text-gray-8 mr-2 max-md:font-medium" dir="ltr">
-              {`${persisanDate?.jy} / ${String(persisanDate?.jm).padStart(
+              {`${persianDate?.jy} / ${String(persianDate?.jm).padStart(
                 2,
                 "0",
-              )} / ${String(persisanDate?.jd).padStart(2, "0")}`}
+              )} / ${String(persianDate?.jd).padStart(2, "0")}`}
             </div>
           )}
           <DateField.Suffix>
@@ -47,7 +47,7 @@ export default function FlightDatePicker() {
             </DatePicker.Trigger>
           </DateField.Suffix>
         </DateField.Group>
-        <DatePicker.Popover className="w-80 max-w-none">
+        <DatePicker.Popover className="w-82 max-w-none">
           <Calendar aria-label="Flight date" className="w-auto max-w-none">
             <Calendar.Header>
               <Calendar.YearPickerTrigger>

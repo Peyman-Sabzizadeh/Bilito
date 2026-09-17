@@ -11,7 +11,7 @@ export default function FlightType() {
             پرواز خارجی
             <Tabs.Indicator className="bg-primary rounded-lg" />
           </Tabs.Tab>
-          <Tabs.Tab id="demostic">
+          <Tabs.Tab id="domestic">
             <Plane className="ml-2 hidden -rotate-44 md:block" size={18} />
             پرواز داخلی
             <Tabs.Indicator className="bg-primary rounded-lg" />

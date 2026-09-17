@@ -1,10 +1,10 @@
 import { ListBox, Select } from "@heroui/react";
 import ClassListBoxItem from "./ClassListBoxItem";
 
-export default function FlightClass() {
+export default function CabinClass() {
   return (
     <Select
-      aria-label="Flight class"
+      aria-label="Cabin class"
       placeholder="کلاس پرواز"
       className="w-full flex-1"
     >

@@ -1,5 +1,5 @@
 import PassengerNumberField from "./PassengerNumberField";
-import { Passengers } from "./PassengerSelector";
+import type { Passengers } from "./PassengerSelector";
 
 type PassengerFieldsProp = {
   passengers: Passengers;
