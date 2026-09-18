@@ -1,11 +1,12 @@
 import { create } from "zustand";
+import { DateValue } from "@heroui/react";
 
 type State = {
   flightType: "domestic" | "international";
   tripType: "one-way" | "round-trip" | "multi-city";
   origin: string | null;
   destination: string | null;
-  departureDate: string | null;
+  departureDate: DateValue | null;
   returnDate: string | null;
   passengers: {
     adult: number;

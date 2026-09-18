@@ -1,25 +1,23 @@
 "use client";
 
-import {
-  Calendar,
-  DateField,
-  DatePicker,
-  DateValue,
-  I18nProvider,
-} from "@heroui/react";
+import { useFlightSearch } from "@/_store/flightSearchStore";
+import { Calendar, DateField, DatePicker, I18nProvider } from "@heroui/react";
 import { toJalaali } from "jalaali-js";
 import { ChevronDown } from "lucide-react";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 
 export default function FlightDatePicker() {
-  const [date, setDate] = useState<DateValue | null>(null);
-  const persianDate = date ? toJalaali(date.year, date.month, date.day) : null;
+  const departureDate = useFlightSearch((state) => state.departureDate);
+  const setDepartureDate = useFlightSearch((state) => state.setDepartureDate);
+  const persianDate = departureDate
+    ? toJalaali(departureDate.year, departureDate.month, departureDate.day)
+    : null;
   const triggerRef = useRef<HTMLButtonElement>(null);
   return (
     <I18nProvider locale="fa-IR-u-ca-persian">
       <DatePicker
-        value={date}
-        onChange={setDate}
+        value={departureDate}
+        onChange={setDepartureDate}
         aria-label="Flight date picker"
         className="w-full flex-1"
       >
@@ -27,7 +25,7 @@ export default function FlightDatePicker() {
           onClick={() => triggerRef.current?.click()}
           className="border-gray-3 h-14 cursor-pointer justify-between rounded-lg border px-1 shadow-none md:h-12"
         >
-          {!date ? (
+          {!departureDate ? (
             <div className="text-gray-8 mr-2 w-full max-md:font-medium">
               تاریخ رفت
             </div>
