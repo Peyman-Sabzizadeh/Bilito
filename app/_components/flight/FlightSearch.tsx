@@ -19,9 +19,9 @@ export default function FlightSearch() {
         <TripType />
         <div className="flex w-full flex-col items-center gap-4 pt-6 md:flex-row md:pt-8">
           <div className="flex w-full flex-2 flex-col gap-4 md:flex-row md:items-center md:gap-1">
-            <LocationSearch type="مبدا" />
+            <LocationSearch location="origin" />
             <SwitchLocationButton />
-            <LocationSearch type="مقصد" />
+            <LocationSearch location="destination" />
           </div>
           <FlightDatePicker />
           {/* Temprary disabled */}

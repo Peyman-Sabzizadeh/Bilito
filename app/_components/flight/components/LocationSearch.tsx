@@ -1,7 +1,5 @@
 "use client";
 
-import { useState } from "react";
-import type { Key } from "@heroui/react";
 import LocationListBox from "./LocationListBox";
 import LocationSearchField from "./LocationSearchField";
 import {
@@ -14,20 +12,26 @@ import {
   AutocompleteValue,
   useFilter,
 } from "@heroui/react";
+import { useFlightSearch } from "@/_store/flightSearchStore";
 
 type LocationSearchProps = {
-  type: string;
+  location: "origin" | "destination";
 };
 
-export default function LocationSearch({ type }: LocationSearchProps) {
-  const [selectedKey, setSelectedKey] = useState<Key | null>(null);
+export default function LocationSearch({ location }: LocationSearchProps) {
+  const selectedKey = useFlightSearch((state) =>
+    location === "origin" ? state.origin : state.destination,
+  );
+  const setSelectedKey = useFlightSearch((state) =>
+    location === "origin" ? state.setOrigin : state.setDestination,
+  );
   const { contains } = useFilter({ sensitivity: "base" });
   return (
     <Autocomplete
       aria-label="Location Search"
-      placeholder={type}
+      placeholder={location === "origin" ? "مبدا" : "مقصد"}
       value={selectedKey}
-      onChange={setSelectedKey}
+      onChange={(value) => setSelectedKey(value?.toString() ?? null)}
       className="flex-1"
     >
       <AutocompleteTrigger className="border-gray-3 flex h-14 items-center rounded-lg border py-2 shadow-none md:h-12">
