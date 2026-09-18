@@ -1,21 +1,19 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import {
   DateField,
   DateRangePicker,
-  DateValue,
   I18nProvider,
   RangeCalendar,
-  RangeValue,
 } from "@heroui/react";
 import { ChevronDown } from "lucide-react";
 import { toJalaali } from "jalaali-js";
+import { useFlightSearch } from "@/_store/flightSearchStore";
 
 export default function FlightDateRangePicker() {
-  const [rangeDate, setRangeDate] = useState<RangeValue<DateValue> | null>(
-    null,
-  );
+  const rangeDate = useFlightSearch((state) => state.rangeDate);
+  const setRangeDate = useFlightSearch((state) => state.setRangeDate);
   const startPersianDate = rangeDate
     ? toJalaali(
         rangeDate.start.year,

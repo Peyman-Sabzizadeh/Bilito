@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { DateValue } from "@heroui/react";
+import { DateValue, RangeValue } from "@heroui/react";
 
 type State = {
   flightType: "domestic" | "international";
@@ -7,7 +7,7 @@ type State = {
   origin: string | null;
   destination: string | null;
   departureDate: DateValue | null;
-  returnDate: string | null;
+  rangeDate: RangeValue<DateValue> | null;
   passengers: {
     adult: number;
     child: number;
@@ -30,7 +30,7 @@ type Action = {
   setOrigin: (newOrigin: State["origin"]) => void;
   setDestination: (newDestination: State["destination"]) => void;
   setDepartureDate: (newDepartureDate: State["departureDate"]) => void;
-  setReturnDate: (newReturnDate: State["returnDate"]) => void;
+  setRangeDate: (newRangeDate: State["rangeDate"]) => void;
   setPassengers: (newPassengers: Partial<State["passengers"]>) => void;
   setCabinClass: (newCabinClass: State["cabinClass"]) => void;
 };
@@ -41,7 +41,7 @@ export const useFlightSearch = create<State & Action>((set) => ({
   origin: null,
   destination: null,
   departureDate: null,
-  returnDate: null,
+  rangeDate: null,
   passengers: {
     adult: 0,
     child: 0,
@@ -55,7 +55,7 @@ export const useFlightSearch = create<State & Action>((set) => ({
   setDestination: (newDestination) => set({ destination: newDestination }),
   setDepartureDate: (newDepartureDate) =>
     set({ departureDate: newDepartureDate }),
-  setReturnDate: (newReturnDate) => set({ returnDate: newReturnDate }),
+  setRangeDate: (newRangeDate) => set({ rangeDate: newRangeDate }),
   setPassengers: (newPassengers) =>
     set((state) => ({
       passengers: {
