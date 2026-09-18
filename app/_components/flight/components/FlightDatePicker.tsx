@@ -7,6 +7,8 @@ import { ChevronDown } from "lucide-react";
 import { useRef } from "react";
 
 export default function FlightDatePicker() {
+  const tripType = useFlightSearch((state) => state.tripType);
+  const isOneWay = tripType === "one-way";
   const departureDate = useFlightSearch((state) => state.departureDate);
   const setDepartureDate = useFlightSearch((state) => state.setDepartureDate);
   const persianDate = departureDate
@@ -19,7 +21,7 @@ export default function FlightDatePicker() {
         value={departureDate}
         onChange={setDepartureDate}
         aria-label="Flight date picker"
-        className="w-full flex-1"
+        className={`w-full flex-1 ${!isOneWay && "hidden"}`}
       >
         <DateField.Group
           onClick={() => triggerRef.current?.click()}

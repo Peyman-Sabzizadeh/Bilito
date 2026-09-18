@@ -24,8 +24,7 @@ export default function FlightSearch() {
             <LocationSearch location="destination" />
           </div>
           <FlightDatePicker />
-          {/* Temprary disabled */}
-          {/* <FlightDateRangePicker /> */}
+          <FlightDateRangePicker />
           <PassengerSelector />
           <CabinClass />
           <SearchButton />

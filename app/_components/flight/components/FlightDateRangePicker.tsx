@@ -12,6 +12,8 @@ import { toJalaali } from "jalaali-js";
 import { useFlightSearch } from "@/_store/flightSearchStore";
 
 export default function FlightDateRangePicker() {
+  const tripType = useFlightSearch((state) => state.tripType);
+  const isRoundTrip = tripType === "round-trip";
   const rangeDate = useFlightSearch((state) => state.rangeDate);
   const setRangeDate = useFlightSearch((state) => state.setRangeDate);
   const startPersianDate = rangeDate
@@ -33,7 +35,7 @@ export default function FlightDateRangePicker() {
         endName="endDate"
         startName="startDate"
         aria-label="Flight date range picker"
-        className="w-full flex-2"
+        className={`w-full flex-2 ${!isRoundTrip && "hidden"}`}
       >
         <DateField.Group
           onClick={() => triggerRef.current?.click()}

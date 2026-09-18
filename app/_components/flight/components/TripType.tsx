@@ -16,7 +16,7 @@ export default function TripType() {
     >
       <Radio value="one-way">یک طرفه</Radio>
       <Radio value="round-trip">رفت و برگشت</Radio>
-      <Radio value="multi-city">چند مسیره</Radio>
+      <Radio value="multi-city" isDisabled>چند مسیره</Radio>
     </RadioGroup>
   );
 }
