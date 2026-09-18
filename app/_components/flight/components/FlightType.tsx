@@ -1,9 +1,22 @@
+"use client";
+
+import { useFlightSearch } from "@/_store/flightSearchStore";
 import { Tabs } from "@heroui/react";
 import { Plane } from "lucide-react";
 
 export default function FlightType() {
+  const flightType = useFlightSearch((state) => state.flightType);
+  const setFlightType = useFlightSearch((state) => state.setFlightType);
   return (
-    <Tabs variant="secondary">
+    <Tabs
+      variant="secondary"
+      selectedKey={flightType}
+      onSelectionChange={(key) => {
+        if (key === "domestic" || key === "international") {
+          setFlightType(key);
+        }
+      }}
+    >
       <Tabs.ListContainer>
         <Tabs.List className="*:aria-selected:text-primary *:p-0 *:text-nowrap *:aria-selected:font-bold md:space-x-10 *:md:w-fit">
           <Tabs.Tab id="international">
