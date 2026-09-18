@@ -3,24 +3,13 @@
 import { Popover } from "@heroui/react";
 import { ChevronDown } from "lucide-react";
 import PassengerFields from "./PassengerFields";
-import { useState } from "react";
-
-export type Passengers = {
-  adult: number;
-  child: number;
-  infant: number;
-};
+import { useFlightSearch } from "@/_store/flightSearchStore";
 
 export default function PassengerSelector() {
-  const [passengers, setPassengers] = useState<Passengers>({
-    adult: 0,
-    child: 0,
-    infant: 0,
-  });
-
-  const totalPassengers =
-    passengers.adult + passengers.child + passengers.infant;
-
+  const totalPassengers = useFlightSearch(
+    (state) =>
+      state.passengers.adult + state.passengers.child + state.passengers.infant,
+  );
   return (
     <Popover>
       <Popover.Trigger className="w-full flex-1">
@@ -34,10 +23,7 @@ export default function PassengerSelector() {
       </Popover.Trigger>
       <Popover.Content>
         <Popover.Dialog className="max-w-none">
-          <PassengerFields
-            passengers={passengers}
-            setPassengers={setPassengers}
-          />
+          <PassengerFields />
         </Popover.Dialog>
       </Popover.Content>
     </Popover>
