@@ -1,11 +1,11 @@
 import Hero from "./_components/hero/Hero";
-import SearchFlight from "./_components/flight/SearchFlight";
+import FlightSearch from "./_components/flight/FlightSearch";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <SearchFlight />
+      <FlightSearch />
     </>
   );
 }

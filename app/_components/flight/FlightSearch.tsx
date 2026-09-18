@@ -10,7 +10,7 @@ import PassengerSelector from "./components/PassengerSelector";
 import CabinClass from "./components/CabinClass";
 import SearchButton from "./components/SearchButton";
 
-export default function SearchFlight() {
+export default function FlightSearch() {
   return (
     <Container>
       <div className="md:border-gray-2 md:rounded-lg md:border md:p-6 md:shadow-lg">
