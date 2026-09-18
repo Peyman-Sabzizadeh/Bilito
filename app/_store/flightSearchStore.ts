@@ -35,7 +35,7 @@ type Action = {
 };
 
 export const useFlightSearch = create<State & Action>((set) => ({
-  flightType: "domestic",
+  flightType: "international",
   tripType: "one-way",
   origin: null,
   destination: null,

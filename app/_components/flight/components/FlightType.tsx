@@ -11,11 +11,7 @@ export default function FlightType() {
     <Tabs
       variant="secondary"
       selectedKey={flightType}
-      onSelectionChange={(key) => {
-        if (key === "domestic" || key === "international") {
-          setFlightType(key);
-        }
-      }}
+      onSelectionChange={(value) => setFlightType(value as typeof flightType)}
     >
       <Tabs.ListContainer>
         <Tabs.List className="*:aria-selected:text-primary *:p-0 *:text-nowrap *:aria-selected:font-bold md:space-x-10 *:md:w-fit">

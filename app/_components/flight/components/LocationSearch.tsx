@@ -31,7 +31,7 @@ export default function LocationSearch({ location }: LocationSearchProps) {
       aria-label="Location Search"
       placeholder={location === "origin" ? "مبدا" : "مقصد"}
       value={selectedKey}
-      onChange={(value) => setSelectedKey(value?.toString() ?? null)}
+      onChange={(value) => setSelectedKey(value as typeof selectedKey)}
       className="flex-1"
     >
       <AutocompleteTrigger className="border-gray-3 flex h-14 items-center rounded-lg border py-2 shadow-none md:h-12">
