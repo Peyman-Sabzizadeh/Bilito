@@ -1,17 +1,18 @@
 import localFont from "next/font/local";
 
 export const iranSans = localFont({
+  // Temporarily disabled; enable if needed in the future.
   src: [
-    {
-      path: "./IRANSansX-Thin.woff2",
-      weight: "100",
-      style: "normal",
-    },
-    {
-      path: "./IRANSansX-ExtraLight.woff2",
-      weight: "200",
-      style: "normal",
-    },
+    // {
+    //   path: "./IRANSansX-Thin.woff2",
+    //   weight: "100",
+    //   style: "normal",
+    // },
+    // {
+    //   path: "./IRANSansX-ExtraLight.woff2",
+    //   weight: "200",
+    //   style: "normal",
+    // },
     {
       path: "./IRANSansX-Light.woff2",
       weight: "300",
@@ -27,25 +28,25 @@ export const iranSans = localFont({
       weight: "500",
       style: "normal",
     },
-    {
-      path: "./IRANSansX-SemiBold.woff2",
-      weight: "600",
-      style: "normal",
-    },
+    // {
+    //   path: "./IRANSansX-SemiBold.woff2",
+    //   weight: "600",
+    //   style: "normal",
+    // },
     {
       path: "./IRANSansX-Bold.woff2",
       weight: "700",
       style: "normal",
     },
-    {
-      path: "./IRANSansX-ExtraBold.woff2",
-      weight: "800",
-      style: "normal",
-    },
-    {
-      path: "./IRANSansX-Black.woff2",
-      weight: "900",
-      style: "normal",
-    },
+    // {
+    //   path: "./IRANSansX-ExtraBold.woff2",
+    //   weight: "800",
+    //   style: "normal",
+    // },
+    // {
+    //   path: "./IRANSansX-Black.woff2",
+    //   weight: "900",
+    //   style: "normal",
+    // },
   ],
 });

@@ -5,11 +5,10 @@ export default function Logo({ className }: { className?: string }) {
   return (
     <Link href="/" className={className}>
       <Image
-        src="logo.svg"
+        src="/logo.svg"
         alt="Logo"
         width={148}
         height={48}
-        priority
         style={{ width: "130px", height: "auto" }}
       />
     </Link>
