@@ -12,8 +12,8 @@ import SearchButton from "./components/SearchButton";
 
 export default function FlightSearch() {
   return (
-    <Container>
-      <div className="md:border-gray-2 relative md:-mt-35 md:rounded-lg md:border md:bg-white md:p-6 md:shadow-lg">
+    <Container className="relative">
+      <div className="md:border-gray-2 relative md:-mt-28 md:rounded-lg md:border md:bg-white md:p-6 md:shadow-lg">
         <FlightType />
         <Separator className="-mt-0.5 h-0.5" />
         <TripType />

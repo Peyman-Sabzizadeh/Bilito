@@ -1,8 +1,13 @@
-export default function Container({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
+type ContainerProps = {
+  children: React.ReactNode;
+  className?: string;
+};
+
+export default function Container({ children, className }: ContainerProps) {
   return (
-    <div className="mx-auto w-full max-w-360 px-5 py-4 sm:px-12 sm:py-4 md:px-16 md:py-4 lg:px-20 lg:py-5 xl:px-27 xl:py-7">
+    <div
+      className={`mx-auto w-full max-w-360 px-5 sm:px-12 md:px-16 lg:px-20 xl:px-27 ${className}`}
+    >
       {children}
     </div>
   );
