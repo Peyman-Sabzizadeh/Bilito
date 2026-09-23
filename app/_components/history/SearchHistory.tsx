@@ -6,7 +6,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y, Navigation } from "swiper/modules";
 import "swiper/css";
 import { Button } from "@heroui/react";
-import { ChevronLeft, ChevronRight, HistoryIcon, XSquare } from "lucide-react";
+import { HistoryIcon, XSquare } from "lucide-react";
+import NavigationButton from "./components/NavigationButton";
 
 export default function SearchHistory() {
   const [nextEl, setNextEl] = useState<HTMLButtonElement | null>(null);
@@ -51,13 +52,7 @@ export default function SearchHistory() {
         "تاریخچه ای وجود ندارد!"
       ) : (
         <div className="flex gap-9">
-          <Button
-            ref={setPrevEl}
-            isIconOnly
-            className="text-gray-7 border-gray-3 size-10.5 rounded-xl border bg-transparent p-0 max-md:hidden"
-          >
-            <ChevronRight className="size-6" strokeWidth={1.5} />
-          </Button>
+          <NavigationButton type="prev" setElement={setPrevEl}/>
           <Swiper
             modules={[Navigation, A11y]}
             slidesPerView="auto"
@@ -86,13 +81,7 @@ export default function SearchHistory() {
               </SwiperSlide>
             ))}
           </Swiper>
-          <Button
-            ref={setNextEl}
-            isIconOnly
-            className="text-gray-7 border-gray-3 size-10.5 rounded-xl border bg-transparent p-0 max-md:hidden"
-          >
-            <ChevronLeft className="size-6" strokeWidth={1.5} />
-          </Button>
+          <NavigationButton type="next" setElement={setNextEl}/>
         </div>
       )}
     </Container>
