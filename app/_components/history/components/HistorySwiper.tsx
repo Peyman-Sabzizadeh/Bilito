@@ -30,7 +30,7 @@ export default function HistorySwiper({
         nextEl,
         prevEl,
       }}
-      className="md:min-w-0 md:flex-1!"
+      className="min-w-0 flex-1!"
     >
       {history.map((item) => (
         <SwiperSlide key={item.id} className="w-auto!">

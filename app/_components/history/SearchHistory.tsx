@@ -12,6 +12,7 @@ export default function SearchHistory() {
   const [nextEl, setNextEl] = useState<HTMLButtonElement | null>(null);
   const [prevEl, setPrevEl] = useState<HTMLButtonElement | null>(null);
   const [history, setHistory] = useState(flightRoutes);
+  const isEmpty = history.length === 0
   const removeItem = (id: number) => {
     setHistory((prev) => prev.filter((item) => item.id !== id));
   };
@@ -20,7 +21,7 @@ export default function SearchHistory() {
   };
   return (
     <Container className="flex flex-col gap-4 pt-6">
-      <SearchHistoryHeader clearAll={clearAll} />
+      <SearchHistoryHeader clearAll={clearAll} isEmpty={isEmpty}/>
       {!history.length ? (
         <EmptyHistory />
       ) : (

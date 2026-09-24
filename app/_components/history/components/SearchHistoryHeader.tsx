@@ -1,12 +1,14 @@
-import { Button } from "@heroui/react";
 import { HistoryIcon } from "lucide-react";
+import ClearAllButton from "./ClearAllButton";
 
-type SearchHistoryHeaderProps = {
+export type SearchHistoryHeaderProps = {
   clearAll: () => void;
+  isEmpty: boolean;
 };
 
 export default function SearchHistoryHeader({
   clearAll,
+  isEmpty,
 }: SearchHistoryHeaderProps) {
   return (
     <div className="flex items-center justify-between">
@@ -14,12 +16,7 @@ export default function SearchHistoryHeader({
         <HistoryIcon strokeWidth={1.5} />
         <h2>تاریخچه جستجو</h2>
       </div>
-      <Button
-        onClick={clearAll}
-        className="text-primary size-auto bg-transparent p-0 max-md:hidden"
-      >
-        پاک کردن همه
-      </Button>
+      <ClearAllButton clearAll={clearAll} isEmpty={isEmpty} />
     </div>
   );
 }
