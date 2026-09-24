@@ -2,13 +2,9 @@
 
 import Container from "../Container";
 import { useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { A11y, Navigation } from "swiper/modules";
-import "swiper/css";
-import { Button } from "@heroui/react";
-import { XSquare } from "lucide-react";
 import NavigationButton from "./components/NavigationButton";
 import SearchHistoryHeader from "./components/SearchHistoryHeader";
+import HistorySwiper from "./components/HistorySwiper";
 
 export default function SearchHistory() {
   const [nextEl, setNextEl] = useState<HTMLButtonElement | null>(null);
@@ -43,34 +39,12 @@ export default function SearchHistory() {
       ) : (
         <div className="flex gap-9">
           <NavigationButton type="prev" setElement={setPrevEl} />
-          <Swiper
-            modules={[Navigation, A11y]}
-            slidesPerView="auto"
-            spaceBetween={16}
-            watchOverflow={false}
-            navigation={{
-              nextEl,
-              prevEl,
-            }}
-            className="md:min-w-0 md:flex-1!"
-          >
-            {history.map((item) => (
-              <SwiperSlide key={item.id} className="w-auto!">
-                <div className="border-gray-3 flex items-center gap-2 rounded-md border px-3 py-2">
-                  <Button
-                    isIconOnly
-                    onClick={() => removeItem(item.id)}
-                    className="text-gray-6 size-auto bg-transparent hover:bg-transparent"
-                  >
-                    <XSquare />
-                  </Button>
-                  <span className="text-gray-7 text-xs font-medium">
-                    {item.from} به {item.to}
-                  </span>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+          <HistorySwiper
+            nextEl={nextEl}
+            prevEl={prevEl}
+            history={history}
+            removeItem={removeItem}
+          />
           <NavigationButton type="next" setElement={setNextEl} />
         </div>
       )}
