@@ -1,5 +1,5 @@
-import { HistoryIcon } from "lucide-react";
 import ClearAllButton from "./ClearAllButton";
+import SearchHistoryTitle from "./SearchHistoryTitle";
 
 export type SearchHistoryHeaderProps = {
   clearAll: () => void;
@@ -12,10 +12,7 @@ export default function SearchHistoryHeader({
 }: SearchHistoryHeaderProps) {
   return (
     <div className="flex items-center justify-between">
-      <div className="text-gray-8 flex gap-2">
-        <HistoryIcon strokeWidth={1.5} />
-        <h2>تاریخچه جستجو</h2>
-      </div>
+      <SearchHistoryTitle />
       <ClearAllButton clearAll={clearAll} isEmpty={isEmpty} />
     </div>
   );
