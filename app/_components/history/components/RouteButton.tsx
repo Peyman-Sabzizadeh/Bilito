@@ -1,4 +1,5 @@
 import { useFlightSearch } from "@/_store/flightSearchStore";
+import { scrollToTop } from "@/_utils/scrollToTop";
 import { Button } from "@heroui/react";
 
 type RouteButtonProps = {
@@ -17,6 +18,7 @@ export default function RouteButton({ item }: RouteButtonProps) {
       onPress={() => {
         setOrigin(item.from);
         setDestination(item.to);
+        scrollToTop();
       }}
       className="text-gray-7 size-auto bg-transparent p-0 text-xs font-medium select-none"
     >

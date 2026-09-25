@@ -14,6 +14,7 @@ export default function MobileDestinationCard({
         alt={item.destination}
         width={236}
         height={156}
+        loading="lazy"
       />
       <DestinationInfo
         persianDestination={item.persianDestination}
