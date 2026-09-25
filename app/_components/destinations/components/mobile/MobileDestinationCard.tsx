@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Button } from "@heroui/react";
+import DestinationInfo from "../DestinationInfo";
 
 export default function MobileDestinationCard() {
   return (
@@ -10,7 +10,7 @@ export default function MobileDestinationCard() {
         width={236}
         height={156}
       />
-      <span>Destination info</span>
+      <DestinationInfo />
     </>
   );
 }
