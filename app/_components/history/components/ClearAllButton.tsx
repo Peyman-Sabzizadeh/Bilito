@@ -7,7 +7,7 @@ export default function ClearAllButton({
 }: SearchHistoryHeaderProps) {
   return (
     <Button
-      onClick={clearAll}
+      onPress={clearAll}
       className={`${isEmpty && "hidden"} text-primary size-auto bg-transparent p-0 max-md:hidden`}
     >
       پاک کردن همه

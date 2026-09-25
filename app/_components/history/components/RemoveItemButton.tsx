@@ -13,7 +13,7 @@ export default function RemoveItemButton({
   return (
     <Button
       isIconOnly
-      onClick={() => removeItem(itemId)}
+      onPress={() => removeItem(itemId)}
       className="text-gray-6 size-auto bg-transparent hover:bg-transparent"
     >
       <XSquare />

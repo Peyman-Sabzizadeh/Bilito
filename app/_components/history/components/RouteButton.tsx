@@ -14,7 +14,7 @@ export default function RouteButton({ item }: RouteButtonProps) {
   const setDestination = useFlightSearch((state) => state.setDestination);
   return (
     <Button
-      onClick={() => {
+      onPress={() => {
         setOrigin(item.from);
         setDestination(item.to);
       }}
