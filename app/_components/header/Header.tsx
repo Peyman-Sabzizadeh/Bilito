@@ -8,7 +8,7 @@ export default function Header() {
       <div className="md:hidden">
         <MobileHeader />
       </div>
-      <div className="hidden md:block">
+      <div className="max-md:hidden">
         <DesktopHeader />
       </div>
     </Container>
