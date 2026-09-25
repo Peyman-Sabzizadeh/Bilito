@@ -8,16 +8,6 @@ export default function TravelDestinations() {
         <DestinationsSwiper />
       </div>
       <div className="max-md:hidden">مقاصد پروازی: دسکتاپ ویو</div>
-      <h1>test</h1>
-      <h1>test</h1>
-      <h1>test</h1>
-      <h1>test</h1>
-      <h1>test</h1>
-      <h1>test</h1>
-      <h1>test</h1>
-      <h1>test</h1>
-      <h1>test</h1>
-      <h1>test</h1>
     </Container>
   );
 }
