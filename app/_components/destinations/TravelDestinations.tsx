@@ -1,4 +1,5 @@
 import Container from "../Container";
+import DesktopDestinations from "./components/desktop/DesktopDestinations";
 import DestinationsSwiper from "./components/mobile/DestinationsSwiper";
 
 export default function TravelDestinations() {
@@ -7,7 +8,9 @@ export default function TravelDestinations() {
       <div className="md:hidden">
         <DestinationsSwiper />
       </div>
-      <div className="max-md:hidden">مقاصد پروازی: دسکتاپ ویو</div>
+      <div className="max-md:hidden">
+        <DesktopDestinations />
+      </div>
     </Container>
   );
 }
