@@ -1,3 +1,5 @@
+"use client";
+
 import type { TravelDestination } from "@/_data/travelDestinations";
 import { useFlightSearch } from "@/_store/flightSearchStore";
 import { scrollToTop } from "@/_utils/scrollToTop";
@@ -15,7 +17,7 @@ export default function DestinationInfoButton({
         setDestination(persianDestination);
         scrollToTop();
       }}
-      className="rounded-lg border border-white bg-transparent p-2 font-light"
+      className="rounded-lg border border-white bg-transparent p-2 font-light hover:bg-black/20"
     >
       خرید بلیط پروازهای {persianDestination}
     </Button>

@@ -17,7 +17,7 @@ export default function LocationListBox() {
           textValue={city.name}
           aria-label={city.name}
         >
-          <div className="flex flex-col">
+          <div className="flex flex-col *:whitespace-nowrap">
             <Label>{city.name}</Label>
             <Description>{city.country}</Description>
           </div>
