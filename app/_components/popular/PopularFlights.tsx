@@ -1,4 +1,5 @@
 import Container from "../Container";
+import PopularRoutes from "./components/PopularRoutes";
 
 export default function PopularFlights() {
   return (
@@ -6,8 +7,7 @@ export default function PopularFlights() {
       <h2 className="text-gray-9 font-medium md:text-lg md:font-extrabold">
         پرطرفدارترین پروازهای داخلی
       </h2>
-      <span>Popular cities</span>
-      <span>Popular routes</span>
+      <PopularRoutes />
     </Container>
   );
 }
