@@ -135,6 +135,8 @@ export const allCities: City[] = [
   { country: "ازبکستان", name: "تاشکند" },
   { country: "ایران", name: "شیراز" },
   { country: "ایران", name: "کیش" },
+  { country: "ایران", name: "تهران" },
+  { country: "ایران", name: "مشهد" },
 
   // ==================== Africa ====================
   { country: "مصر", name: "قاهره" },

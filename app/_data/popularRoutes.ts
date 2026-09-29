@@ -1,12 +1,14 @@
+export type RouteProp = {
+  id: number;
+  from: string;
+  to: string;
+  startingPrice: number;
+  srcName: string;
+};
+
 type PopularRoute = {
   city: string;
-  routes: {
-    id: number;
-    from: string;
-    to: string;
-    startingPrice: number;
-    srcName: string;
-  }[];
+  routes: RouteProp[];
 };
 
 export const popularRoutes: PopularRoute[] = [

@@ -4,7 +4,7 @@ import CityRoutesWrapper from "./CityRoutesWrapper";
 
 export default function PopularRoutes() {
   return (
-    <Tabs>
+    <Tabs className="gap-6 md:gap-8">
       <PopularCities />
       <CityRoutesWrapper />
     </Tabs>
