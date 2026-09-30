@@ -3,6 +3,7 @@ import FlightSearch from "./_components/flight/FlightSearch";
 import SearchHistory from "./_components/history/SearchHistory";
 import TravelDestinations from "./_components/destinations/TravelDestinations";
 import PopularFlights from "./_components/popular/PopularFlights";
+import FaqSection from "./_components/faq/FaqSection";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <SearchHistory />
       <TravelDestinations />
       <PopularFlights />
+      <FaqSection />
     </>
   );
 }
