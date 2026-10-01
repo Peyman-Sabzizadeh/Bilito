@@ -1,9 +1,9 @@
-type faq = {
+type Faq = {
   title: string;
   content: string;
 };
 
-export const faqData: faq[] = [
+export const faqData: Faq[] = [
   {
     title: "در هر پرواز میزان بار مجاز چقدر است؟",
     content:
