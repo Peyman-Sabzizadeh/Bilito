@@ -23,7 +23,7 @@ export default function CityRoute({ city, route }: CityRouteProps) {
       }}
     >
       <Image
-        src={`/popular/${route.srcName}.png`}
+        src={route.src}
         alt={`${route.from} به ${route.to}`}
         width={80}
         height={88}

@@ -16,8 +16,8 @@ export default function DestinationCard({
   return (
     <div className="relative">
       <Image
-        src={`/destinations/${device}/${item.destination}.png`}
-        alt={item.destination}
+        src={`/destinations/${device}/${item.src}`}
+        alt={item.persianDestination}
         width={device === "desktop" ? 392 : 236}
         height={
           device === "desktop" ? (orientation === "vertical" ? 328 : 152) : 156

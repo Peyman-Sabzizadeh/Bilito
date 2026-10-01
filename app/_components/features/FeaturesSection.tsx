@@ -12,7 +12,7 @@ export default function FeaturesSection() {
             className="flex max-w-19 flex-col items-center gap-2 text-center md:max-w-none md:gap-6"
           >
             <Image
-              src={`/features/${item.src}`}
+              src={item.src}
               alt={item.title}
               width={48}
               height={48}

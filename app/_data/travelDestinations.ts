@@ -1,12 +1,12 @@
 export type TravelDestination = {
-  destination: string;
+  src: string;
   persianDestination: string;
   title: string;
 };
 
 export const travelDestinations: TravelDestination[] = [
-  { destination: "kish", persianDestination: "کیش", title: "بهترین فصل شنا" },
-  { destination: "turkey", persianDestination: "آنکارا", title: "سفر به ترکیه" },
-  { destination: "shiraz", persianDestination: "شیراز", title: "دنیای از تاریخ و هنر" },
-  { destination: "dubai", persianDestination: "دبی", title: "شگفتی در صحرا" },
+  { src: "kish.png", persianDestination: "کیش", title: "بهترین فصل شنا" },
+  { src: "turkey.png", persianDestination: "آنکارا", title: "سفر به ترکیه" },
+  { src: "shiraz.png", persianDestination: "شیراز", title: "دنیای از تاریخ و هنر" },
+  { src: "dubai.png", persianDestination: "دبی", title: "شگفتی در صحرا" },
 ];
