@@ -10,6 +10,7 @@ export default function Logo({ className }: { className?: string }) {
         width={148}
         height={48}
         style={{ width: "130px", height: "auto" }}
+        loading="eager"
       />
     </Link>
   );

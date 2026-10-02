@@ -14,10 +14,9 @@ export default function FeaturesSection() {
             <Image
               src={item.src}
               alt={item.title}
-              width={48}
-              height={48}
-              loading="lazy"
-              className="md:size-18"
+              width={96}
+              height={96}
+              className="size-12 md:size-18"
             />
             <span className="text-shade-4 text-sm font-medium md:text-base md:font-semibold">
               {item.title}
