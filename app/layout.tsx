@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "@/globals.css";
 import { iranSans } from "@/_fonts";
 import Header from "@/_components/header/Header";
+import Footer from "@/_components/footer/Footer";
 
 export const metadata: Metadata = {
   title: "بیلیتو",
@@ -19,6 +20,7 @@ export default function RootLayout({
       <body className="min-h-full">
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

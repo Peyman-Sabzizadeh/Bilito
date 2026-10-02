@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function FeaturesSection() {
   return (
     <div className="bg-tint-1 mt-10 pt-8 pb-4">
-      <Container className="flex items-center justify-around">
+      <Container className="flex items-center justify-between md:justify-around">
         {featuresData.map((item, index) => (
           <div
             key={index}
