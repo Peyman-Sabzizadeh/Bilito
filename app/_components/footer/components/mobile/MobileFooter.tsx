@@ -1,6 +1,7 @@
 import ContactInfo from "../ContactInfo";
 import QuickLinks from "../QuickLinks";
 import StoreLink from "../StoreLink";
+import TrustBadges from "../TrustBadges";
 
 export default function MobileFooter() {
   return (
@@ -13,6 +14,7 @@ export default function MobileFooter() {
           <StoreLink store="Apple Store" />
         </div>
       </div>
+      <TrustBadges />
     </div>
   );
 }
