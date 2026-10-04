@@ -3,7 +3,7 @@ import MobileFooter from "./components/mobile/MobileFooter";
 
 export default function Footer() {
   return (
-    <Container className="pt-4 pb-8 md:py-6">
+    <Container className="py-8 md:py-6">
       <div className="md:hidden">
         <MobileFooter />
       </div>
