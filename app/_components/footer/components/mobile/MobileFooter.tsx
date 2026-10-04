@@ -3,6 +3,7 @@ import QuickLinks from "../QuickLinks";
 import StoreLink from "../StoreLink";
 import TrustBadges from "../TrustBadges";
 import SocialLinks from "../SocialLinks";
+import ScrollToTopButton from "../ScrollToTopButton";
 
 export default function MobileFooter() {
   return (
@@ -17,6 +18,7 @@ export default function MobileFooter() {
       </div>
       <TrustBadges />
       <SocialLinks />
+      <ScrollToTopButton />
     </div>
   );
 }
