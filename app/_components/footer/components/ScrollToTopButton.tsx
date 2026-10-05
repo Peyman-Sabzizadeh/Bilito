@@ -6,13 +6,16 @@ import { ChevronUpCircle } from "lucide-react";
 
 export default function ScrollToTopButton() {
   return (
-    <div className="flex flex-col items-center justify-center gap-2">
+    <div className="flex flex-col items-center justify-center gap-2 md:-mt-4">
       <Button
         isIconOnly
         onPress={() => scrollToTop()}
         className="bg-tint-1 max-md:rounded-lg md:bg-transparent"
       >
-        <ChevronUpCircle className="text-primary md:text-gray-8 size-7" />
+        <ChevronUpCircle
+          className="text-primary md:text-gray-8 size-7 md:stroke-1"
+          strokeWidth={1.5}
+        />
       </Button>
       <span className="text-gray-8 text-sm font-medium max-md:hidden">
         بازگشت به بالا

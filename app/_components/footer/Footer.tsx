@@ -1,5 +1,6 @@
 import Container from "../Container";
 import MobileFooter from "./components/mobile/MobileFooter";
+import DesktopFooter from "./components/desktop/DesktopFooter";
 
 export default function Footer() {
   return (
@@ -7,7 +8,9 @@ export default function Footer() {
       <div className="md:hidden">
         <MobileFooter />
       </div>
-      <div className="max-md:hidden">Desktop Footer</div>
+      <div className="max-md:hidden">
+        <DesktopFooter />
+      </div>
     </Container>
   );
 }
