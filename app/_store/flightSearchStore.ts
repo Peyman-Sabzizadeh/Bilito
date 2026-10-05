@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { DateValue, RangeValue } from "@heroui/react";
+import { CabinClassValue } from "@/_data/cabinClasses";
 
 type State = {
   flightType: "domestic" | "international";
@@ -13,15 +14,7 @@ type State = {
     child: number;
     infant: number;
   };
-  cabinClass:
-    | "economy"
-    | "premium-economy"
-    | "comfort"
-    | "business"
-    | "premium-business"
-    | "first"
-    | "premium-first"
-    | null;
+  cabinClass: CabinClassValue | null;
 };
 
 type Action = {

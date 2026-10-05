@@ -3,6 +3,7 @@
 import { ListBox, Select } from "@heroui/react";
 import ClassListBoxItem from "./ClassListBoxItem";
 import { useFlightSearch } from "@/_store/flightSearchStore";
+import { cabinClasses } from "@/_data/cabinClasses";
 
 export default function CabinClass() {
   const cabinClass = useFlightSearch((state) => state.cabinClass);
@@ -20,21 +21,17 @@ export default function CabinClass() {
         <Select.Indicator className="ml-1 md:hidden" />
       </Select.Trigger>
       <Select.Popover className="w-64 min-w-auto">
-        <ListBox aria-label="Flight class items">
-          <ClassListBoxItem label="اکونومی" description="Economy" />
-          <ClassListBoxItem
-            label="پریمیوم اکونومی"
-            description="Premium Economy"
-          />
-          <ClassListBoxItem label="کامفورت" description="Comfort" />
-          <ClassListBoxItem label="بیزنس" description="Business" />
-          <ClassListBoxItem
-            label="پریمیوم بیزنس"
-            description="Premium Business"
-          />
-          <ClassListBoxItem label="فرست" description="First" />
-          <ClassListBoxItem label="پریمیوم فرست" description="Premium First" />
-          <ClassListBoxItem label="پریمیوم فرست" description="Premium First" />
+        <ListBox
+          aria-label="Flight class items"
+          className="max-h-64 overflow-y-auto *:shrink-0"
+        >
+          {cabinClasses.map((item) => (
+            <ClassListBoxItem
+              key={item.value}
+              label={item.label}
+              description={item.description}
+            />
+          ))}
         </ListBox>
       </Select.Popover>
     </Select>
