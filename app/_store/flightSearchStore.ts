@@ -43,7 +43,12 @@ export const useFlightSearch = create<State & Action>((set) => ({
   cabinClass: null,
 
   setFlightType: (newFlightType) => set({ flightType: newFlightType }),
-  setTripType: (newTripType) => set({ tripType: newTripType }),
+  setTripType: (newTripType) =>
+    set((state) =>
+      state.tripType === newTripType
+        ? state
+        : { tripType: newTripType, departureDate: null, rangeDate: null },
+    ),
   setOrigin: (newOrigin) => set({ origin: newOrigin }),
   setDestination: (newDestination) => set({ destination: newDestination }),
   setDepartureDate: (newDepartureDate) =>
