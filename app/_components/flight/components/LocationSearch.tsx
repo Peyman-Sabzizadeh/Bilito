@@ -25,6 +25,9 @@ export default function LocationSearch({ location }: LocationSearchProps) {
   const setSelectedKey = useFlightSearch((state) =>
     location === "origin" ? state.setOrigin : state.setDestination,
   );
+  const otherKey = useFlightSearch((state) =>
+    location === "origin" ? state.destination : state.origin,
+  );
   const { contains } = useFilter({ sensitivity: "base" });
   return (
     <Autocomplete
@@ -32,6 +35,7 @@ export default function LocationSearch({ location }: LocationSearchProps) {
       placeholder={location === "origin" ? "مبدا" : "مقصد"}
       value={selectedKey}
       onChange={(value) => setSelectedKey(value as typeof selectedKey)}
+      disabledKeys={otherKey ? [otherKey] : []}
       className="flex-1"
     >
       <AutocompleteTrigger className="border-gray-3 flex h-14 items-center rounded-lg border py-2 shadow-none md:h-12">
