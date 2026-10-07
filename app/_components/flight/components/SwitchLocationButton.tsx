@@ -11,6 +11,7 @@ export default function SwitchLocationButton() {
   const setDestination = useFlightSearch((state) => state.setDestination);
   return (
     <Button
+      type="button"
       isIconOnly
       className="text-gray-9 size-4 bg-transparent hover:bg-transparent max-md:hidden"
       onPress={() => {
