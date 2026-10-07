@@ -1,6 +1,5 @@
 "use client";
 
-import { useFlightSearch } from "@/_store/flightSearchStore";
 import FlightType from "./components/FlightType";
 import { Separator } from "@heroui/react";
 import TripType from "./components/TripType";
@@ -11,34 +10,10 @@ import FlightDateRangePicker from "./components/FlightDateRangePicker";
 import PassengerSelector from "./components/PassengerSelector";
 import CabinClass from "./components/CabinClass";
 import SearchButton from "./components/SearchButton";
+import useFlightSearchSubmit from "@/_hooks/useFlightSearchSubmit";
 
 export default function FlightSearchForm() {
-  const handleSearchSubmit = (event: React.SubmitEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const {
-      flightType,
-      tripType,
-      origin,
-      destination,
-      departureDate,
-      rangeDate,
-      passengers,
-      cabinClass,
-    } = useFlightSearch.getState();
-    const isOneWay = tripType === "one-way";
-    const payload = {
-      flightType,
-      tripType,
-      origin,
-      destination,
-      ...(isOneWay ? { departureDate } : { rangeDate }),
-      passengers,
-      cabinClass,
-    };
-    console.log("payload: ", payload);
-    // send to API when backend is ready
-  };
-
+  const { handleSearchSubmit } = useFlightSearchSubmit();
   return (
     <form onSubmit={handleSearchSubmit}>
       <FlightType />
