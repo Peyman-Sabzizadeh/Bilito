@@ -1,4 +1,5 @@
-import { Description, Label, NumberField } from "@heroui/react";
+import { useFlightSearch } from "@/_store/flightSearchStore";
+import { Description, Label, NumberField, Tooltip } from "@heroui/react";
 
 type PassengerNumberFieldProps = {
   maxValue: number;
@@ -15,6 +16,7 @@ export default function PassengerNumberField({
   value,
   onChange,
 }: PassengerNumberFieldProps) {
+  const adultCount = useFlightSearch((state) => state.passengers.adult);
   return (
     <NumberField
       minValue={0}
@@ -23,11 +25,21 @@ export default function PassengerNumberField({
       onChange={onChange}
     >
       <Label>{label}</Label>
-      <NumberField.Group>
-        <NumberField.IncrementButton />
-        <NumberField.Input />
-        <NumberField.DecrementButton />
-      </NumberField.Group>
+      <Tooltip delay={0} isDisabled={label === "بزرگسال" || adultCount > 0}>
+        <Tooltip.Trigger>
+          <NumberField.Group
+            isDisabled={label !== "بزرگسال" && adultCount === 0}
+          >
+            <NumberField.IncrementButton />
+            <NumberField.Input />
+            <NumberField.DecrementButton />
+          </NumberField.Group>
+        </Tooltip.Trigger>
+        <Tooltip.Content>
+          <Tooltip.Arrow />
+          <p>حداقل باید 1 بزرگسال انتخاب شود.</p>
+        </Tooltip.Content>
+      </Tooltip>
       <Description>{description}</Description>
     </NumberField>
   );
