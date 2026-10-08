@@ -1,4 +1,5 @@
 import "swiper/css";
+import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y, Navigation } from "swiper/modules";
 import HistorySwiperSlide from "./HistorySwiperSlide";
@@ -25,7 +26,6 @@ export default function HistorySwiper({
       modules={[Navigation, A11y]}
       slidesPerView="auto"
       spaceBetween={16}
-      watchOverflow={false}
       navigation={{
         nextEl,
         prevEl,

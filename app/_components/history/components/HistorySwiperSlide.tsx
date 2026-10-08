@@ -15,7 +15,7 @@ export default function HistorySwiperSlide({
   removeItem,
 }: HistorySwiperSlideProps) {
   return (
-    <div className="border-gray-3 flex cursor-pointer items-center gap-2 rounded-md border px-3 py-2">
+    <div className="border-gray-3 hover:bg-gray-2 flex cursor-pointer items-center gap-2 rounded-md border px-3 py-2 transition-colors">
       <RemoveItemButton removeItem={removeItem} itemId={item.id} />
       <RouteButton item={item} />
     </div>

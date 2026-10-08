@@ -13,7 +13,7 @@ export default function FaqSection() {
             <Accordion.Heading>
               <Accordion.Trigger className="group text-gray-8 aria-expanded:text-primary gap-5 text-right transition md:font-semibold">
                 {item.title}
-                <ChevronDown className="size-4 duration-250 group-aria-expanded:-rotate-180" />
+                <ChevronDown className="size-4 shrink-0 duration-250 group-aria-expanded:-rotate-180" />
               </Accordion.Trigger>
             </Accordion.Heading>
             <Accordion.Panel>
