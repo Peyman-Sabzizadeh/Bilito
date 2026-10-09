@@ -5,7 +5,7 @@ import RegisterButton from "../RegisterButton";
 
 export default function DesktopHeader() {
   return (
-    <div className="text-gray-7 flex items-center justify-between">
+    <header className="text-gray-7 flex items-center justify-between max-md:hidden">
       <div className="flex items-center gap-4 text-sm whitespace-nowrap lg:gap-18 lg:text-base lg:whitespace-normal">
         <Logo />
         <DesktopMenuItems />
@@ -20,6 +20,6 @@ export default function DesktopHeader() {
           className="hover:bg-shade-2 px-1 text-xs xl:px-4 xl:py-2 xl:text-sm"
         />
       </div>
-    </div>
+    </header>
   );
 }

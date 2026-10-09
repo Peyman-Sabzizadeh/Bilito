@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import MobileMenuButton from "./MobileMenuButton";
-import MobileMenuItems from "./MobileMenuItems";
+import MobileMenuList from "./MobileMenuList";
 import {
   Drawer,
   DrawerBackdrop,
@@ -21,7 +21,7 @@ export default function MobileMenu() {
         <DrawerContent placement="bottom">
           <DrawerDialog className="h-full rounded-none px-5 shadow-none">
             <DrawerBody className="text-gray-8">
-              <MobileMenuItems />
+              <MobileMenuList />
             </DrawerBody>
           </DrawerDialog>
         </DrawerContent>

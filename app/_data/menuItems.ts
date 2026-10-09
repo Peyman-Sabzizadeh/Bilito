@@ -1,10 +1,4 @@
-import {
-  House,
-  PhoneCall,
-  Plane,
-  ReceiptText,
-  UserSearch,
-} from "lucide-react";
+import { House, PhoneCall, Plane, ReceiptText, UserSearch } from "lucide-react";
 
 export const menuItems = [
   { link: "#", icon: House, label: "صفحه اصلی" },
@@ -13,3 +7,5 @@ export const menuItems = [
   { link: "#", icon: PhoneCall, label: "تماس با ما" },
   { link: "#", icon: UserSearch, label: "درباره ما" },
 ];
+
+export type menuItemProps = (typeof menuItems)[number];

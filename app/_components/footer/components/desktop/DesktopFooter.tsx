@@ -9,7 +9,7 @@ import ScrollToTopButton from "../ScrollToTopButton";
 
 export default function DesktopFooter() {
   return (
-    <div className="space-y-8">
+    <footer className="space-y-8 max-md:hidden">
       <div className="flex items-center justify-between">
         <ApplicationInfo />
         <div className="flex gap-6">
@@ -30,6 +30,6 @@ export default function DesktopFooter() {
       </div>
       <Separator />
       <ScrollToTopButton />
-    </div>
+    </footer>
   );
-} 
+}

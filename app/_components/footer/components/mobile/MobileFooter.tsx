@@ -7,7 +7,7 @@ import ScrollToTopButton from "../ScrollToTopButton";
 
 export default function MobileFooter() {
   return (
-    <div className="flex flex-col gap-8">
+    <footer className="flex flex-col gap-8 md:hidden">
       <ContactInfo />
       <div className="flex justify-between gap-6">
         <QuickLinks />
@@ -19,6 +19,6 @@ export default function MobileFooter() {
       <TrustBadges />
       <SocialLinks />
       <ScrollToTopButton />
-    </div>
+    </footer>
   );
 }
