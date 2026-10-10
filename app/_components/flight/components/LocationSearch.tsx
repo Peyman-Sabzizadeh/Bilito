@@ -10,33 +10,40 @@ import {
   AutocompletePopover,
   AutocompleteTrigger,
   AutocompleteValue,
+  FieldError,
   useFilter,
 } from "@heroui/react";
 import { useFlightSearch } from "@/_store/flightSearchStore";
 
 type LocationSearchProps = {
-  location: "origin" | "destination";
+  location: "مبدا" | "مقصد";
+  submitAttempted: boolean;
 };
 
-export default function LocationSearch({ location }: LocationSearchProps) {
+export default function LocationSearch({
+  location,
+  submitAttempted,
+}: LocationSearchProps) {
   const selectedKey = useFlightSearch((state) =>
-    location === "origin" ? state.origin : state.destination,
+    location === "مبدا" ? state.origin : state.destination,
   );
   const setSelectedKey = useFlightSearch((state) =>
-    location === "origin" ? state.setOrigin : state.setDestination,
+    location === "مبدا" ? state.setOrigin : state.setDestination,
   );
   const otherKey = useFlightSearch((state) =>
-    location === "origin" ? state.destination : state.origin,
+    location === "مبدا" ? state.destination : state.origin,
   );
   const { contains } = useFilter({ sensitivity: "base" });
+  const isInvalid = !selectedKey && submitAttempted;
   return (
     <Autocomplete
       aria-label="Location Search"
-      placeholder={location === "origin" ? "مبدا" : "مقصد"}
+      placeholder={location}
       value={selectedKey}
       onChange={(value) => setSelectedKey(value as typeof selectedKey)}
       disabledKeys={otherKey ? [otherKey] : []}
       className="flex-1"
+      isInvalid={isInvalid}
     >
       <AutocompleteTrigger className="border-gray-3 flex h-14 items-center rounded-lg border py-2 shadow-none md:h-12">
         <AutocompleteValue className="text-gray-8" />
@@ -49,6 +56,11 @@ export default function LocationSearch({ location }: LocationSearchProps) {
           <LocationListBox />
         </AutocompleteFilter>
       </AutocompletePopover>
+      <div className="relative">
+        <FieldError className="absolute inset-s-0 top-full md:mt-1 text-xs">
+          لطفا {location} را انتخاب کنید
+        </FieldError>
+      </div>
     </Autocomplete>
   );
 }
