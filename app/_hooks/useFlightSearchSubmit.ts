@@ -14,6 +14,18 @@ export default function useFlightSearchSubmit() {
       cabinClass,
     } = useFlightSearch.getState();
     const isOneWay = tripType === "one-way";
+    const totalPassengers =
+      passengers.adult + passengers.child + passengers.infant;
+    const hasDate = isOneWay ? Boolean(departureDate) : Boolean(rangeDate);
+    if (
+      !origin ||
+      !destination ||
+      !hasDate ||
+      !totalPassengers ||
+      !cabinClass
+    ) {
+      return;
+    }
     const payload = {
       flightType,
       tripType,
