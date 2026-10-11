@@ -1,12 +1,24 @@
 "use client";
 
 import { useFlightSearch } from "@/_store/flightSearchStore";
-import { Calendar, DateField, DatePicker, I18nProvider } from "@heroui/react";
+import {
+  Calendar,
+  DateField,
+  DatePicker,
+  FieldError,
+  I18nProvider,
+} from "@heroui/react";
 import { toJalaali } from "jalaali-js";
 import { ChevronDown } from "lucide-react";
 import { useRef } from "react";
 
-export default function FlightDatePicker() {
+type FlightDatePickerProps = {
+  submitAttempted: boolean;
+};
+
+export default function FlightDatePicker({
+  submitAttempted,
+}: FlightDatePickerProps) {
   const tripType = useFlightSearch((state) => state.tripType);
   const isOneWay = tripType === "one-way";
   const departureDate = useFlightSearch((state) => state.departureDate);
@@ -15,6 +27,7 @@ export default function FlightDatePicker() {
     ? toJalaali(departureDate.year, departureDate.month, departureDate.day)
     : null;
   const triggerRef = useRef<HTMLButtonElement>(null);
+  const isInvalid = isOneWay && !departureDate && submitAttempted;
   return (
     <I18nProvider locale="fa-IR-u-ca-persian">
       <DatePicker
@@ -22,6 +35,7 @@ export default function FlightDatePicker() {
         onChange={setDepartureDate}
         aria-label="Flight date picker"
         className={`w-full flex-1 ${!isOneWay && "hidden"}`}
+        isInvalid={isInvalid}
       >
         <DateField.Group
           onClick={() => triggerRef.current?.click()}
@@ -72,6 +86,11 @@ export default function FlightDatePicker() {
             </Calendar.YearPickerGrid>
           </Calendar>
         </DatePicker.Popover>
+        <div className="relative">
+          <FieldError className="absolute inset-s-0 top-full text-xs md:mt-1">
+            لطفا تاریخ رفت را انتخاب کنید
+          </FieldError>
+        </div>
       </DatePicker>
     </I18nProvider>
   );

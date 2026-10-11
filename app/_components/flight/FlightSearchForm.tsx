@@ -31,7 +31,7 @@ export default function FlightSearchForm() {
           <SwitchLocationButton />
           <LocationSearch location="مقصد" submitAttempted={submitAttempted} />
         </div>
-        <FlightDatePicker />
+        <FlightDatePicker submitAttempted={submitAttempted} />
         <FlightDateRangePicker />
         <PassengerSelector />
         <CabinClass />
