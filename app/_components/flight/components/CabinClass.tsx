@@ -1,13 +1,18 @@
 "use client";
 
-import { ListBox, Select } from "@heroui/react";
+import { FieldError, ListBox, Select } from "@heroui/react";
 import ClassListBoxItem from "./ClassListBoxItem";
 import { useFlightSearch } from "@/_store/flightSearchStore";
 import { cabinClasses } from "@/_data/cabinClasses";
 
-export default function CabinClass() {
+type CabinClassProps = {
+  submitAttempted: boolean;
+};
+
+export default function CabinClass({ submitAttempted }: CabinClassProps) {
   const cabinClass = useFlightSearch((state) => state.cabinClass);
   const setCabinClass = useFlightSearch((state) => state.setCabinClass);
+  const isInvalid = !cabinClass && submitAttempted;
   return (
     <Select
       aria-label="Cabin class"
@@ -15,6 +20,7 @@ export default function CabinClass() {
       className="w-full flex-1"
       value={cabinClass}
       onChange={(value) => setCabinClass(value as typeof cabinClass)}
+      isInvalid={isInvalid}
     >
       <Select.Trigger className="border-gray-3 *:text-gray-8 flex h-14 cursor-pointer items-center justify-between rounded-lg border shadow-none *:text-sm *:max-md:font-medium md:h-12">
         <Select.Value />
@@ -34,6 +40,11 @@ export default function CabinClass() {
           ))}
         </ListBox>
       </Select.Popover>
+      <div className="relative">
+        <FieldError className="absolute inset-s-0 top-full text-xs md:mt-1">
+          لطفا کلاس پرواز را انتخاب کنید
+        </FieldError>
+      </div>
     </Select>
   );
 }

@@ -40,9 +40,9 @@ export default function PassengerSelector({
       {isInvalid && (
         <p
           role="alert"
-          className="text-danger absolute inset-s-0 top-full text-xs whitespace-nowrap md:mt-1"
+          className="text-danger absolute inset-s-0 top-full text-xs whitespace-nowrap md:mt-1.5"
         >
-          حداقل یک بزرگسال انتخاب کنید
+          حداقل یک بزرگسال را انتخاب کنید
         </p>
       )}
     </div>

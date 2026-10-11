@@ -34,7 +34,7 @@ export default function FlightSearchForm() {
         <FlightDatePicker submitAttempted={submitAttempted} />
         <FlightDateRangePicker submitAttempted={submitAttempted} />
         <PassengerSelector submitAttempted={submitAttempted} />
-        <CabinClass />
+        <CabinClass submitAttempted={submitAttempted} />
         <SearchButton />
       </div>
     </form>
