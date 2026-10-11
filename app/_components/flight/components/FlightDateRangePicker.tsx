@@ -4,6 +4,7 @@ import { useRef } from "react";
 import {
   DateField,
   DateRangePicker,
+  FieldError,
   I18nProvider,
   RangeCalendar,
 } from "@heroui/react";
@@ -11,7 +12,13 @@ import { ChevronDown } from "lucide-react";
 import { toJalaali } from "jalaali-js";
 import { useFlightSearch } from "@/_store/flightSearchStore";
 
-export default function FlightDateRangePicker() {
+type FlightDateRangePickerProps = {
+  submitAttempted: boolean;
+};
+
+export default function FlightDateRangePicker({
+  submitAttempted,
+}: FlightDateRangePickerProps) {
   const tripType = useFlightSearch((state) => state.tripType);
   const isRoundTrip = tripType === "round-trip";
   const rangeDate = useFlightSearch((state) => state.rangeDate);
@@ -27,6 +34,7 @@ export default function FlightDateRangePicker() {
     ? toJalaali(rangeDate.end.year, rangeDate.end.month, rangeDate.end.day)
     : null;
   const triggerRef = useRef<HTMLButtonElement>(null);
+  const isInvalid = isRoundTrip && !rangeDate && submitAttempted;
   return (
     <I18nProvider locale="fa-IR-u-ca-persian">
       <DateRangePicker
@@ -36,6 +44,7 @@ export default function FlightDateRangePicker() {
         startName="startDate"
         aria-label="Flight date range picker"
         className={`w-full flex-2 ${!isRoundTrip && "hidden"}`}
+        isInvalid={isInvalid}
       >
         <DateField.Group
           onClick={() => triggerRef.current?.click()}
@@ -102,6 +111,11 @@ export default function FlightDateRangePicker() {
             </RangeCalendar.YearPickerGrid>
           </RangeCalendar>
         </DateRangePicker.Popover>
+        <div className="relative">
+          <FieldError className="absolute inset-s-0 top-full text-xs md:mt-1">
+            لطفا تاریخ رفت و برگشت را انتخاب کنید
+          </FieldError>
+        </div>
       </DateRangePicker>
     </I18nProvider>
   );
