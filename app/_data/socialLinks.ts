@@ -1,10 +1,9 @@
 import { GithubIcon, LinkedinIcon, TelegramIcon } from "@/_components/icons";
-import { ComponentType, SVGProps } from "react";
 
 type SocialLink = {
   name: string;
   href: string;
-  Icon: ComponentType<SVGProps<SVGSVGElement>>;
+  Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 };
 
 export const socialLinks: SocialLink[] = [

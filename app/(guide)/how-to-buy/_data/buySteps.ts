@@ -7,7 +7,13 @@ import {
   TickSquareIcon,
 } from "../_components/icons";
 
-export const buySteps = [
+export type BuyStepProps = {
+  title: string;
+  description: string;
+  Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+};
+
+export const buySteps: BuyStepProps[] = [
   {
     title: "جستجوی بلیط",
     description:
