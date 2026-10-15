@@ -7,7 +7,7 @@ import MobileMenuItem from "./MobileMenuItem";
 export default function MobileMenuList() {
   return (
     <>
-      <nav>
+      <nav className="mb-12">
         <ul className="flex flex-col gap-3">
           {menuItems.map((item) => (
             <li key={item.label}>
