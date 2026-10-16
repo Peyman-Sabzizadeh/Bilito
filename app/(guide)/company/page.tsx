@@ -1,10 +1,13 @@
 import Container from "@/_components/Container";
+import CompanyBanner from "./_components/CompanyBanner";
 
 export default function CompanyPage() {
   return (
-    <Container>
-      <h2>Banner</h2>
-      <h2>Company Tabs</h2>
-    </Container>
+    <div>
+      <CompanyBanner />
+      <Container>
+        <h2>Company Tabs</h2>
+      </Container>
+    </div>
   );
 }
