@@ -12,20 +12,11 @@ import {
 } from "@heroui/react";
 import { contactSubjects } from "../_data/contactSubjects";
 import { useState } from "react";
+import useContactSubmit from "../_hooks/useContactSubmit";
 
 export default function ContactForm() {
   const [messageValue, setMessageValue] = useState("");
-  const handleContactSubmit = (
-    event: React.SyntheticEvent<HTMLFormElement>,
-  ) => {
-    event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    const data: Record<string, string> = {};
-    formData.forEach((value, key) => {
-      data[key] = value.toString();
-    });
-    // send to API when backend is ready
-  };
+  const { handleContactSubmit } = useContactSubmit();
   return (
     <Form
       onSubmit={handleContactSubmit}
