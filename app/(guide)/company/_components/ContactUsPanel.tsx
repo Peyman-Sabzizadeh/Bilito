@@ -1,6 +1,7 @@
 import { contactInfo } from "../_data/contactInfo";
 import ContactInfoItem from "./ContactInfoItem";
 import ContactMap from "./ContactMap";
+import ContactForm from "./ContactForm";
 
 export default function ContactUsPanel() {
   return (
@@ -25,7 +26,7 @@ export default function ContactUsPanel() {
         تماس با ما استفاده کنید. تیم پشتیبانی ما در اسرع وقت پاسخگوی شما خواهد
         بود.
       </p>
-      <h3>فرم تماس با ما...</h3>
+      <ContactForm />
     </div>
   );
 }
