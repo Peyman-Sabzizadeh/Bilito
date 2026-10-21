@@ -20,7 +20,14 @@ export default function MobileMenu() {
       <DrawerBackdrop variant="transparent">
         <DrawerContent placement="bottom">
           <DrawerDialog className="h-full rounded-none px-5 shadow-none">
-            <DrawerBody className="text-gray-8">
+            <DrawerBody
+              className="text-gray-8"
+              onClick={(event) => {
+                if ((event.target as HTMLElement).closest("a")) {
+                  setIsMenuOpen(false);
+                }
+              }}
+            >
               <MobileMenuList />
             </DrawerBody>
           </DrawerDialog>

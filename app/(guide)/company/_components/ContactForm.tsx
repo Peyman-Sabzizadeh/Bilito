@@ -68,7 +68,7 @@ export default function ContactForm() {
               <Select.Value className="text-gray-8 text-sm" />
               <Select.Indicator />
             </Select.Trigger>
-            <Select.Popover>
+            <Select.Popover className="w-70 md:min-w-0">
               <ListBox className="text-gray-8">
                 {contactSubjects.map((subject) => (
                   <ListBox.Item

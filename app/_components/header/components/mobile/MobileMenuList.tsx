@@ -1,4 +1,3 @@
-import Link from "next/link";
 import SupportLink from "../SupportLink";
 import RegisterButton from "../RegisterButton";
 import { menuItems } from "@/_data/menuItems";
@@ -19,9 +18,7 @@ export default function MobileMenuList() {
           </li>
         </ul>
       </nav>
-      <Link href="#">
-        <RegisterButton fullWidth />
-      </Link>
+      <RegisterButton fullWidth />
     </>
   );
 }
