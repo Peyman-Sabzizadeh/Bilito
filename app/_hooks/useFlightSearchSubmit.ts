@@ -1,7 +1,7 @@
 import { useFlightSearch } from "@/_store/flightSearchStore";
 
 export default function useFlightSearchSubmit() {
-  const handleSearchSubmit = (event: React.SubmitEvent<HTMLFormElement>) => {
+  const handleSearchSubmit = (event: React.SyntheticEvent<HTMLFormElement>) => {
     event.preventDefault();
     const {
       flightType,

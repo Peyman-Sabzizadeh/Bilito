@@ -1,7 +1,7 @@
 "use client";
 
 import FlightType from "./components/FlightType";
-import { Separator } from "@heroui/react";
+import { Form, Separator } from "@heroui/react";
 import TripType from "./components/TripType";
 import LocationSearch from "./components/LocationSearch";
 import SwitchLocationButton from "./components/SwitchLocationButton";
@@ -16,12 +16,12 @@ import { useState } from "react";
 export default function FlightSearchForm() {
   const { handleSearchSubmit } = useFlightSearchSubmit();
   const [submitAttempted, setSubmitAttempted] = useState(false);
-  const onSubmit = (event: React.SubmitEvent<HTMLFormElement>) => {
+  const onSubmit = (event: React.SyntheticEvent<HTMLFormElement>) => {
     setSubmitAttempted(true);
     handleSearchSubmit(event);
   };
   return (
-    <form onSubmit={onSubmit}>
+    <Form onSubmit={onSubmit}>
       <FlightType />
       <Separator className="-mt-0.5 h-0.5" />
       <TripType />
@@ -37,6 +37,6 @@ export default function FlightSearchForm() {
         <CabinClass submitAttempted={submitAttempted} />
         <SearchButton />
       </div>
-    </form>
+    </Form>
   );
 }
