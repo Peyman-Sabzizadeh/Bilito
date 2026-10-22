@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { DateValue, RangeValue } from "@heroui/react";
+import { PassengerType } from "@/_data/passengerTypes";
 import { CabinClassValue } from "@/_data/cabinClasses";
 
 type State = {
@@ -9,11 +10,7 @@ type State = {
   destination: string | null;
   departureDate: DateValue | null;
   rangeDate: RangeValue<DateValue> | null;
-  passengers: {
-    adult: number;
-    child: number;
-    infant: number;
-  };
+  passengers: Record<PassengerType, number>;
   cabinClass: CabinClassValue | null;
 };
 
