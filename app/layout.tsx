@@ -5,7 +5,10 @@ import Header from "@/_components/header/Header";
 import Footer from "@/_components/footer/Footer";
 
 export const metadata: Metadata = {
-  title: "بیلیتو",
+  title: {
+    default: "بیلیتو | خرید آنلاین بلیط هواپیما",
+    template: "%s | بیلیتو",
+  },
   description:
     "سریعترین راه ممکن برای رزرو بلیط هواپیما، با بیلیتو سفر خود را آسان و سریع برنامه ریزی کنید.",
 };
