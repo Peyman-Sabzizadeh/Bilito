@@ -5,8 +5,7 @@ import { Tabs } from "@heroui/react";
 import { Plane } from "lucide-react";
 
 export default function FlightType() {
-  const flightType = useFlightSearch((state) => state.flightType);
-  const setFlightType = useFlightSearch((state) => state.setFlightType);
+  const { flightType, setFlightType } = useFlightSearch();
   return (
     <Tabs
       variant="secondary"

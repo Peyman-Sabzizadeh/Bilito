@@ -19,10 +19,8 @@ type FlightDateRangePickerProps = {
 export default function FlightDateRangePicker({
   submitAttempted,
 }: FlightDateRangePickerProps) {
-  const tripType = useFlightSearch((state) => state.tripType);
+  const { tripType, rangeDate, setRangeDate } = useFlightSearch();
   const isRoundTrip = tripType === "round-trip";
-  const rangeDate = useFlightSearch((state) => state.rangeDate);
-  const setRangeDate = useFlightSearch((state) => state.setRangeDate);
   const startPersianDate = rangeDate
     ? toJalaali(
         rangeDate.start.year,

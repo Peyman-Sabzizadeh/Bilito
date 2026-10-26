@@ -10,8 +10,7 @@ type CabinClassProps = {
 };
 
 export default function CabinClass({ submitAttempted }: CabinClassProps) {
-  const cabinClass = useFlightSearch((state) => state.cabinClass);
-  const setCabinClass = useFlightSearch((state) => state.setCabinClass);
+  const { cabinClass, setCabinClass } = useFlightSearch();
   const isInvalid = !cabinClass && submitAttempted;
   return (
     <Select

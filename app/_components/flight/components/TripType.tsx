@@ -4,8 +4,7 @@ import { RadioGroup, Radio } from "@heroui/react";
 import { useFlightSearch } from "@/_store/flightSearchStore";
 
 export default function TripType() {
-  const tripType = useFlightSearch((state) => state.tripType);
-  const setTripType = useFlightSearch((state) => state.setTripType);
+  const { tripType, setTripType } = useFlightSearch();
   return (
     <RadioGroup
       aria-label="Trip type"

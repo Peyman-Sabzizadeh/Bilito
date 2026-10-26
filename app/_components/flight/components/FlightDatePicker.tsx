@@ -19,10 +19,8 @@ type FlightDatePickerProps = {
 export default function FlightDatePicker({
   submitAttempted,
 }: FlightDatePickerProps) {
-  const tripType = useFlightSearch((state) => state.tripType);
+  const { tripType, departureDate, setDepartureDate } = useFlightSearch();
   const isOneWay = tripType === "one-way";
-  const departureDate = useFlightSearch((state) => state.departureDate);
-  const setDepartureDate = useFlightSearch((state) => state.setDepartureDate);
   const persianDate = departureDate
     ? toJalaali(departureDate.year, departureDate.month, departureDate.day)
     : null;
