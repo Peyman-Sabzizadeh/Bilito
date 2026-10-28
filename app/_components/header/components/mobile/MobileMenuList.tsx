@@ -1,5 +1,5 @@
 import SupportLink from "../SupportLink";
-import RegisterButton from "../RegisterButton";
+import AuthButton from "../auth/AuthButton";
 import { menuItems } from "@/_data/menuItems";
 import MobileMenuItem from "./MobileMenuItem";
 
@@ -18,7 +18,7 @@ export default function MobileMenuList() {
           </li>
         </ul>
       </nav>
-      <RegisterButton fullWidth />
+      <AuthButton fullWidth />
     </>
   );
 }

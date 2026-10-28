@@ -1,7 +1,7 @@
 import Logo from "@/_components/Logo";
 import DesktopMenuItems from "./DesktopMenuItems";
 import SupportLink from "../SupportLink";
-import RegisterButton from "../RegisterButton";
+import AuthButton from "../auth/AuthButton";
 
 export default function DesktopHeader() {
   return (
@@ -15,7 +15,7 @@ export default function DesktopHeader() {
           size={18}
           className="text-sm whitespace-nowrap lg:text-base"
         />
-        <RegisterButton
+        <AuthButton
           withIcon
           className="hover:bg-shade-2 px-1 text-xs xl:px-4 xl:py-2 xl:text-sm"
         />
