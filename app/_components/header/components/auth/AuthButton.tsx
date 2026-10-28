@@ -4,6 +4,7 @@ import { useAuthModal } from "@/_store/authModalStore";
 import { Button, Modal } from "@heroui/react";
 import { User2 } from "lucide-react";
 import LoginForm from "./LoginForm";
+import useIsMobile from "@/_hooks/useIsMobile";
 
 type AuthButtonProps = {
   className?: string;
@@ -17,6 +18,7 @@ export default function AuthButton({
   withIcon,
 }: AuthButtonProps) {
   const { isOpen, onOpenChange } = useAuthModal();
+  const isMobile = useIsMobile();
   return (
     <Modal>
       <Button
@@ -28,7 +30,11 @@ export default function AuthButton({
         ورود/ ثبت نام
       </Button>
       <Modal.Backdrop isOpen={isOpen} onOpenChange={onOpenChange}>
-        <LoginForm />
+        <Modal.Container size={isMobile ? "full" : "md"}>
+          <Modal.Dialog>
+            <LoginForm />
+          </Modal.Dialog>
+        </Modal.Container>
       </Modal.Backdrop>
     </Modal>
   );
