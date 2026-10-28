@@ -12,6 +12,9 @@ import {
   TextField,
 } from "@heroui/react";
 
+const inputClassName =
+  "placeholder:text-gray-8 border-gray-3 focus:ring-primary rounded-lg border text-sm shadow-none focus:ring-1";
+
 export default function LoginForm() {
   const { onOpenChange } = useAuthModal();
   const [isSelected, setIsSelected] = useState(false);
@@ -40,10 +43,7 @@ export default function LoginForm() {
               "یک ایمیل معتبر وارد کنید."
             }
           >
-            <Input
-              placeholder="ایمیل"
-              className="placeholder:text-gray-8 border-gray-3 focus:ring-primary rounded-lg border text-sm shadow-none focus:ring-1"
-            />
+            <Input placeholder="ایمیل" className={inputClassName} />
             <FieldError />
           </TextField>
           <TextField
@@ -51,13 +51,10 @@ export default function LoginForm() {
             type="password"
             aria-label="رمز عبور"
             validate={(value) =>
-              value.length > 0 || "رمز عبور خود را وارد کنید."
+              value.length >= 8 || "رمز عبور باید حداقل ۸ کاراکتر باشد."
             }
           >
-            <Input
-              placeholder="رمز عبور"
-              className="placeholder:text-gray-8 border-gray-3 focus:ring-primary rounded-lg border text-sm shadow-none focus:ring-1"
-            />
+            <Input placeholder="رمز عبور" className={inputClassName} />
             <FieldError />
           </TextField>
           <Checkbox
