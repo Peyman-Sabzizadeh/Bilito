@@ -9,9 +9,11 @@ import {
   Form,
   Input,
   Modal,
+  Spinner,
   TextField,
 } from "@heroui/react";
 import AuthSwitch from "./AuthSwitch";
+import useLoginSubmit from "@/_hooks/useLoginSubmit";
 
 const inputClassName =
   "placeholder:text-gray-8 border-gray-3 focus:ring-primary rounded-lg border text-sm shadow-none focus:ring-1";
@@ -19,6 +21,7 @@ const inputClassName =
 export default function LoginForm() {
   const { onOpenChange } = useAuthModal();
   const [isSelected, setIsSelected] = useState(false);
+  const { handleLoginSubmit, isLoading } = useLoginSubmit();
   return (
     <>
       <Modal.Header>
@@ -33,7 +36,11 @@ export default function LoginForm() {
         </Modal.Heading>
       </Modal.Header>
       <Modal.Body>
-        <Form id="login-form" className="flex flex-col gap-6 pt-15 md:pt-8">
+        <Form
+          id="login-form"
+          className="flex flex-col gap-6 pt-15 md:pt-8"
+          onSubmit={handleLoginSubmit}
+        >
           <TextField
             name="email"
             type="email"
@@ -59,7 +66,6 @@ export default function LoginForm() {
             <FieldError />
           </TextField>
           <Checkbox
-            name="accept-rules"
             className="group w-fit"
             isSelected={isSelected}
             onChange={setIsSelected}
@@ -84,8 +90,9 @@ export default function LoginForm() {
           form="login-form"
           className="bg-primary rounded-lg font-light"
           fullWidth
+          isPending={isLoading}
         >
-          ورود
+          {isLoading ? <Spinner size="sm" color="current" /> : "ورود"}
         </Button>
         <AuthSwitch />
       </Modal.Footer>
