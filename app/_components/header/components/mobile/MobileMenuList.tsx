@@ -3,7 +3,11 @@ import AuthButton from "../auth/AuthButton";
 import { menuItems } from "@/_data/menuItems";
 import MobileMenuItem from "./MobileMenuItem";
 
-export default function MobileMenuList() {
+type MobileMenuListProps = {
+  setIsMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+export default function MobileMenuList({ setIsMenuOpen }: MobileMenuListProps) {
   return (
     <>
       <nav className="mb-12">
@@ -18,7 +22,7 @@ export default function MobileMenuList() {
           </li>
         </ul>
       </nav>
-      <AuthButton fullWidth />
+      <AuthButton fullWidth clicked={() => setIsMenuOpen(false)} />
     </>
   );
 }

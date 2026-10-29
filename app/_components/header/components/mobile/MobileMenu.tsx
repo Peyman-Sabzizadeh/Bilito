@@ -28,7 +28,7 @@ export default function MobileMenu() {
                 }
               }}
             >
-              <MobileMenuList />
+              <MobileMenuList setIsMenuOpen={setIsMenuOpen}/>
             </DrawerBody>
           </DrawerDialog>
         </DrawerContent>

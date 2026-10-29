@@ -11,19 +11,24 @@ type AuthButtonProps = {
   className?: string;
   fullWidth?: boolean;
   withIcon?: boolean;
+  clicked?: () => void;
 };
 
 export default function AuthButton({
   className,
   fullWidth,
   withIcon,
+  clicked,
 }: AuthButtonProps) {
   const { isOpen, authMode, onOpenChange } = useAuthModal();
   const isMobile = useIsMobile();
   return (
     <Modal>
       <Button
-        onPress={() => onOpenChange(true)}
+        onPress={() => {
+          onOpenChange(true);
+          setTimeout(() => clicked?.(), 100);
+        }}
         className={`bg-primary rounded-lg font-light ${className}`}
         fullWidth={fullWidth}
       >
