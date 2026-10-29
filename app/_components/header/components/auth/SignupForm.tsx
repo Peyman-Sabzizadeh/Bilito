@@ -11,9 +11,11 @@ import {
   ListBox,
   Modal,
   Select,
+  Spinner,
   TextField,
 } from "@heroui/react";
 import AuthSwitch from "./AuthSwitch";
+import useSignupSubmit from "@/_hooks/useSignupSubmit";
 
 const inputClassName =
   "placeholder:text-gray-8 border-gray-3 focus:ring-primary rounded-lg border text-sm shadow-none focus:ring-1";
@@ -21,6 +23,7 @@ const inputClassName =
 export default function SignupForm() {
   const { onOpenChange } = useAuthModal();
   const [isSelected, setIsSelected] = useState(false);
+  const { handleSignupSubmit, isLoading } = useSignupSubmit();
   return (
     <>
       <Modal.Header>
@@ -35,7 +38,11 @@ export default function SignupForm() {
         </Modal.Heading>
       </Modal.Header>
       <Modal.Body>
-        <Form id="signup-form" className="flex flex-col gap-6 pt-15 md:pt-8">
+        <Form
+          id="signup-form"
+          className="flex flex-col gap-6 pt-15 md:pt-8"
+          onSubmit={handleSignupSubmit}
+        >
           <TextField
             name="fullName"
             type="text"
@@ -52,11 +59,12 @@ export default function SignupForm() {
             <FieldError />
           </TextField>
           <TextField
-            name="nationalCode"
+            name="nationalId"
             type="text"
             inputMode="numeric"
             aria-label="کد ملی"
             isRequired
+            maxLength={10}
             validate={(value) =>
               /^\d{10}$/.test(value) || "کد ملی باید 10 رقم باشد."
             }
@@ -69,6 +77,7 @@ export default function SignupForm() {
             type="tel"
             aria-label="شماره تلفن"
             isRequired
+            maxLength={11}
             validate={(value) =>
               /^09\d{9}$/.test(value) || "یک شماره تلفن معتبر وارد کنید."
             }
@@ -128,7 +137,6 @@ export default function SignupForm() {
             <FieldError />
           </TextField>
           <Checkbox
-            name="accept-rules"
             className="group w-fit"
             isSelected={isSelected}
             onChange={setIsSelected}
@@ -153,8 +161,9 @@ export default function SignupForm() {
           form="signup-form"
           className="bg-primary rounded-lg font-light"
           fullWidth
+          isPending={isLoading}
         >
-          ثبت نام
+          {isLoading ? <Spinner size="sm" color="current" /> : "ثبت نام"}
         </Button>
         <AuthSwitch />
       </Modal.Footer>
