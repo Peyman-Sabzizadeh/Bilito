@@ -11,6 +11,7 @@ import {
   Modal,
   TextField,
 } from "@heroui/react";
+import AuthSwitch from "./AuthSwitch";
 
 const inputClassName =
   "placeholder:text-gray-8 border-gray-3 focus:ring-primary rounded-lg border text-sm shadow-none focus:ring-1";
@@ -59,7 +60,7 @@ export default function LoginForm() {
           </TextField>
           <Checkbox
             name="accept-rules"
-            className="group"
+            className="group w-fit"
             isSelected={isSelected}
             onChange={setIsSelected}
             isRequired
@@ -77,7 +78,7 @@ export default function LoginForm() {
           </Checkbox>
         </Form>
       </Modal.Body>
-      <Modal.Footer>
+      <Modal.Footer className="flex flex-col">
         <Button
           type="submit"
           form="login-form"
@@ -86,6 +87,7 @@ export default function LoginForm() {
         >
           ورود
         </Button>
+        <AuthSwitch />
       </Modal.Footer>
     </>
   );

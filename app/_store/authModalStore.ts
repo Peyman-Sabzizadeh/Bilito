@@ -7,7 +7,7 @@ type State = {
 
 type Action = {
   onOpenChange: (open: boolean) => void;
-  toggleMode: () => void;
+  toggleAuthMode: () => void;
 };
 
 export const useAuthModal = create<State & Action>((set) => ({
@@ -15,7 +15,7 @@ export const useAuthModal = create<State & Action>((set) => ({
   authMode: "login",
   onOpenChange: (open) =>
     set(open ? { isOpen: true } : { isOpen: false, authMode: "login" }),
-  toggleMode: () =>
+  toggleAuthMode: () =>
     set((state) => ({
       authMode: state.authMode === "login" ? "signup" : "login",
     })),
