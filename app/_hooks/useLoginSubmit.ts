@@ -1,5 +1,6 @@
 import { useAuthModal } from "@/_store/authModalStore";
 import { createClient } from "@/_utils/supabase/client";
+import { toast } from "@heroui/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -25,9 +26,10 @@ export default function useLoginSubmit() {
         password: data.password,
       });
       if (error) {
-        console.log(error.message);
+        toast.danger("ایمیل یا رمز عبور اشتباه است.");
         return;
       }
+      toast.success("با موفقیت وارد شدید.");
       onOpenChange(false);
       router.refresh();
     } finally {

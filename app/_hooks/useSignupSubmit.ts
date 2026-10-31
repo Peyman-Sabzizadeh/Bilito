@@ -1,5 +1,6 @@
 import { useAuthModal } from "@/_store/authModalStore";
 import { createClient } from "@/_utils/supabase/client";
+import { toast } from "@heroui/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -35,9 +36,16 @@ export default function useSignupSubmit() {
       });
 
       if (error) {
-        console.log(error.message);
+        if (error.code === "user_already_exists") {
+          toast.danger("این ایمیل قبلاً ثبت نام کرده است.");
+        } else if (error.code === "over_email_send_rate_limit") {
+          toast.danger("تعداد درخواست‌ها زیاد است. کمی بعد دوباره تلاش کنید.");
+        } else {
+          toast.danger("ثبت نام انجام نشد. لطفاً دوباره تلاش کنید.");
+        }
         return;
       }
+      toast.success("ثبت نام با موفقیت انجام شد.");
       onOpenChange(false);
       router.refresh();
     } finally {
