@@ -79,3 +79,44 @@
   --color-warning-1: var(--warning-1);
   --color-warning-2: var(--warning-2);
 }
+
+@layer components {
+  .toast {
+    @apply rounded-lg border-0 shadow-md;
+  }
+  .toast__close-button {
+    @apply max-md:hidden;
+  }
+  /* Palette per variant: bg = light tone, fg = main tone */
+  .toast--success {
+    --toast-bg: var(--success-2);
+    --toast-fg: var(--success);
+  }
+  .toast--danger {
+    --toast-bg: var(--error-2);
+    --toast-fg: var(--error);
+  }
+  .toast--warning {
+    --toast-bg: var(--warning-2);
+    --toast-fg: var(--warning);
+  }
+  .toast--accent {
+    --toast-bg: var(--tint-1);
+    --toast-fg: var(--shade-1);
+  }
+  /* Soft solid background */
+  :is(.toast--success, .toast--danger, .toast--warning, .toast--accent) {
+    background-color: var(--toast-bg);
+  }
+  /* Bold title and icon */
+  :is(.toast--success, .toast--danger, .toast--warning, .toast--accent)
+    :is(.toast__title, .toast__indicator) {
+    color: var(--toast-fg);
+    font-weight: 500;
+  }
+  /* Slightly softer description */
+  :is(.toast--success, .toast--danger, .toast--warning, .toast--accent)
+    .toast__description {
+    color: color-mix(in oklab, var(--toast-fg) 75%, var(--gray-8));
+  }
+}

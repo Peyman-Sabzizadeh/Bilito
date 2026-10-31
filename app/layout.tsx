@@ -3,6 +3,7 @@ import "@/globals.css";
 import { iranSans } from "@/_fonts";
 import Header from "@/_components/header/Header";
 import Footer from "@/_components/footer/Footer";
+import AppToast from "./_components/AppToast";
 
 export const metadata: Metadata = {
   title: {
@@ -21,6 +22,7 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl" className={`${iranSans.className} h-full`}>
       <body className="min-h-full">
+        <AppToast />
         <Header />
         {children}
         <Footer />
