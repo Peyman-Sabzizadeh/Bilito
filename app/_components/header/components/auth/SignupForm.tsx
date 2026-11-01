@@ -2,23 +2,11 @@ import Logo from "@/_components/Logo";
 import { useState } from "react";
 import { useAuthModal } from "@/_store/authModalStore";
 import { ArrowRight } from "lucide-react";
-import {
-  Button,
-  Checkbox,
-  FieldError,
-  Form,
-  Input,
-  ListBox,
-  Modal,
-  Select,
-  Spinner,
-  TextField,
-} from "@heroui/react";
+import { Button, Checkbox, Form, Modal, Spinner } from "@heroui/react";
 import AuthSwitch from "./AuthSwitch";
 import useSignupSubmit from "@/_hooks/useSignupSubmit";
-
-const inputClassName =
-  "placeholder:text-gray-8 border-gray-3 focus:ring-primary rounded-lg border text-sm shadow-none focus:ring-1";
+import { signupFormFields } from "@/_data/signupFormFields";
+import SignupFields from "./SignupFields";
 
 export default function SignupForm() {
   const { onOpenChange } = useAuthModal();
@@ -43,99 +31,9 @@ export default function SignupForm() {
           className="flex flex-col gap-6 pt-15 md:pt-8"
           onSubmit={handleSignupSubmit}
         >
-          <TextField
-            name="fullName"
-            type="text"
-            aria-label="نام و نام خانوادگی"
-            isRequired
-            validate={(value) =>
-              value.trim().length > 0 || "نام و نام خانوادگی خود را وارد کنید."
-            }
-          >
-            <Input
-              placeholder="نام و نام خانوادگی"
-              className={inputClassName}
-            />
-            <FieldError />
-          </TextField>
-          <TextField
-            name="nationalId"
-            type="text"
-            inputMode="numeric"
-            aria-label="کد ملی"
-            isRequired
-            maxLength={10}
-            validate={(value) =>
-              /^\d{10}$/.test(value) || "کد ملی باید 10 رقم باشد."
-            }
-          >
-            <Input placeholder="کد ملی" className={inputClassName} />
-            <FieldError />
-          </TextField>
-          <TextField
-            name="phone"
-            type="tel"
-            aria-label="شماره تلفن"
-            isRequired
-            maxLength={11}
-            validate={(value) =>
-              /^09\d{9}$/.test(value) || "یک شماره تلفن معتبر وارد کنید."
-            }
-          >
-            <Input
-              placeholder="شماره تلفن"
-              className={`${inputClassName} text-right`}
-            />
-            <FieldError />
-          </TextField>
-          <Select
-            name="gender"
-            aria-label="جنسیت"
-            placeholder="جنسیت"
-            isRequired
-          >
-            <Select.Trigger className={inputClassName}>
-              <Select.Value className="text-gray-8 text-sm" />
-              <Select.Indicator />
-            </Select.Trigger>
-            <Select.Popover>
-              <ListBox>
-                <ListBox.Item id="female" textValue="زن">
-                  زن
-                  <ListBox.ItemIndicator />
-                </ListBox.Item>
-                <ListBox.Item id="male" textValue="مرد">
-                  مرد
-                  <ListBox.ItemIndicator />
-                </ListBox.Item>
-              </ListBox>
-            </Select.Popover>
-          </Select>
-          <TextField
-            name="email"
-            type="email"
-            aria-label="ایمیل"
-            isRequired
-            validate={(value) =>
-              /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ||
-              "یک ایمیل معتبر وارد کنید."
-            }
-          >
-            <Input placeholder="ایمیل" className={inputClassName} />
-            <FieldError />
-          </TextField>
-          <TextField
-            name="password"
-            type="password"
-            aria-label="رمز عبور"
-            isRequired
-            validate={(value) =>
-              value.length >= 8 || "رمز عبور باید حداقل ۸ کاراکتر باشد."
-            }
-          >
-            <Input placeholder="رمز عبور" className={inputClassName} />
-            <FieldError />
-          </TextField>
+          {signupFormFields.map((field) => (
+            <SignupFields key={field.name} field={field} />
+          ))}
           <Checkbox
             className="group w-fit"
             isSelected={isSelected}
