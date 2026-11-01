@@ -1,10 +1,8 @@
 import Logo from "@/_components/Logo";
-import { useState } from "react";
 import { useAuthModal } from "@/_store/authModalStore";
 import { ArrowRight } from "lucide-react";
 import {
   Button,
-  Checkbox,
   FieldError,
   Form,
   Input,
@@ -14,13 +12,13 @@ import {
 } from "@heroui/react";
 import AuthSwitch from "./AuthSwitch";
 import useLoginSubmit from "@/_hooks/useLoginSubmit";
+import TermsCheckbox from "./TermsCheckbox";
 
 const inputClassName =
   "placeholder:text-gray-8 border-gray-3 focus:ring-primary rounded-lg border text-sm shadow-none focus:ring-1";
 
 export default function LoginForm() {
   const { onOpenChange } = useAuthModal();
-  const [isSelected, setIsSelected] = useState(false);
   const { handleLoginSubmit, isLoading } = useLoginSubmit();
   return (
     <>
@@ -65,23 +63,7 @@ export default function LoginForm() {
             <Input placeholder="رمز عبور" className={inputClassName} />
             <FieldError />
           </TextField>
-          <Checkbox
-            className="group w-fit"
-            isSelected={isSelected}
-            onChange={setIsSelected}
-            isRequired
-          >
-            <Checkbox.Control className="border-gray-4 rounded-md border group-data-[selected=true]:border-transparent before:rounded-md">
-              <Checkbox.Indicator className="rounded-md" />
-            </Checkbox.Control>
-            <Checkbox.Content>
-              <p className="text-xs">
-                با ورود و ثبت نام در سایت، با
-                <span className="text-primary"> قوانین بیلیتو </span>
-                موافقت میکنم.
-              </p>
-            </Checkbox.Content>
-          </Checkbox>
+          <TermsCheckbox />
         </Form>
       </Modal.Body>
       <Modal.Footer className="flex flex-col">
