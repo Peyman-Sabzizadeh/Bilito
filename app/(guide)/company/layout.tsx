@@ -1,4 +1,4 @@
-import CompanyBanner from "./_components/CompanyBanner";
+import BrandBanner from "@/_components/BrandBanner";
 import Container from "@/_components/Container";
 
 export default function RootLayout({
@@ -8,7 +8,7 @@ export default function RootLayout({
 }) {
   return (
     <div>
-      <CompanyBanner />
+      <BrandBanner />
       <Container className="pt-6 md:pt-12 md:pb-8">{children}</Container>
     </div>
   );
