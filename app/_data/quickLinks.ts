@@ -4,9 +4,9 @@ type QuickLink = {
 };
 
 export const quickLinks: QuickLink[] = [
-  { label: "درباره ما", href: "#" },
-  { label: "تماس با ما", href: "#" },
+  { label: "درباره ما", href: "/company?tab=about" },
+  { label: "تماس با ما", href: "/company?tab=contact" },
   { label: "استرداد بلیط", href: "#" },
-  { label: "راهنمای خرید بلیط", href: "#" },
-  { label: "قوانین و مقررات", href: "#" },
+  { label: "راهنمای خرید بلیط", href: "/how-to-buy" },
+  { label: "قوانین و مقررات", href: "/terms" },
 ];

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Checkbox } from "@heroui/react";
+import Link from "next/link";
 
 export default function TermsCheckbox() {
   const [isSelected, setIsSelected] = useState(false);
@@ -17,7 +18,15 @@ export default function TermsCheckbox() {
       <Checkbox.Content>
         <p className="text-xs">
           با ورود و ثبت نام در سایت، با
-          <span className="text-primary"> قوانین بیلیتو </span>
+          <Link
+            href="/terms"
+            target="_blank"
+            onClick={(event) => event.stopPropagation()}
+            className="text-primary"
+          >
+            {" "}
+            قوانین بیلیتو{" "}
+          </Link>
           موافقت میکنم.
         </p>
       </Checkbox.Content>
