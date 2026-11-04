@@ -27,7 +27,7 @@ export default function AuthButton({
   const isMobile = useIsMobile();
 
   if (isMobile && isAuthenticated) {
-    return;
+    return null;
   }
 
   if (isAuthenticated) {

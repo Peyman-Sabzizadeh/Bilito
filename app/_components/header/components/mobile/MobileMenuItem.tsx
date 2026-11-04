@@ -1,11 +1,11 @@
-import { menuItemProps } from "@/_data/menuItems";
+import { mobileMenuItemProps } from "@/_data/mobileMenuItems";
 import Link from "next/link";
 
-type MobileMenuItemProps = {
-  item: menuItemProps;
-};
-
-export default function MobileMenuItem({ item }: MobileMenuItemProps) {
+export default function MobileMenuItem({
+  item,
+}: {
+  item: mobileMenuItemProps;
+}) {
   return (
     <Link href={item.link} className="flex items-center gap-2 p-2 text-sm">
       <item.icon size={20} />

@@ -1,19 +1,26 @@
+import { mobileMenuItems } from "@/_data/mobileMenuItems";
 import SupportLink from "../SupportLink";
 import AuthButton from "../auth/AuthButton";
-import { menuItems } from "@/_data/menuItems";
 import MobileMenuItem from "./MobileMenuItem";
+import { useAuth } from "@/_providers/AuthProvider";
 
 type MobileMenuListProps = {
   setIsMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export default function MobileMenuList({ setIsMenuOpen }: MobileMenuListProps) {
+  const { isAuthenticated } = useAuth();
   return (
     <>
       <nav className="mb-12">
         <ul className="flex flex-col gap-3">
-          {menuItems.map((item) => (
-            <li key={item.label}>
+          {mobileMenuItems.map((item) => (
+            <li
+              key={item.label}
+              className={
+                item.label === "حساب کاربری" && !isAuthenticated ? "hidden" : ""
+              }
+            >
               <MobileMenuItem item={item} />
             </li>
           ))}

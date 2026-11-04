@@ -14,7 +14,7 @@ export default function useUserMenu() {
     }
     router.push("/");
     router.refresh();
-    toast.danger("از حساب کاربری خود خارج شدید.");
+    toast.success("با موفقیت از حساب کاربری خود خارج شدید.");
   };
   return { handleUserMenu };
 }

@@ -16,12 +16,7 @@ export type UserMenuItem = {
 };
 
 export const userMenuItems: UserMenuItem[] = [
-  {
-    id: "account",
-    label: "اطلاعات حساب کاربری",
-    link: "/",
-    Icon: UserRound,
-  },
+  { id: "account", label: "حساب کاربری", link: "/", Icon: UserRound },
   { id: "trips", label: "سفرهای من", link: "/", Icon: Plane },
   { id: "tickets", label: "تیکت‌های من", link: "/", Icon: Ticket },
   { id: "wallet", label: "کیف پول", link: "/", Icon: Wallet },
