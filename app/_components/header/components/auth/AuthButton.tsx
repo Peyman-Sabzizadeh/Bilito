@@ -6,6 +6,8 @@ import { User2 } from "lucide-react";
 import LoginForm from "./LoginForm";
 import useIsMobile from "@/_hooks/useIsMobile";
 import SignupForm from "./SignupForm";
+import { useAuth } from "@/_providers/AuthProvider";
+import UserMenu from "./UserMenu";
 
 type AuthButtonProps = {
   className?: string;
@@ -15,13 +17,23 @@ type AuthButtonProps = {
 };
 
 export default function AuthButton({
-  className,
+  className = "",
   fullWidth,
   withIcon,
   clicked,
 }: AuthButtonProps) {
+  const { isAuthenticated } = useAuth();
   const { isOpen, authMode, onOpenChange } = useAuthModal();
   const isMobile = useIsMobile();
+
+  if (isMobile && isAuthenticated) {
+    return;
+  }
+
+  if (isAuthenticated) {
+    return <UserMenu />;
+  }
+
   return (
     <Modal>
       <Button
