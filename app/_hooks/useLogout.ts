@@ -1,11 +1,10 @@
+import { useRouter } from "next/navigation";
 import { createClient } from "@/_utils/supabase/client";
 import { toast } from "@heroui/react";
-import { useRouter } from "next/navigation";
 
-export default function useUserMenu() {
+export default function useLogout() {
   const router = useRouter();
-  const handleUserMenu = async (key: React.Key) => {
-    if (key !== "logout") return;
+  const logout = async () => {
     const supabase = createClient();
     const { error } = await supabase.auth.signOut();
     if (error) {
@@ -16,5 +15,5 @@ export default function useUserMenu() {
     router.refresh();
     toast.success("با موفقیت از حساب کاربری خود خارج شدید.");
   };
-  return { handleUserMenu };
+  return { logout };
 }

@@ -4,13 +4,13 @@ import { Button, Dropdown } from "@heroui/react";
 import { ChevronDown, User2 } from "lucide-react";
 import { useAuth } from "@/_providers/AuthProvider";
 import { userMenuItems } from "@/_data/userMenuItems";
-import useUserMenu from "@/_hooks/useUserMenu";
+import useLogout from "@/_hooks/useLogout";
 import useIsMobile from "@/_hooks/useIsMobile";
 import Link from "next/link";
 
 export default function UserMenu() {
   const { user, profile } = useAuth();
-  const { handleUserMenu } = useUserMenu();
+  const { logout } = useLogout();
   const isMobile = useIsMobile();
   const displayName =
     profile?.name ||
@@ -39,7 +39,10 @@ export default function UserMenu() {
         placement="bottom end"
         className="min-w-max rounded-xl bg-white p-2 shadow-lg"
       >
-        <Dropdown.Menu onAction={handleUserMenu} className="p-0">
+        <Dropdown.Menu
+          onAction={(key) => key === "logout" && logout()}
+          className="p-0"
+        >
           {userMenuItems.map(({ id, label, link, Icon, variant }) => (
             <Dropdown.Item
               key={id}
