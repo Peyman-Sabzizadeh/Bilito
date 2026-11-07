@@ -1,4 +1,6 @@
 import { Metadata } from "next";
+import Container from "@/_components/Container";
+import AccountSidebar from "./_components/AccountSidebar";
 
 export const metadata: Metadata = {
   title: "حساب کاربری",
@@ -12,9 +14,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div>
-      <span>Account sidebar</span>
+    <Container className="py-6">
+      <AccountSidebar />
       <main>{children}</main>
-    </div>
+    </Container>
   );
 }

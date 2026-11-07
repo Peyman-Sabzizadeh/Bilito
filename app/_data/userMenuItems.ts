@@ -16,10 +16,15 @@ export type UserMenuItem = {
 };
 
 export const userMenuItems: UserMenuItem[] = [
-  { id: "account", label: "حساب کاربری", link: "/", Icon: UserRound },
-  { id: "trips", label: "سفرهای من", link: "/", Icon: Plane },
-  { id: "tickets", label: "تیکت‌های من", link: "/", Icon: Ticket },
-  { id: "wallet", label: "کیف پول", link: "/", Icon: Wallet },
+  { id: "account", label: "حساب کاربری", link: "/account", Icon: UserRound },
+  { id: "trips", label: "سفرهای من", link: "/account/trips", Icon: Plane },
+  {
+    id: "tickets",
+    label: "تیکت‌های من",
+    link: "/account/tickets",
+    Icon: Ticket,
+  },
+  { id: "wallet", label: "کیف پول", link: "/account/wallet", Icon: Wallet },
   {
     id: "logout",
     label: "خروج از حساب کاربری",
