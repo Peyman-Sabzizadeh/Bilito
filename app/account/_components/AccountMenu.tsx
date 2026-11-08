@@ -17,7 +17,7 @@ export default function AccountMenu() {
           href={link || "#"}
           onClick={() => id === "logout" && logout()}
           aria-current={pathname === link ? "page" : undefined}
-          className={`flex h-10 items-center gap-2 rounded-lg px-2 text-sm transition ${
+          className={`flex h-10 items-center gap-2 rounded-lg px-2 text-sm font-medium transition ${
             variant === "danger"
               ? "text-error-1 hover:bg-red-100"
               : pathname === link

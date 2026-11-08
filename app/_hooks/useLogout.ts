@@ -11,7 +11,7 @@ export default function useLogout() {
       toast.danger("خروج ناموفق بود.");
       return;
     }
-    router.push("/");
+    router.replace("/");
     router.refresh();
     toast.success("با موفقیت از حساب کاربری خود خارج شدید.");
   };
