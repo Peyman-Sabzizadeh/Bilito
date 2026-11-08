@@ -2,6 +2,7 @@
 
 import { useAuth } from "@/_providers/AuthProvider";
 import { Separator } from "@heroui/react";
+import AccountMenu from "./AccountMenu";
 
 export default function AccountSidebar() {
   const { user } = useAuth();
@@ -18,7 +19,7 @@ export default function AccountSidebar() {
         <span className="font-light">{phone}</span>
       </span>
       <Separator />
-      <span>User account menu...</span>
+      <AccountMenu />
     </aside>
   );
 }

@@ -14,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <Container className="py-6">
+    <Container className="flex gap-6 py-6">
       <AccountSidebar />
       <main>{children}</main>
     </Container>
