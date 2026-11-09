@@ -14,6 +14,9 @@ import { createClient } from "@/_utils/supabase/client";
 
 type Profile = {
   name: string;
+  phone: string;
+  gender: "male" | "female";
+  national_id: string;
 };
 
 type AuthContextType = {
@@ -55,7 +58,7 @@ export default function AuthProvider({
 
     const { data, error } = await supabase
       .from("profiles")
-      .select("name")
+      .select("name, phone, gender, national_id")
       .eq("id", userId)
       .maybeSingle();
 
@@ -75,7 +78,7 @@ export default function AuthProvider({
     const loadProfile = async (userId: string) => {
       const { data, error } = await supabase
         .from("profiles")
-        .select("name")
+        .select("name, phone, gender, national_id")
         .eq("id", userId)
         .maybeSingle();
 

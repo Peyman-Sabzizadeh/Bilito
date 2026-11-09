@@ -9,14 +9,10 @@ import useIsMobile from "@/_hooks/useIsMobile";
 import Link from "next/link";
 
 export default function UserMenu() {
-  const { user, profile } = useAuth();
+  const { profile } = useAuth();
   const { logout } = useLogout();
   const isMobile = useIsMobile();
-  const displayName =
-    profile?.name ||
-    user?.user_metadata?.name ||
-    user?.email?.split("@")[0] ||
-    "حساب کاربری";
+  const name = profile?.name || "حساب کاربری";
 
   return (
     <Dropdown>
@@ -30,7 +26,7 @@ export default function UserMenu() {
           className="bg-primary hover:bg-shade-2 rounded-lg px-3 py-2 text-sm font-light"
         >
           <User2 size={30} />
-          <span className="max-w-40 truncate">{displayName}</span>
+          <span className="max-w-40 truncate">{name}</span>
           <ChevronDown size={16} className="shrink-0" />
         </Button>
       )}

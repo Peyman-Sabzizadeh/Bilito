@@ -34,12 +34,17 @@ export default async function RootLayout({
     console.error("Failed to get authenticated user:", userError.message);
   }
 
-  let profile: { name: string } | null = null;
+  let profile: {
+    name: string;
+    phone: string;
+    gender: "male" | "female";
+    national_id: string;
+  } | null = null;
 
   if (user) {
     const { data, error } = await supabase
       .from("profiles")
-      .select("name")
+      .select("name, phone, gender, national_id")
       .eq("id", user.id)
       .single();
 
