@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import { cookies } from "next/headers";
 import "@/globals.css";
 import { iranSans } from "@/_fonts";
 import Header from "@/_components/header/Header";
 import Footer from "@/_components/footer/Footer";
 import AppToast from "./_components/AppToast";
 import AuthProvider from "@/_providers/AuthProvider";
-import { createClient } from "@/_utils/supabase/server";
+import getInitialAuthData from "./_lib/getInitialAuthData";
 
 export const metadata: Metadata = {
   title: {
@@ -22,38 +21,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const cookieStore = await cookies();
-  const supabase = createClient(cookieStore);
-
-  const {
-    data: { user },
-    error: userError,
-  } = await supabase.auth.getUser();
-
-  if (userError) {
-    console.error("Failed to get authenticated user:", userError.message);
-  }
-
-  let profile: {
-    name: string;
-    phone: string;
-    gender: "male" | "female";
-    national_id: string;
-  } | null = null;
-
-  if (user) {
-    const { data, error } = await supabase
-      .from("profiles")
-      .select("name, phone, gender, national_id")
-      .eq("id", user.id)
-      .single();
-
-    if (error) {
-      console.error("Failed to get user profile:", error.message);
-    } else {
-      profile = data;
-    }
-  }
+  const { user, profile } = await getInitialAuthData();
 
   return (
     <html lang="fa" dir="rtl" className={`${iranSans.className} h-full`}>

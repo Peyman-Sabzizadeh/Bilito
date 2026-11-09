@@ -9,10 +9,14 @@ import useIsMobile from "@/_hooks/useIsMobile";
 import Link from "next/link";
 
 export default function UserMenu() {
-  const { profile } = useAuth();
+  const { user, profile } = useAuth();
   const { logout } = useLogout();
   const isMobile = useIsMobile();
-  const name = profile?.name || "حساب کاربری";
+  const name =
+    profile?.name ||
+    user?.user_metadata?.name ||
+    user?.email?.split("@")[0] ||
+    "حساب کاربری";
 
   return (
     <Dropdown>
