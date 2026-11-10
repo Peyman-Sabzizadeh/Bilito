@@ -11,13 +11,7 @@ import {
 } from "react";
 import type { User } from "@supabase/supabase-js";
 import { createClient } from "@/_utils/supabase/client";
-
-type Profile = {
-  name: string;
-  phone: string;
-  gender: "male" | "female";
-  national_id: string;
-};
+import type { Profile } from "@/_types/profile";
 
 type AuthContextType = {
   user: User | null;

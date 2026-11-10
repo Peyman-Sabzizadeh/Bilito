@@ -1,5 +1,6 @@
 import { cookies } from "next/headers";
 import { createClient } from "@/_utils/supabase/server";
+import { Profile } from "@/_types/profile";
 
 export default async function getInitialAuthData() {
   const cookieStore = await cookies();
@@ -14,12 +15,7 @@ export default async function getInitialAuthData() {
     console.error("Failed to get authenticated user:", userError.message);
   }
 
-  let profile: {
-    name: string;
-    phone: string;
-    gender: "male" | "female";
-    national_id: string;
-  } | null = null;
+  let profile: Profile | null = null;
 
   if (user) {
     const { data, error } = await supabase
