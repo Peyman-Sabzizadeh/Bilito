@@ -18,7 +18,7 @@ export default function RootLayout({
     <AuthGuard>
       <Container className="flex gap-6 py-6">
         <AccountSidebar />
-        <main>{children}</main>
+        <main className="w-full">{children}</main>
       </Container>
     </AuthGuard>
   );
