@@ -20,7 +20,8 @@ export default function AccountMenu() {
           className={`flex h-10 items-center gap-2 rounded-lg px-2 text-sm font-medium transition ${
             variant === "danger"
               ? "text-error-1 hover:bg-red-100"
-              : pathname === link
+              : pathname === link ||
+                  (link === "/account" && pathname === "/account/edit")
                 ? "bg-tint-2 text-primary font-semibold"
                 : "text-gray-8 hover:bg-gray-3"
           }`}

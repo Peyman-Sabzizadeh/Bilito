@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 import { createClient } from "@/_utils/supabase/server";
-import { Profile } from "@/_types/profile";
+import type { Profile } from "@/_types/profile";
 
 export default async function getInitialAuthData() {
   const cookieStore = await cookies();
