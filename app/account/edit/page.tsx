@@ -1,3 +1,5 @@
+import ProfileEditForm from "./_components/ProfileEditForm";
+
 export default function EditPage() {
-  return <h1></h1>;
+  return <ProfileEditForm />;
 }

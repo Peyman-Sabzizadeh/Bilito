@@ -7,7 +7,7 @@ import { useProfileItems } from "../_hooks/useProfileItems";
 export default function UserProfileCard() {
   const profileItems = useProfileItems();
   return (
-    <section className="flex w-full gap-8 rounded-lg border px-2 py-4 max-md:flex-col max-md:text-sm md:justify-between md:p-6">
+    <section className="border-gray-4 flex w-full gap-8 rounded-lg border px-2 py-4 max-md:flex-col max-md:text-sm md:justify-between md:p-6">
       <dl className="flex flex-col gap-4 md:grid md:grid-cols-2 md:gap-x-20 md:gap-y-8">
         {profileItems.map(({ label, value }) => (
           <div key={label} className="flex gap-3 md:flex-col md:gap-1">
