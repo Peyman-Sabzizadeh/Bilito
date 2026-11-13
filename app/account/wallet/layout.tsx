@@ -11,5 +11,10 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <div>{children}</div>;
+  return (
+    <div className="flex flex-col gap-8 md:gap-4">
+      <h2 className="text-gray-8 text-lg font-bold max-md:hidden">کیف پول</h2>
+      {children}
+    </div>
+  );
 }
