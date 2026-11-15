@@ -7,16 +7,18 @@ import {
   Input,
   ListBox,
   Select,
+  Spinner,
   TextArea,
   TextField,
 } from "@heroui/react";
 import { contactSubjects } from "../_data/contactSubjects";
 import { useState } from "react";
 import useContactSubmit from "../_hooks/useContactSubmit";
+import { Plus } from "lucide-react";
 
 export default function ContactForm() {
   const [messageValue, setMessageValue] = useState("");
-  const { handleContactSubmit } = useContactSubmit();
+  const { handleContactSubmit, isLoading } = useContactSubmit(setMessageValue);
   return (
     <Form
       onSubmit={handleContactSubmit}
@@ -28,10 +30,11 @@ export default function ContactForm() {
       <div className="flex justify-between gap-4 max-md:flex-col md:gap-12">
         <div className="min-w-0 flex-1 space-y-4">
           <TextField
-            name="fullName"
+            name="name"
             type="text"
             aria-label="نام و نام خانوادگی"
             isRequired
+            isDisabled={isLoading}
             validate={(value) =>
               value.trim().length > 0 || "نام و نام خانوادگی را وارد کنید."
             }
@@ -47,6 +50,7 @@ export default function ContactForm() {
             type="email"
             aria-label="ایمیل"
             isRequired
+            isDisabled={isLoading}
             validate={(value) =>
               /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ||
               "یک ایمیل معتبر وارد کنید."
@@ -63,6 +67,7 @@ export default function ContactForm() {
             placeholder="موضوع"
             aria-label="موضوع"
             isRequired
+            isDisabled={isLoading}
           >
             <Select.Trigger className="border-gray-3 rounded-lg border shadow-none">
               <Select.Value className="text-gray-8 text-sm" />
@@ -90,6 +95,7 @@ export default function ContactForm() {
             type="text"
             aria-label="پیام"
             isRequired
+            isDisabled={isLoading}
             validate={(value) =>
               value.trim().length > 0 || "پیام را وارد کنید."
             }
@@ -114,9 +120,10 @@ export default function ContactForm() {
           <Button
             type="submit"
             fullWidth
+            isPending={isLoading}
             className="bg-primary rounded-lg font-normal"
           >
-            ارسال پیام
+            {isLoading ? <Spinner size="sm" color="current" /> : "ارسال پیام"}
           </Button>
         </div>
       </div>
