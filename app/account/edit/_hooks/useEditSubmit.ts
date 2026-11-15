@@ -1,6 +1,6 @@
 import { useAuth } from "@/_providers/AuthProvider";
 import { createClient } from "@/_utils/supabase/client";
-import type { Profile } from "@/_types/profile";
+import type { EditableProfile } from "@/_types/profile";
 import { toast } from "@heroui/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -18,9 +18,9 @@ export default function useEditSubmit() {
     setIsLoading(true);
     try {
       const formData = new FormData(event.currentTarget);
-      const data: Profile = {
+      const data: EditableProfile = {
         name: String(formData.get("name") ?? ""),
-        gender: formData.get("gender") as Profile["gender"],
+        gender: formData.get("gender") as EditableProfile["gender"],
         national_id: String(formData.get("national_id") ?? ""),
         phone: String(formData.get("phone") ?? ""),
       };

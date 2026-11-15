@@ -1,9 +1,9 @@
-import type { Profile } from "@/_types/profile";
+import type { EditableProfile } from "@/_types/profile";
 
 // @/_data/profileEditFormFields.ts
 type TextFieldConfig = {
   kind: "text";
-  name: keyof Profile;
+  name: keyof EditableProfile;
   label: string;
   type?: "text" | "tel" | "email";
   inputMode?: "numeric";
@@ -14,7 +14,7 @@ type TextFieldConfig = {
 
 type SelectFieldConfig = {
   kind: "select";
-  name: keyof Profile;
+  name: keyof EditableProfile;
   label: string;
   options: { id: string; label: string }[];
 };
