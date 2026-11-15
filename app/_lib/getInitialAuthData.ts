@@ -20,7 +20,7 @@ export default async function getInitialAuthData() {
   if (user) {
     const { data, error } = await supabase
       .from("profiles")
-      .select("name, phone, gender, national_id")
+      .select("name, phone, gender, national_id, wallet_balance_toman")
       .eq("id", user.id)
       .single();
 

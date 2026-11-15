@@ -15,7 +15,8 @@ export default function useWalletSubmit() {
     if (!user) return;
     setIsLoading(true);
     try {
-      const formData = new FormData(event.currentTarget);
+      const form = event.currentTarget;
+      const formData = new FormData(form);
       const amount = Number(formData.get("amount"));
 
       const { error } = await supabase.rpc("increase_wallet_balance", {
@@ -29,6 +30,9 @@ export default function useWalletSubmit() {
 
       await refreshProfile();
       toast.success("موجودی کیف پول با موفقیت افزایش یافت.");
+      form.reset();
+    } catch {
+      toast.danger("خطایی رخ داد.");
     } finally {
       setIsLoading(false);
     }

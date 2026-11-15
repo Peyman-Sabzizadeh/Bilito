@@ -4,7 +4,10 @@ import AccountSidebar from "./_components/AccountSidebar";
 import AuthGuard from "@/_components/AuthGuard";
 
 export const metadata: Metadata = {
-  title: "حساب کاربری",
+  title: {
+    default: "حساب کاربری",
+    template: "%s | بیلیتو",
+  },
   description:
     "صفحه حساب کاربری بیلیتو؛ مدیریت اطلاعات شخصی، رزروها، تیکت ها و تنظیمات حساب کاربری.",
 };

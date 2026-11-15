@@ -52,7 +52,7 @@ export default function AuthProvider({
 
     const { data, error } = await supabase
       .from("profiles")
-      .select("name, phone, gender, national_id")
+      .select("name, phone, gender, national_id, wallet_balance_toman")
       .eq("id", userId)
       .maybeSingle();
 
@@ -72,7 +72,7 @@ export default function AuthProvider({
     const loadProfile = async (userId: string) => {
       const { data, error } = await supabase
         .from("profiles")
-        .select("name, phone, gender, national_id")
+        .select("name, phone, gender, national_id, wallet_balance_toman")
         .eq("id", userId)
         .maybeSingle();
 
