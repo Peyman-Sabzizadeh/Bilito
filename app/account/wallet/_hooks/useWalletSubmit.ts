@@ -3,7 +3,7 @@ import { useAuth } from "@/_providers/AuthProvider";
 import { createClient } from "@/_utils/supabase/client";
 import { toast } from "@heroui/react";
 
-export default function useWalletSubmit() {
+export default function useWalletSubmit(setAmount: (value: string) => void) {
   const [isLoading, setIsLoading] = useState(false);
   const { user, refreshProfile } = useAuth();
   const supabase = createClient();
@@ -17,7 +17,7 @@ export default function useWalletSubmit() {
     try {
       const form = event.currentTarget;
       const formData = new FormData(form);
-      const amount = Number(formData.get("amount"));
+      const amount = Number(String(formData.get("amount")).replaceAll(",", ""));
 
       const { error } = await supabase.rpc("increase_wallet_balance", {
         amount,
@@ -30,7 +30,7 @@ export default function useWalletSubmit() {
 
       await refreshProfile();
       toast.success("موجودی کیف پول با موفقیت افزایش یافت.");
-      form.reset();
+      setAmount("");
     } catch {
       toast.danger("خطایی رخ داد.");
     } finally {

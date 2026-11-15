@@ -10,9 +10,14 @@ import {
 } from "@heroui/react";
 import { Plus } from "lucide-react";
 import useWalletSubmit from "../_hooks/useWalletSubmit";
+import { useState } from "react";
 
 export default function WalletIncreaseForm() {
-  const { handleWalletSubmit, isLoading } = useWalletSubmit();
+  const [amount, setAmount] = useState("");
+  const { handleWalletSubmit, isLoading } = useWalletSubmit(setAmount);
+  const formatAmount = (value: string) =>
+    value.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
   return (
     <Form onSubmit={handleWalletSubmit} className="flex w-full flex-col gap-4">
       <label className="text-gray-7 md:text-gray-9 self-start max-md:text-sm md:font-semibold">
@@ -27,20 +32,24 @@ export default function WalletIncreaseForm() {
           inputMode="numeric"
           aria-label="مبلغ افزایش موجودی"
           isRequired
-          maxLength={9}
+          maxLength={15}
           validate={(value) => {
             if (!value.trim()) return "لطفا مبلغ را وارد کنید.";
-            if (!/^[1-9]\d*$/.test(value))
+            const amount = Number(value.replaceAll(",", ""));
+            if (!/^\d+$/.test(value.replaceAll(",", "")))
               return "لطفاً یک عدد معتبر وارد کنید.";
-            if (Number(value) < 10_000) return "حداقل مبلغ 10,000 تومان است.";
-            if (Number(value) > 200_000_000)
+            if (amount < 10_000) return "حداقل مبلغ 10,000 تومان است.";
+            if (amount > 200_000_000)
               return "حداکثر مبلغ 200,000,000 تومان است.";
+
             return true;
           }}
         >
           <Input
             placeholder="مبلغ به تومان وارد شود"
             className="placeholder:text-gray-8 text-gray-8 border-gray-3 focus:ring-primary h-12 rounded-lg border text-sm shadow-none focus:ring-1"
+            value={amount}
+            onChange={(e) => setAmount(formatAmount(e.target.value))}
           />
           <FieldError />
         </TextField>
