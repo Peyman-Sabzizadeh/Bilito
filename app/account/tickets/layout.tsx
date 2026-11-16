@@ -10,10 +10,5 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <div>
-      <h2 className="text-gray-8 font-bold md:text-lg">تیکت‌های من</h2>
-      {children}
-    </div>
-  );
+  return <div>{children}</div>;
 }

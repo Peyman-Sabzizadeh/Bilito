@@ -14,7 +14,6 @@ import {
 import { contactSubjects } from "../_data/contactSubjects";
 import { useState } from "react";
 import useContactSubmit from "../_hooks/useContactSubmit";
-import { Plus } from "lucide-react";
 
 export default function ContactForm() {
   const [messageValue, setMessageValue] = useState("");
