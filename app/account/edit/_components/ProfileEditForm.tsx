@@ -19,6 +19,7 @@ export default function ProfileEditForm() {
           key={field.name}
           field={field}
           defaultValue={profile?.[field.name]}
+          isLoading={isLoading}
         />
       ))}
       <Button

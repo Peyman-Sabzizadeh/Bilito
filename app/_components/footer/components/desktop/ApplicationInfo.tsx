@@ -3,7 +3,7 @@ export default function ApplicationInfo() {
     <div className="space-y-2">
       <h4 className="text-gray-8 font-bold">اپلیکیشن بیلیتو</h4>
       <p className="text-gray-7">
-        با نصب اپلیکیشن بیلیتو راحتی و سرعت در رزرو بلیط هواپیما را داشته باشید.
+        با نصب اپلیکیشن بیلیتو راحتی و سرعت در رزرو بلیت هواپیما را داشته باشید.
       </p>
     </div>
   );

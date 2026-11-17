@@ -8,11 +8,13 @@ const inputClassName =
 type ProfileEditFieldsProps = {
   field: ProfileEditFieldConfig;
   defaultValue?: string;
+  isLoading: boolean;
 };
 
 export default function ProfileEditField({
   field,
   defaultValue,
+  isLoading,
 }: ProfileEditFieldsProps) {
   return field.kind === "select" ? (
     <Select
@@ -21,6 +23,7 @@ export default function ProfileEditField({
       placeholder={field.label}
       defaultValue={defaultValue}
       isRequired
+      isDisabled={isLoading}
     >
       <Select.Trigger className={inputClassName}>
         <Select.Value className="text-gray-8 text-sm" />
@@ -45,6 +48,7 @@ export default function ProfileEditField({
       aria-label={field.label}
       defaultValue={defaultValue}
       isRequired
+      isDisabled={isLoading}
       maxLength={field.maxLength}
       validate={field.validate}
     >

@@ -22,7 +22,7 @@ export const trustBadges: TrustBadge[] = [
   },
   {
     src: aira,
-    alt: "دامنه نرخ بلیط شرکت های هواپیمایی",
+    alt: "دامنه نرخ بلیت شرکت های هواپیمایی",
   },
   {
     src: inamad,

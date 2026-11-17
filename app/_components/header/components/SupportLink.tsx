@@ -8,7 +8,7 @@ type SupportLinkProps = {
 
 export default function SupportLink({ className, size }: SupportLinkProps) {
   return (
-    <Link href="#" className={className}>
+    <Link href="tel:0214045" className={className}>
       021-4045 پشتیبانی
       <Phone className="mr-2 inline" size={size} />
     </Link>

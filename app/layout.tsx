@@ -9,11 +9,11 @@ import getInitialAuthData from "./_lib/getInitialAuthData";
 
 export const metadata: Metadata = {
   title: {
-    default: "بیلیتو | خرید آنلاین بلیط هواپیما",
+    default: "بیلیتو | خرید آنلاین بلیت هواپیما",
     template: "%s | بیلیتو",
   },
   description:
-    "سریعترین راه ممکن برای رزرو بلیط هواپیما، با بیلیتو سفر خود را آسان و سریع برنامه ریزی کنید.",
+    "سریعترین راه ممکن برای رزرو بلیت هواپیما، با بیلیتو سفر خود را آسان و سریع برنامه ریزی کنید.",
 };
 
 export default async function RootLayout({

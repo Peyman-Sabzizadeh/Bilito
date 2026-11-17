@@ -6,15 +6,17 @@ const inputClassName =
 
 type SignupFieldProps = {
   field: SignupFieldConfig;
+  isLoading: boolean;
 };
 
-export default function SignupFields({ field }: SignupFieldProps) {
+export default function SignupFields({ field, isLoading }: SignupFieldProps) {
   return field.kind === "select" ? (
     <Select
       name={field.name}
       aria-label={field.label}
       placeholder={field.label}
       isRequired
+      isDisabled={isLoading}
     >
       <Select.Trigger className={inputClassName}>
         <Select.Value className="text-gray-8 text-sm" />
@@ -38,6 +40,7 @@ export default function SignupFields({ field }: SignupFieldProps) {
       inputMode={field.inputMode}
       aria-label={field.label}
       isRequired
+      isDisabled={isLoading}
       maxLength={field.maxLength}
       validate={field.validate}
     >

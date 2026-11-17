@@ -6,7 +6,7 @@ export default function BuySteps() {
   return (
     <Container className="space-y-5 pt-7 pb-10 md:space-y-10 md:pt-14 md:pb-14">
       <h2 className="text-gray-8 font-bold md:text-2xl">
-        مراحل خرید آنلاین بلیط هواپیما
+        مراحل خرید آنلاین بلیت هواپیما
       </h2>
       <section>
         <ol className="relative ps-5 md:ps-15">

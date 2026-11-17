@@ -19,7 +19,7 @@ export const desktopMenuItems: MenuItem[] = [
   {
     label: "سایر موارد",
     children: [
-      { label: "راهنمای خرید بلیط", link: "/how-to-buy", Icon: ShoppingCart },
+      { label: "راهنمای خرید بلیت", link: "/how-to-buy", Icon: ShoppingCart },
       { label: "تماس با ما", link: "/company?tab=contact", Icon: PhoneCall },
       { label: "درباره ما", link: "/company?tab=about", Icon: UserSearch },
     ],

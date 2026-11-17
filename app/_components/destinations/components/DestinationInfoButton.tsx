@@ -19,7 +19,7 @@ export default function DestinationInfoButton({
       }}
       className="rounded-lg border border-white bg-transparent p-2 font-light hover:bg-black/20"
     >
-      خرید بلیط پروازهای {persianDestination}
+      خرید بلیت پروازهای {persianDestination}
     </Button>
   );
 }

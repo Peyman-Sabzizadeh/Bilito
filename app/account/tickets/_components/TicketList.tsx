@@ -11,7 +11,7 @@ export default function TicketList({ sortOrder }: TicketListProps) {
   const { tickets, isLoading, removeTicket } = useTickets(sortOrder);
   return (
     <div
-      className={`flex flex-col items-center justify-center gap-4 ${isLoading ? "py-30" : "pt-2"}`}
+      className={`flex flex-col items-center justify-center gap-4 ${isLoading ? "py-30" : "pt-2 md:pb-6"}`}
     >
       {isLoading && <Spinner size="xl" />}
       {tickets.map((ticket) => (

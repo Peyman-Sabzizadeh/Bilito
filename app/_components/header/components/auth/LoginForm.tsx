@@ -44,6 +44,7 @@ export default function LoginForm() {
             type="email"
             aria-label="ایمیل"
             isRequired
+            isDisabled={isLoading}
             validate={(value) =>
               /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ||
               "یک ایمیل معتبر وارد کنید."
@@ -56,6 +57,7 @@ export default function LoginForm() {
             name="password"
             type="password"
             aria-label="رمز عبور"
+            isDisabled={isLoading}
             validate={(value) =>
               value.length >= 8 || "رمز عبور باید حداقل ۸ کاراکتر باشد."
             }

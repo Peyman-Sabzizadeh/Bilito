@@ -31,7 +31,11 @@ export default function SignupForm() {
           onSubmit={handleSignupSubmit}
         >
           {signupFormFields.map((field) => (
-            <SignupFields key={field.name} field={field} />
+            <SignupFields
+              key={field.name}
+              field={field}
+              isLoading={isLoading}
+            />
           ))}
           <TermsCheckbox />
         </Form>
