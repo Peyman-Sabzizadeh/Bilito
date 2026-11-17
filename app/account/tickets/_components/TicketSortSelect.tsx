@@ -1,8 +1,10 @@
 import { Select, ListBox } from "@heroui/react";
+import { type SortOrder } from "../page";
+
 
 type TicketSortSelectProps = {
-  sortOrder: string;
-  setSortOrder: React.Dispatch<React.SetStateAction<string>>;
+  sortOrder: SortOrder;
+  setSortOrder: React.Dispatch<React.SetStateAction<SortOrder>>;
 };
 
 export default function TicketSortSelect({
@@ -15,7 +17,7 @@ export default function TicketSortSelect({
       className="w-28 max-md:self-start"
       value={sortOrder}
       onChange={(value) => {
-        if (value !== null) setSortOrder(String(value));
+        if (value !== null) setSortOrder(value as SortOrder);
       }}
     >
       <Select.Trigger className="*:text-gray-8 border-gray-4 rounded-lg border shadow-none *:text-sm">
