@@ -1,6 +1,5 @@
 import { Select, ListBox } from "@heroui/react";
-import { type SortOrder } from "../page";
-
+import type { SortOrder } from "../_types/sortOrder";
 
 type TicketSortSelectProps = {
   sortOrder: SortOrder;

@@ -47,7 +47,7 @@ export default function WalletIncreaseForm() {
         >
           <Input
             placeholder="مبلغ به تومان وارد شود"
-            className="placeholder:text-gray-8 text-gray-8 border-gray-3 focus:ring-primary h-12 rounded-lg border text-sm shadow-none focus:ring-1"
+            className="placeholder:text-gray-6 text-gray-8 border-gray-3 focus:ring-primary h-12 rounded-lg border text-sm shadow-none focus:ring-1"
             value={amount}
             onChange={(e) => setAmount(formatAmount(e.target.value))}
           />

@@ -1,8 +1,8 @@
 import useTickets from "../_hooks/useTickets";
-import { type SortOrder } from "../page";
 import { Spinner } from "@heroui/react";
 import Ticket from "./Ticket";
 import NoTickets from "./NoTickets";
+import type { SortOrder } from "../_types/sortOrder";
 
 type TicketListProps = {
   sortOrder: SortOrder;

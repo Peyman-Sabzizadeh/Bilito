@@ -8,7 +8,7 @@ import {
   type ContactSubjectId,
 } from "@/(guide)/company/_data/contactSubjects";
 import { toast } from "@heroui/react";
-import { type SortOrder } from "../page";
+import type { SortOrder } from "../_types/sortOrder";
 
 export type Ticket = {
   id: string;

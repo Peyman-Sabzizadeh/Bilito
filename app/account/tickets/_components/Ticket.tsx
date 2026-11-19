@@ -24,11 +24,16 @@ export default function Ticket({ ticket, removeTicket }: TicketProps) {
         </div>
         <p className="text-gray-8 max-md:text-sm">{ticket.message}</p>
       </div>
-      <Trash2
-        className="text-error-1 size-4.5 shrink-0 cursor-pointer max-md:self-end md:size-5"
-        strokeWidth={1.5}
+      <button
+        type="button"
+        aria-label="حذف تیکت"
         onClick={() => deleteTicket(ticket.id)}
-      />
+      >
+        <Trash2
+          className="text-error-1 size-4.5 shrink-0 cursor-pointer max-md:self-end md:size-5"
+          strokeWidth={1.5}
+        />
+      </button>
     </div>
   );
 }

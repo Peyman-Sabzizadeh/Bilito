@@ -3,8 +3,7 @@
 import { useState } from "react";
 import TicketSortSelect from "./_components/TicketSortSelect";
 import TicketList from "./_components/TicketList";
-
-export type SortOrder = "newest" | "oldest";
+import type { SortOrder } from "./_types/sortOrder";
 
 export default function TicketsPage() {
   const [sortOrder, setSortOrder] = useState<SortOrder>("newest");
