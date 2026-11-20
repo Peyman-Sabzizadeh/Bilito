@@ -27,12 +27,10 @@ export default function Ticket({ ticket, removeTicket }: TicketProps) {
       <button
         type="button"
         aria-label="حذف تیکت"
+        className="text-error-1 cursor-pointer self-end md:self-start"
         onClick={() => deleteTicket(ticket.id)}
       >
-        <Trash2
-          className="text-error-1 size-4.5 shrink-0 cursor-pointer max-md:self-end md:size-5"
-          strokeWidth={1.5}
-        />
+        <Trash2 className="size-4.5 shrink-0 md:size-5" strokeWidth={1.5} />
       </button>
     </div>
   );

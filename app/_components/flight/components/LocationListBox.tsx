@@ -1,4 +1,4 @@
-import { allCities } from "@/_data/allCities";
+import useCities from "@/_hooks/useCities";
 import {
   Description,
   Label,
@@ -8,12 +8,14 @@ import {
 } from "@heroui/react";
 
 export default function LocationListBox() {
+  const { cities } = useCities();
+
   return (
     <ListBox>
-      {allCities.map((city) => (
+      {cities.map((city) => (
         <ListBoxItem
-          key={city.name}
-          id={city.name}
+          key={city.id}
+          id={city.id}
           textValue={city.name}
           aria-label={city.name}
         >

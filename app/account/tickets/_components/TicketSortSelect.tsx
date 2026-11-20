@@ -12,7 +12,7 @@ export default function TicketSortSelect({
 }: TicketSortSelectProps) {
   return (
     <Select
-      aria-label="فیلتر تیکت ها"
+      aria-label="مرتب سازی تیکت ها"
       className="w-28 max-md:self-start"
       value={sortOrder}
       onChange={(value) => {
