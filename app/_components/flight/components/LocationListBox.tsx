@@ -15,7 +15,7 @@ export default function LocationListBox() {
       {cities.map((city) => (
         <ListBoxItem
           key={city.id}
-          id={city.id}
+          id={city.name}
           textValue={city.name}
           aria-label={city.name}
         >

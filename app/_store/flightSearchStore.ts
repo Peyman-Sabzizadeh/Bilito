@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { DateValue, RangeValue } from "@heroui/react";
-import { PassengerType } from "@/_data/passengerTypes";
-import { CabinClassValue } from "@/_data/cabinClasses";
+import { type PassengerType } from "@/_data/passengerTypes";
+import type { CabinClassValue } from "@/_types/cabinClass";
 
 type State = {
   flightType: "domestic" | "international";

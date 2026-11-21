@@ -3,7 +3,7 @@
 import { FieldError, ListBox, Select } from "@heroui/react";
 import ClassListBoxItem from "./ClassListBoxItem";
 import { useFlightSearch } from "@/_store/flightSearchStore";
-import { cabinClasses } from "@/_data/cabinClasses";
+import useCabinClasses from "@/_hooks/useCabinClasses";
 
 type CabinClassProps = {
   submitAttempted: boolean;
@@ -12,6 +12,7 @@ type CabinClassProps = {
 export default function CabinClass({ submitAttempted }: CabinClassProps) {
   const { cabinClass, setCabinClass } = useFlightSearch();
   const isInvalid = !cabinClass && submitAttempted;
+  const { cabinClasses } = useCabinClasses();
   return (
     <Select
       aria-label="Cabin class"
@@ -33,8 +34,8 @@ export default function CabinClass({ submitAttempted }: CabinClassProps) {
           {cabinClasses.map((item) => (
             <ClassListBoxItem
               key={item.value}
-              label={item.label}
-              description={item.description}
+              label={item.class}
+              description={item.class_en}
             />
           ))}
         </ListBox>
