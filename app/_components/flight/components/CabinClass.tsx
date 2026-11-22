@@ -7,9 +7,13 @@ import useCabinClasses from "@/_hooks/useCabinClasses";
 
 type CabinClassProps = {
   submitAttempted: boolean;
+  isLoading: boolean;
 };
 
-export default function CabinClass({ submitAttempted }: CabinClassProps) {
+export default function CabinClass({
+  submitAttempted,
+  isLoading,
+}: CabinClassProps) {
   const { cabinClass, setCabinClass } = useFlightSearch();
   const isInvalid = !cabinClass && submitAttempted;
   const { cabinClasses } = useCabinClasses();
@@ -21,6 +25,7 @@ export default function CabinClass({ submitAttempted }: CabinClassProps) {
       value={cabinClass}
       onChange={(value) => setCabinClass(value as typeof cabinClass)}
       isInvalid={isInvalid}
+      isDisabled={isLoading}
     >
       <Select.Trigger className="border-gray-3 *:text-gray-8 flex h-14 cursor-pointer items-center justify-between rounded-lg border shadow-none *:text-sm *:max-md:font-medium md:h-12">
         <Select.Value />

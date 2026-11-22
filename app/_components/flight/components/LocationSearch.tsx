@@ -18,11 +18,13 @@ import { useFlightSearch } from "@/_store/flightSearchStore";
 type LocationSearchProps = {
   location: "مبدا" | "مقصد";
   submitAttempted: boolean;
+  isLoading: boolean;
 };
 
 export default function LocationSearch({
   location,
   submitAttempted,
+  isLoading,
 }: LocationSearchProps) {
   const selectedKey = useFlightSearch((state) =>
     location === "مبدا" ? state.origin : state.destination,
@@ -44,6 +46,7 @@ export default function LocationSearch({
       disabledKeys={otherKey ? [otherKey] : []}
       className="flex-1"
       isInvalid={isInvalid}
+      isDisabled={isLoading}
     >
       <AutocompleteTrigger className="border-gray-3 flex h-14 items-center rounded-lg border py-2 shadow-none md:h-12">
         <AutocompleteValue className="text-gray-8" />

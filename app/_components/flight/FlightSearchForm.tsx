@@ -14,12 +14,14 @@ import useFlightSearchSubmit from "@/_hooks/useFlightSearchSubmit";
 import { useState } from "react";
 
 export default function FlightSearchForm() {
-  const { handleSearchSubmit } = useFlightSearchSubmit();
+  const { handleSearchSubmit, isLoading } = useFlightSearchSubmit();
+
   const [submitAttempted, setSubmitAttempted] = useState(false);
   const onSubmit = (event: React.SyntheticEvent<HTMLFormElement>) => {
     setSubmitAttempted(true);
     handleSearchSubmit(event);
   };
+  const props = { submitAttempted, isLoading };
   return (
     <Form onSubmit={onSubmit}>
       <FlightType />
@@ -27,15 +29,15 @@ export default function FlightSearchForm() {
       <TripType />
       <div className="flex w-full flex-col items-center gap-4 pt-6 md:flex-row md:pt-8">
         <div className="flex w-full flex-2 flex-col gap-4 md:flex-row md:items-center md:gap-1">
-          <LocationSearch location="مبدا" submitAttempted={submitAttempted} />
+          <LocationSearch location="مبدا" {...props} />
           <SwitchLocationButton />
-          <LocationSearch location="مقصد" submitAttempted={submitAttempted} />
+          <LocationSearch location="مقصد" {...props} />
         </div>
-        <FlightDatePicker submitAttempted={submitAttempted} />
-        <FlightDateRangePicker submitAttempted={submitAttempted} />
-        <PassengerSelector submitAttempted={submitAttempted} />
-        <CabinClass submitAttempted={submitAttempted} />
-        <SearchButton />
+        <FlightDatePicker {...props} />
+        <FlightDateRangePicker {...props} />
+        <PassengerSelector {...props} />
+        <CabinClass {...props} />
+        <SearchButton isLoading={isLoading} />
       </div>
     </Form>
   );

@@ -7,10 +7,12 @@ import { useFlightSearch } from "@/_store/flightSearchStore";
 
 type PassengerSelectorProps = {
   submitAttempted: boolean;
+  isLoading: boolean;
 };
 
 export default function PassengerSelector({
   submitAttempted,
+  isLoading,
 }: PassengerSelectorProps) {
   const totalPassengers = useFlightSearch(
     (state) =>
@@ -18,7 +20,9 @@ export default function PassengerSelector({
   );
   const isInvalid = !totalPassengers && submitAttempted;
   return (
-    <div className="relative w-full flex-1">
+    <div
+      className={`relative w-full flex-1 ${isLoading && "pointer-events-none opacity-50"}`}
+    >
       <Popover>
         <Popover.Trigger className="w-full flex-1">
           <div

@@ -14,10 +14,12 @@ import { useFlightSearch } from "@/_store/flightSearchStore";
 
 type FlightDateRangePickerProps = {
   submitAttempted: boolean;
+  isLoading: boolean
 };
 
 export default function FlightDateRangePicker({
   submitAttempted,
+  isLoading
 }: FlightDateRangePickerProps) {
   const { tripType, rangeDate, setRangeDate } = useFlightSearch();
   const isRoundTrip = tripType === "round-trip";
@@ -43,6 +45,7 @@ export default function FlightDateRangePicker({
         aria-label="Flight date range picker"
         className={`w-full flex-2 ${!isRoundTrip && "hidden"}`}
         isInvalid={isInvalid}
+        isDisabled={isLoading}
       >
         <DateField.Group
           onClick={() => triggerRef.current?.click()}

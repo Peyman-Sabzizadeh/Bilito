@@ -14,10 +14,12 @@ import { useRef } from "react";
 
 type FlightDatePickerProps = {
   submitAttempted: boolean;
+  isLoading: boolean
 };
 
 export default function FlightDatePicker({
   submitAttempted,
+  isLoading
 }: FlightDatePickerProps) {
   const { tripType, departureDate, setDepartureDate } = useFlightSearch();
   const isOneWay = tripType === "one-way";
@@ -34,6 +36,7 @@ export default function FlightDatePicker({
         aria-label="Flight date picker"
         className={`w-full flex-1 ${!isOneWay && "hidden"}`}
         isInvalid={isInvalid}
+        isDisabled={isLoading}
       >
         <DateField.Group
           onClick={() => triggerRef.current?.click()}

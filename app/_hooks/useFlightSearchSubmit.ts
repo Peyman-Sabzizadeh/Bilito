@@ -1,6 +1,13 @@
+"use client";
+
+import { useRouter } from "next/navigation";
 import { useFlightSearch } from "@/_store/flightSearchStore";
+import { useState } from "react";
 
 export default function useFlightSearchSubmit() {
+  const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleSearchSubmit = (event: React.SyntheticEvent<HTMLFormElement>) => {
     event.preventDefault();
     const {
@@ -14,29 +21,38 @@ export default function useFlightSearchSubmit() {
       cabinClass,
     } = useFlightSearch.getState();
     const isOneWay = tripType === "one-way";
-    const totalPassengers =
-      passengers.adult + passengers.child + passengers.infant;
-    const hasDate = isOneWay ? Boolean(departureDate) : Boolean(rangeDate);
-    if (
-      !origin ||
-      !destination ||
-      !hasDate ||
-      !totalPassengers ||
-      !cabinClass
-    ) {
+    const isRoundTrip = tripType === "round-trip";
+    const { adult, child, infant } = passengers;
+    const departureDateValue = isOneWay
+      ? departureDate?.toString()
+      : rangeDate?.start.toString();
+    const returnDateValue = isRoundTrip ? rangeDate?.end.toString() : undefined;
+    if (tripType === "multi-city") return;
+    if (!origin || !destination || !departureDateValue || !cabinClass) {
       return;
     }
-    const payload = {
+
+    const params = new URLSearchParams({
       flightType,
       tripType,
-      origin,
-      destination,
-      ...(isOneWay ? { departureDate } : { rangeDate }),
-      passengers,
+      from: origin,
+      to: destination,
+      departureDate: departureDateValue,
+      adult: String(adult),
+      child: String(child),
+      infant: String(infant),
       cabinClass,
-    };
-    console.log("payload: ", payload);
-    // send to API when backend is ready
+    });
+
+    if (returnDateValue) {
+      params.set("returnDate", returnDateValue);
+    }
+    setIsLoading(true);
+    router.push(`/results?${params.toString()}`);
   };
-  return { handleSearchSubmit };
+
+  return {
+    handleSearchSubmit,
+    isLoading,
+  };
 }
