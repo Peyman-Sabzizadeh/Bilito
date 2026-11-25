@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { Suspense } from "react";
+import FlightResults from "./_components/FlightResults";
 
 type Props = {
   searchParams: Promise<{ from?: string; to?: string }>;
@@ -22,7 +23,7 @@ export async function generateMetadata({
 export default function ResultsPage() {
   return (
     <Suspense>
-      <h1>Results page</h1>
+      <FlightResults />
     </Suspense>
   );
 }
