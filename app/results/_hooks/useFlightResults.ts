@@ -107,6 +107,20 @@ export type FlightSearchItem = FlightSearchRows[number];
 export default function useFlightResults() {
   const searchParams = useSearchParams();
 
+  const initialSearchValues = {
+    flightType: "",
+    tripType: "",
+    from: "",
+    to: "",
+    departureDate: "",
+    returnDate: "",
+    adult: 0,
+    child: 0,
+    infant: 0,
+    cabinClass: null as CabinClassValue | null,
+  };
+
+  const [searchValues, setSearchValues] = useState(initialSearchValues);
   const [outboundFlights, setOutboundFlights] = useState<FlightSearchRows>([]);
   const [returnFlights, setReturnFlights] = useState<FlightSearchRows>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -135,6 +149,19 @@ export default function useFlightResults() {
         const adult = Number(searchParams.get("adult"));
         const child = Number(searchParams.get("child"));
         const infant = Number(searchParams.get("infant"));
+
+        setSearchValues({
+          flightType: flightType ?? "",
+          tripType: tripType ?? "",
+          from: origin ?? "",
+          to: destination ?? "",
+          departureDate: departureDate ?? "",
+          returnDate: returnDate ?? "",
+          adult,
+          child,
+          infant,
+          cabinClass,
+        });
 
         const isOneWay = tripType === "one-way";
         const isRoundTrip = tripType === "round-trip";
@@ -263,6 +290,7 @@ export default function useFlightResults() {
   }, [searchParams]);
 
   return {
+    searchValues,
     outboundFlights,
     returnFlights,
     isLoading,
