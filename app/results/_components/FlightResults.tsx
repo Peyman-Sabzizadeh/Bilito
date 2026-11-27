@@ -1,3 +1,9 @@
+import FlightSearchInfo from "./FlightSearchInfo";
+
 export default function FlightResults() {
-  return <h1>Flight results component</h1>;
+  return (
+    <div className="flex flex-col items-center">
+      <FlightSearchInfo />
+    </div>
+  );
 }
